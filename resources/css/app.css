@@ -1,3 +1,194 @@
 @tailwind base;
+@layer base{
+    @font-face {
+        font-family: IRANSansX;
+        font-style: normal;
+        font-weight: 600;
+        src: url('./fonts/woff/IRANSansX-Bold.woff') format('woff'),
+        url('./fonts/woff2/IRANSansX-bold.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: IRANSansX;
+        font-style: normal;
+        font-weight: 500;
+        src: url('./fonts/woff/IRANSansX-Medium.woff') format('woff'),
+        url('./fonts/woff2/IRANSansX-Medium.woff2') format('woff2');
+    }
+    @font-face {
+        font-family: IRANSansX;
+        font-style: normal;
+        font-weight: 400;
+        src: url('./fonts/woff/IRANSansX-Regular.woff') format('woff'),
+        url('./fonts/woff2/IRANSansX-Regular.woff2') format('woff2');
+    }
+    input{
+        @apply rtl:number-fa;
+    }
+}
+
+
 @tailwind components;
+@layer components{
+    .title-color {
+        @apply text-gray-700 dark:text-gray-400;
+    }
+    .border-style{
+        @apply border-gray-300 dark:border-gray-600;
+    }
+    .flex-center{
+        @apply flex items-center justify-center;
+    }
+    .custom-transition{
+        @apply transition-all duration-300 ease-in;
+    }
+    .scroll_fixed{
+        @apply h-full overflow-hidden;
+    }
+}
+
 @tailwind utilities;
+@layer utilities{
+    .text-rtl{
+        direction: rtl;
+    }
+    .text-ltr{
+        direction: ltr;
+    }
+    .number-fa {
+        -moz-font-feature-settings: "ss02";
+        -webkit-font-feature-settings: "ss02";
+        font-feature-settings: "ss02";
+    }
+    .scroll_bar::-webkit-scrollbar{
+        width: 10px;
+        background-color: #78909c;
+        border-top-left-radius: 1em;
+        border-bottom-left-radius: 1em;
+    }
+    .scroll_bar::-webkit-scrollbar-thumb{
+        background-color:#000000;
+        border-top-left-radius: .5em;
+        border-bottom-left-radius: .5em;
+    }
+}
+
+
+/* Iran sanse */
+body{
+    @apply font-iransanse;
+}
+/* x-cloak */
+[x-cloak] { display: none; }
+/* top swiper button */
+.top_swiper_container .top_swiper_next, .top_swiper_container .top_swiper_prev{
+    @apply bg-white rounded-2xl w-9 h-16 hidden lg:flex bg-opacity-50 backdrop-blur-sm border border-gray-300;
+}
+.top_swiper_container .top_swiper_next{
+    @apply -right-3;
+}
+.top_swiper_container .top_swiper_next::after, .top_swiper_container .top_swiper_prev::after{
+    @apply text-xs font-bold text-gray-800;
+}
+.top_swiper_container .top_swiper_prev{
+    @apply -left-3;
+}
+/* mini swiper button */
+.mini_swiper_cotainer .swiper_mini_next, .mini_swiper_cotainer .swiper_mini_prev{
+    @apply bg-gray-400 rounded-2xl w-6 h-10 hidden lg:flex bg-opacity-50 backdrop-blur-sm border border-gray-300;
+}
+.mini_swiper_cotainer .swiper_mini_next{
+    @apply right-5;
+}
+.mini_swiper_cotainer .swiper_mini_prev{
+    @apply left-5;
+}
+.mini_swiper_cotainer .swiper_mini_prev::after, .mini_swiper_cotainer .swiper_mini_next::after{
+    @apply text-xs text-gray-800 font-bold
+}
+
+/* debugs */
+.swiper-slider .suggested_musics{
+    @apply py-4;
+}
+.swiper-slider .suggested_musics .swiper-wrapper .swiper-slide{
+    @apply w-72;
+}
+.handle_direction .rtl_flag{
+    @apply flex !important;
+}
+.handle_direction .ltr_flag{
+    @apply hidden !important;
+}
+.handle_direction.rtl .rtl_flag{
+    @apply hidden !important;
+}
+.handle_direction.rtl .ltr_flag{
+    @apply flex !important;
+}
+
+.handle_darkmod .moon{
+    @apply block;
+}
+.handle_darkmod .sun{
+    @apply hidden;
+}
+.handle_darkmod.darkMod .moon{
+    @apply hidden !important;
+}
+.handle_darkmod.darkMod .sun{
+    @apply block !important;
+}
+.fixed_navbar .navbar_items{
+    @apply title-color;
+}
+.fixed_navbar .navbar_items.active{
+    @apply text-purple-700 dark:text-indigo-600;
+}
+
+.top_swiper_singles .swiper_top_next, .top_swiper_singles .swiper_top_prev{
+    @apply bg-white bg-opacity-40 hidden lg:flex backdrop-blur-sm rounded-lg w-6 h-10;
+}
+.top_swiper_singles .swiper_top_next{
+    @apply -right-3;
+}
+.top_swiper_singles .swiper_top_prev{
+    @apply -left-3;
+}
+.top_swiper_singles .swiper_top_next::after, .top_swiper_singles .swiper_top_prev::after{
+    @apply text-sm text-gray-700 font-bold ;
+}
+.top_swiper_singles .top_swiper_single{
+    @apply py-4;
+}
+
+.new_slider .swiper_new_next, .new_slider .swiper_new_prev{
+    @apply bg-white bg-opacity-40 hidden lg:flex backdrop-blur-sm rounded-lg w-6 h-10;
+}
+.new_slider .swiper_new_next{
+    @apply -right-3;
+}
+.new_slider .swiper_new_prev{
+    @apply -left-3;
+}
+.new_slider .swiper_new_next::after, .new_slider .swiper_new_prev::after{
+    @apply text-sm text-gray-700 font-bold ;
+}
+.new_slider .new_swiper{
+    @apply pb-4;
+}
+.all_slider .swiper_all_next, .all_slider .swiper_all_prev{
+    @apply bg-white bg-opacity-40 hidden lg:flex backdrop-blur-sm rounded-lg w-6 h-10;
+}
+.all_slider .swiper_all_next{
+    @apply -right-3;
+}
+.all_slider .swiper_all_prev{
+    @apply -left-3;
+}
+.all_slider .swiper_all_next::after, .all_slider .swiper_all_prev::after{
+    @apply text-sm text-gray-700 font-bold ;
+}
+.all_slider .all_swiper{
+    @apply pb-4;
+}
+
