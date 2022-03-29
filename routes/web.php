@@ -18,5 +18,20 @@ Route::get('/', function () {
 });
 
 Route::get('/adminPanel', function(){
-    return view('admin.dashboard');
+    return view('Admin.dashboard');
 });
+// Artists
+Route::controller(\App\Http\Controllers\Admin\ArtistController::class)->group(function(){
+    Route::get('/artists', 'index')->name('list.artists');
+    Route::post('/artists/store', 'store')->name('store.artists');
+});
+// Styles
+Route::controller(\App\Http\Controllers\Admin\StyleController::class)->group(function(){
+    Route::get('/styles', 'index')->name('list.styles');
+    Route::post('/styles/store', 'store')->name('store.styles');
+    Route::get('/styles/edit/{slug}', 'edit')->name('edit.style');
+    Route::patch('/styles/update/{slug}', 'update')->name('update.style');
+    Route::delete('/styles/delete/{slug}', 'destroy')->name('delete.style');
+});
+
+

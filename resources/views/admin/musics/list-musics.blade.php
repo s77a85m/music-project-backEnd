@@ -52,7 +52,7 @@
             <form dir="rtl" action="#" class="w-full flex relative flex-col gap-2 justify-center items-center ">
                 <!-- name -->
                 <input type="text" placeholder="نام آهنگ" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
-                <!-- style -->
+                <!-- styles -->
                 <select name="style" id="style" class=" w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
                     <option disabled selected value="1">سبك</option>
                     <option value="1">كلاسيك</option>

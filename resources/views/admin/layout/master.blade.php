@@ -40,7 +40,7 @@
          x-transition:leave-end="opacity-0" class="inset-0 fixed bg-gray-900 bg-opacity-50 "></div>
     <!-- hamberger -->
     <div x-cloak x-bind:class="openMenu ? 'z-10 fixed flex inset-y-0 right-0' : 'lg:flex hidden lg:z-0 right-auto '" class="bg-white w-72 rounded-md  shadow-lg  lg:relative lg:flex flex-col h-screen border-l">
-        <!-- admin logo -->
+        <!-- Admin logo -->
         <div class="w-full h-12 border-b px-10">
             <img src="/image/admin.png" alt="admin" class="w-full h-full">
         </div>

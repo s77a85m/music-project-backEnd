@@ -60,7 +60,7 @@
         <div class="container">
             <!-- music for download -->
             <div class="grid grid-cols-1 gap-2 lg:grid-cols-4">
-                <!-- relation-style -->
+                <!-- relation-styles -->
                 <div
                         class=" hidden lg:col-span-1 lg:flex lg:flex-col p-3 bg-gray-200 border border-style dark:bg-dark-700 rounded-lg h-auto w-full">
                     <!-- title -->

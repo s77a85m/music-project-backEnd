@@ -49,10 +49,11 @@
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
                 <h3 class="text-sm font-normal text-gray-500">اضافه كردن خواننده</h3>
             </div>
-            <form dir="rtl" action="#" class="w-full flex relative flex-col gap-2 justify-center items-center ">
+            <form dir="rtl" action="{{route('store.artists')}}" enctype="multipart/form-data" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
+                @csrf
                 <!-- name -->
-                <input type="text" placeholder="نام خواننده" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
-                <!-- style -->
+                <input type="text" name="name" placeholder="نام خواننده" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
+                <!-- styles -->
                 <select name="style" id="style" class=" w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
                     <option disabled selected value="1">سبك</option>
                     <option value="1">كلاسيك</option>
@@ -61,7 +62,7 @@
                     <option value="4">رپ</option>
                 </select>
                 <!-- img -->
-                <input type="file" id="image"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
+                <input type="file" id="image" name="image"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
                 <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
                     <span>انتخاب تصوير</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
