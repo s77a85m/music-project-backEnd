@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class NewStylelRequest extends FormRequest
+class UpdateArtistRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,17 @@ class NewStylelRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=>['required']
+            'name'=>['required'],
+            'style'=>['required', 'exists:styles,id']
         ];
     }
 
     public function messages()
     {
         return [
-            'title.required'=>'.يك عنوان انتخاب كنيد',
+            'name.required'=>'يك نام انتخاب كنيد',
+            'style.required'=>'يك استايل انتخاب كنيد',
+            'style.exists'=>'اين استايل وجود ندارد',
         ];
     }
 }

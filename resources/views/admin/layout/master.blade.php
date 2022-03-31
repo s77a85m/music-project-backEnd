@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{{asset('/css/swiper-bundle.min.css')}}" />
 </head>
 
-<body class="bg-gray-100 scroll_fixed">
+<body class="bg-gray-100 sm:scroll_fixed">
 <div x-data="mobileMenu" class="flex gap-2 p-3 ">
     <!-- navbar -->
     <div class="h-full w-full flex flex-col">
@@ -47,7 +47,7 @@
         <!-- items -->
         <div class="flex flex-col w-full my-2 h-auto">
             <!-- dashbord -->
-            <button
+            <a href="#"
                     class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
                 <span>داشبورد</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="currentColor"
@@ -57,7 +57,7 @@
                     <path
                             d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
                 </svg>
-            </button>
+            </a>
             <!-- users -->
             <button
                     class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
@@ -68,15 +68,15 @@
                 </svg>
             </button>
             <!-- artists -->
-            <button
-                    class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
+            <a href="{{route('list.artists')}}"
+                    class="{{Nav::isRoute('list.artists')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
                 <span>هنرمندان</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
                      class="bi bi-person-hearts" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                           d="M11.5 1.246c.832-.855 2.913.642 0 2.566-2.913-1.924-.832-3.421 0-2.566ZM9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276ZM15 2.165c.555-.57 1.942.428 0 1.711-1.942-1.283-.555-2.281 0-1.71Z" />
                 </svg>
-            </button>
+            </a>
             <!-- musics -->
             <button
                     class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
@@ -89,6 +89,14 @@
                     <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z" />
                 </svg>
             </button>
+            <!-- styles -->
+            <a href="{{route('list.styles')}}"
+                    class="{{Nav::isRoute('list.styles')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 gap-2 text-sm font-normal px-2 flex title-color justify-end items-center ">
+                <span>سبك ها</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-soundwave" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8.5 2a.5.5 0 0 1 .5.5v11a.5.5 0 0 1-1 0v-11a.5.5 0 0 1 .5-.5zm-2 2a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm4 0a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zm-6 1.5A.5.5 0 0 1 5 6v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm8 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm-10 1A.5.5 0 0 1 3 7v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5zm12 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+            </a>
             <!-- users -->
             <button
                     class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">

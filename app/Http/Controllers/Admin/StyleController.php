@@ -31,8 +31,13 @@ class StyleController extends Controller
         ]);
     }
 
-    public function update(Style $slug, Request $request)
+    public function update(Style $slug, NewStylelRequest $request)
     {
+        $existStyle=Style::query()->where('title', $request->get('title'))
+            ->where('id', '!=', $slug->id)->exists();
+        if ($existStyle){
+            return redirect()->back()->withErrors(["style"=>".اين استايل قبلا ايجاد شده است"]);
+        }
         $slug->slug=null;
         $slug->update([
             'title'=>$request->get('title')

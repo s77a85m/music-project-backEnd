@@ -24,6 +24,9 @@ Route::get('/adminPanel', function(){
 Route::controller(\App\Http\Controllers\Admin\ArtistController::class)->group(function(){
     Route::get('/artists', 'index')->name('list.artists');
     Route::post('/artists/store', 'store')->name('store.artists');
+    Route::get('/artists/edit/{slug}', 'show')->name('edit.artist');
+    Route::patch('/artists/update/{slug}', 'update')->name('update.artist');
+    Route::delete('/artists/delete/{slug}', 'destroy')->name('delete.artist');
 });
 // Styles
 Route::controller(\App\Http\Controllers\Admin\StyleController::class)->group(function(){

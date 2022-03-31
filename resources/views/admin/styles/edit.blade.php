@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="flex container relative p-7 flex-col gap-2 items-end">
+        @include('admin.layout.errors')
         <!-- title -->
         <div class="w-full h-auto flex items-center justify-end">
             <!-- title inside -->

@@ -44,6 +44,9 @@
     .scroll_fixed{
         @apply h-full overflow-hidden;
     }
+    .is-active{
+        @apply from-blue-100 to-white bg-gradient-to-r border-l-4 text-blue-500 border-blue-500;
+    }
 }
 
 @tailwind utilities;
