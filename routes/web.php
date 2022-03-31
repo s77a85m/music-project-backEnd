@@ -36,5 +36,13 @@ Route::controller(\App\Http\Controllers\Admin\StyleController::class)->group(fun
     Route::patch('/styles/update/{slug}', 'update')->name('update.style');
     Route::delete('/styles/delete/{slug}', 'destroy')->name('delete.style');
 });
+// Albums
+Route::controller(\App\Http\Controllers\Admin\AlbumController::class)->group(function(){
+    Route::get('/albums', 'index')->name('list.albums');
+    Route::post('/albums/store', 'store')->name('store.album');
+    Route::get('/albums/edit/{slug}', 'show')->name('edit.album');
+    Route::patch('/albums/update/{slug}', 'update')->name('update.album');
+    Route::delete('/albums/delete/{slug}', 'destroy')->name('delete.album');
+});
 
 

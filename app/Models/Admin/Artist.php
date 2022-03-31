@@ -31,4 +31,9 @@ class Artist extends Model
     {
         return $this->belongsTo(Style::class);
     }
+
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
 }

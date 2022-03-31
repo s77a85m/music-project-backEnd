@@ -50,6 +50,7 @@ class ArtistController extends Controller
         }else{
             $path=$slug->image;
         }
+        $slug->slug=null;
         $slug->update([
             'name'=>$request->get('name'),
             'style_id'=>$request->get('style'),
