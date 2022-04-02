@@ -51,10 +51,10 @@
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
                 <h3 class="text-sm font-normal text-gray-500">اضافه كردن آهنگ</h3>
             </div>
-            <form dir="rtl" action="{{route('store.music')}}" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
+            <form dir="rtl" action="{{route('store.music')}}" enctype="multipart/form-data" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
                 @csrf
                 <!-- name -->
-                <input type="text" placeholder="نام آهنگ" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
+                <input name="title" type="text" placeholder="نام آهنگ" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
                 <!-- date -->
                 <div class="relative w-full md:w-1/3 h-8">
                     <input type="text" name="date" id="input1" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
@@ -89,7 +89,7 @@
                 <div class="flex gap-2 flex-center">
                     <!-- img -->
                     <div>
-                        <input type="file" id="image" name="image"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
+                        <input type="file" id="image" name="image"  value="انتخاب تصوير براي آهنگ" class="absolute invisible">
                         <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-green-500 ">
                             <span>انتخاب كاور</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -99,8 +99,8 @@
                     </div>
                     <!-- 320 -->
                     <div>
-                        <input type="file" id="image" name="high" value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                        <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                        <input type="file" id="320" name="high" value="انتخاب تصوير براي خواننده" class="absolute invisible">
+                        <label for="320" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
                             <span>كيفيت 320</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
@@ -109,8 +109,8 @@
                     </div>
                     <!-- 128 -->
                     <div>
-                        <input type="file" id="image" name="low"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                        <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                        <input type="file" id="128" name="low"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
+                        <label for="128" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
                             <span>كيفيت 128</span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
@@ -146,8 +146,8 @@
                             <img src="{{'/storage/'.$music->image}}" alt="{{$music->name}}" class="w-full h-full">
                         </div>
                     </td>
-                    <td class="p-2  ">{{$music->name}}</td>
-                    <td class="p-2  ">{{$music->artists->name}}</td>
+                    <td class="p-2  ">{{$music->title}}</td>
+                    <td class="p-2  ">{{$music->artist->name}}</td>
                     <td class="p-2 flex gap-2">
                         <a href="#" title="حذف"
                            class="h-6 w-auto px-2 flex flex-center text-white bg-red-500 rounded-sm ">

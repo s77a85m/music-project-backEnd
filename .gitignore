@@ -1,3 +1,5 @@
+/public/storage/admin/high-music/*.mp3
+/public/storage/admin/low-music/*.mp3
 /node_modules
 /public/hot
 /public/storage

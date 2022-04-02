@@ -844,6 +844,14 @@ select {
   bottom: 0px;
 }
 
+.top-1 {
+  top: 0.25rem;
+}
+
+.right-1 {
+  right: 0.25rem;
+}
+
 .right-\[150px\] {
   right: 150px;
 }
@@ -876,10 +884,6 @@ select {
   left: 0.25rem;
 }
 
-.top-1 {
-  top: 0.25rem;
-}
-
 .-left-96 {
   left: -24rem;
 }
@@ -894,10 +898,6 @@ select {
 
 .-right-1 {
   right: -0.25rem;
-}
-
-.right-1 {
-  right: 0.25rem;
 }
 
 .z-10 {
@@ -1748,6 +1748,10 @@ select {
   padding-bottom: 1rem;
 }
 
+.pr-7 {
+  padding-right: 1.75rem;
+}
+
 .pr-2 {
   padding-right: 0.5rem;
 }
@@ -1770,10 +1774,6 @@ select {
 
 .pl-9 {
   padding-left: 2.25rem;
-}
-
-.pr-7 {
-  padding-right: 1.75rem;
 }
 
 .text-center {
