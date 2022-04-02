@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/adminPanel', function(){
     return view('Admin.dashboard');
-});
+})->name('dashboard');
 // Artists
 Route::controller(\App\Http\Controllers\Admin\ArtistController::class)->group(function(){
     Route::get('/artists', 'index')->name('list.artists');
@@ -43,6 +43,14 @@ Route::controller(\App\Http\Controllers\Admin\AlbumController::class)->group(fun
     Route::get('/albums/edit/{slug}', 'show')->name('edit.album');
     Route::patch('/albums/update/{slug}', 'update')->name('update.album');
     Route::delete('/albums/delete/{slug}', 'destroy')->name('delete.album');
+});
+// Musics
+Route::controller(\App\Http\Controllers\Admin\MusicController::class)->group(function(){
+    Route::get('/musics', 'index')->name('list.musics');
+    Route::post('/musics/store', 'store')->name('store.music');
+    Route::get('/musics/edit/{slug}', 'show')->name('edit.music');
+    Route::patch('/musics/update/{slug}', 'update')->name('update.music');
+    Route::delete('/musics/delete/{slug}', 'destroy')->name('delete.music');
 });
 
 

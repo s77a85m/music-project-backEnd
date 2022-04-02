@@ -8,6 +8,7 @@
     <title>admin-panel</title>
     <link rel="stylesheet" href="{{asset('/css/app.css')}}">
     <link rel="stylesheet" href="{{asset('/css/swiper-bundle.min.css')}}" />
+    @yield('style')
 </head>
 
 <body class="bg-gray-100 sm:scroll_fixed">
@@ -46,9 +47,9 @@
         </div>
         <!-- items -->
         <div class="flex flex-col w-full my-2 h-auto">
-            <!-- dashbord -->
-            <a href="#"
-                    class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
+            <!-- dashboard -->
+            <a href="{{route('dashboard')}}"
+                    class="{{Nav::isRoute('dashboard', 'is-active')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 gap-2 text-sm font-normal px-2 flex title-color justify-end items-center ">
                 <span>داشبورد</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="17" fill="currentColor"
                      class="bi bi-card-checklist" viewBox="0 0 16 16">

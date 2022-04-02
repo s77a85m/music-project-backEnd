@@ -64,7 +64,7 @@
                 <!-- button -->
                 <div class="flex w-full p-2 gap-3">
                     <input type="submit" value="ثبت" class="bg-green-500 w-full text-xs font-normal text-white rounded-md p-2">
-                    <button x-on:click="closTab()" class="bg-red-400 text-xs w-full font-normal text-white rounded-md p-2">انصراف</button>
+                    <div x-on:click="closTab()" class="bg-red-400 text-xs w-full font-normal text-white rounded-md p-2">انصراف</div>
                 </div>
             </form>
         </div>
