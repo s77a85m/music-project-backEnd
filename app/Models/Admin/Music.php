@@ -2,15 +2,21 @@
 
 namespace App\Models\Admin;
 
+use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Music extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
     protected $table='musics';
 
     protected $guarded=[];
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 
     public function artist()
     {
@@ -20,5 +26,15 @@ class Music extends Model
     public function style()
     {
         return $this->belongsTo(Style::class);
+    }
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => ['title', 'id'],
+                'separator'=>'_'
+            ]
+        ];
     }
 }

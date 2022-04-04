@@ -79,8 +79,8 @@
                 </svg>
             </a>
             <!-- musics -->
-            <button
-                    class="w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
+            <a href="{{route('list.musics')}}"
+                    class="{{Nav::isResource('musics')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 focus:from-blue-100  focus:to-white focus:bg-gradient-to-r gap-2 focus:border-l-4 focus:text-blue-500 focus:border-blue-500 text-sm font-normal px-2 flex title-color justify-end items-center ">
                 <span>آهنگ ها</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor"
                      class="bi bi-music-note-beamed" viewBox="0 0 16 16">
@@ -89,7 +89,7 @@
                     <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z" />
                     <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z" />
                 </svg>
-            </button>
+            </a>
             <!-- styles -->
             <a href="{{route('list.styles')}}"
                     class="{{Nav::isResource('styles')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 gap-2 text-sm font-normal px-2 flex title-color justify-end items-center ">

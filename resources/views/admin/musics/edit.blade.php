@@ -1,9 +1,13 @@
 @extends('admin.layout.master')
 
+@section('style')
+    <link rel="stylesheet" href="/css/persianDatepicker-default.css">
+@endsection
 
 @section('content')
 
     <div class="flex container relative p-7 flex-col gap-2 items-end">
+        @include('admin.layout.errors')
         <!-- title -->
         <div class="w-full h-auto flex items-center justify-end">
             <!-- title inside -->
@@ -13,40 +17,94 @@
         </div>
         <!-- edit form -->
         <div class="bg-white rounded-md shadow-md p-4 w-full h-auto">
-            <form dir="rtl" action="#" class="w-full gap-3 flex flex-col md:grid md:grid-cols-2 h-auto  ">
+            <form dir="rtl" method="post" action="{{route('update.music', $music->slug)}}" enctype="multipart/form-data" class="w-full gap-3 flex flex-col md:grid md:grid-cols-2 h-auto  ">
+                @csrf
+                @method('PATCH')
                 <!-- part1 form -->
                 <div class="flex flex-col gap-2">
-                    <input type="text" value="عشق اول" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
-                    <select name="style" id="style" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
-                        <option value="1" selected>مهدي احمدوند</option>
-                        <option value="2">مهدي جهاني</option>
-                        <option value="3">علي لهراسبي</option>
-                        <option value="4">همايون شجريان</option>
+                    <input type="text" name="title" value="{{$music->title}}" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
+                    <div class="relative w-full h-8">
+                        <input type="text" autocomplete="off" value="{{$publish}}" name="date" id="input1" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <select name="artist" id="artist" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
+                        @foreach($artists as $artist)
+                            <option value="{{$artist->id}}"
+                            @if($music->artist_id == $artist->id)
+                             selected
+                            @endif
+                            >{{$artist->name}}</option>
+                        @endforeach
+                    </select>
+                    <select name="album" id="album" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
+                        @if($music->album == null)
+                            <option selected value="0">آلبوم</option>
+                        @endif
+                        @foreach($albums as $album)
+                            <option value="{{$album->id}}"
+                                    @if($music->album_id == $album->id)
+                                     selected
+                                    @endif
+                            >{{$album->title}}</option>
+                        @endforeach
                     </select>
                     <select name="style" id="style" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
-                        <option value="1" selected>پاپ</option>
-                        <option value="2" >رپ</option>
-                        <option value="3" >كلاسيك</option>
-                        <option value="4" >سنتي</option>
+                        @foreach($styles as $style)
+                            <option value="{{$style->id}}"
+                                    @if($music->style_id == $style->id)
+                                     selected
+                                    @endif
+                            >{{$style->title}}</option>
+                        @endforeach
                     </select>
-                    <select name="style" id="style" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
-                        <option value="1" selected>عشق</option>
-                        <option value="2" >دريا</option>
-                        <option value="3" >بهشت</option>
-                        <option value="4" >دناي فاني</option>
-                    </select>
-                    <textarea name="description" id="" class="w-full h-28 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500 resize-none">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</textarea>
+                    <textarea name="description" id="" class="w-full h-28 md:h-[151px] rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500 resize-none">{{$music->description}}</textarea>
                 </div>
                 <!-- part2 form-->
-                <div class="w-30 flex flex-col justify-center gap-3 items-center">
-                    <img src="/image/avatar.jpg" alt="avater" class="rounded-md">
-                    <input type="file" id="image"  value="انتخاب تصوير" class="absolute invisible">
-                    <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
-                        <span>انتخاب تصوير جديد</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                        </svg>
-                    </label>
+                <div class="flex flex-col items-center sm:p-4">
+                    <div class="w-30 flex flex-col justify-center gap-3 items-center">
+                        <div class="w-48 h-36">
+                            <img src="{{'/storage/'. $music->image}}" alt="{{$music->title}}" class="w-full h-full rounded-md">
+                        </div>
+                        <input type="file" id="image" name="image"  value="انتخاب تصوير" class="absolute invisible">
+                        <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                            <span>انتخاب تصوير جديد</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                            </svg>
+                        </label>
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <!-- 128 -->
+                        <div>
+                            <audio class="w-full h-9" controls >
+                                <source type="audio/mpeg"
+                                        src="{{'/storage/'. $music->mp3_128}}">
+                            </audio>
+                            <input type="file" id="mp3_128" name="low"  value="انتخاب تصوير" class="absolute invisible">
+                            <label for="mp3_128" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                                <span>كيفيت 128</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                                </svg>
+                            </label>
+                        </div>
+                        <!-- 320 -->
+                        <div>
+                            <audio class="w-full h-9" controls >
+                                <source type="audio/mpeg"
+                                        src="{{'/storage/'. $music->mp3_320}}">
+                            </audio>
+                            <input type="file" id="mp3_320" name="high" value="انتخاب تصوير" class="absolute invisible">
+                            <label for="mp3_320" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                                <span>كيفيت 320</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
                 </div>
                 <!-- btn -->
                 <div class="col-span-2 flex-center">
@@ -54,9 +112,19 @@
                 </div>
             </form>
             <div class="w-full mt-3 flex-center h-7">
-                <a href="#" class="w-full md:w-1/2 h-full flex-center bg-red-500 text-white rounded-md shadow-md cursor-pointer">انصراف</a>
+                <a href="{{route('list.musics')}}" class="w-full md:w-1/2 h-full flex-center bg-red-500 text-white rounded-md shadow-md cursor-pointer">انصراف</a>
             </div>
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/persianDatepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#input1").persianDatepicker();
+        });
+    </script>
 @endsection

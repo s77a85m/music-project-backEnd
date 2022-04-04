@@ -6,6 +6,7 @@
 @section('content')
 
     <div x-data="newArtist" class="flex container relative p-7 flex-col gap-2 items-end">
+        @include('admin.layout.errors')
         <!-- title -->
         <div class="w-full h-auto flex items-center justify-between">
             <!-- search -->
@@ -57,7 +58,7 @@
                 <input name="title" type="text" placeholder="نام آهنگ" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
                 <!-- date -->
                 <div class="relative w-full md:w-1/3 h-8">
-                    <input type="text" name="date" id="input1" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
+                    <input type="text" autocomplete="off" name="date" id="input1" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
                     <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
@@ -121,7 +122,7 @@
                 <!-- button -->
                 <div class="flex w-full p-2 gap-3">
                     <input type="submit" value="ثبت" class="bg-green-500 w-full text-xs font-normal text-white rounded-md p-2">
-                    <button x-on:click="closTab()" class="bg-red-400 text-xs w-full font-normal text-white rounded-md p-2">انصراف</button>
+                    <div x-on:click="closTab()" class="bg-red-400 text-xs w-full text-center font-normal text-white rounded-md p-2">انصراف</div>
                 </div>
             </form>
         </div>
@@ -149,16 +150,20 @@
                     <td class="p-2  ">{{$music->title}}</td>
                     <td class="p-2  ">{{$music->artist->name}}</td>
                     <td class="p-2 flex gap-2">
-                        <a href="#" title="حذف"
-                           class="h-6 w-auto px-2 flex flex-center text-white bg-red-500 rounded-sm ">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
-                                 fill="currentColor">
-                                <path fill-rule="evenodd"
-                                      d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
-                                      clip-rule="evenodd" />
-                            </svg>
-                        </a>
-                        <a href="#" title="ويرايش"
+                        <form action="{{route('delete.music', $music->slug)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button title="حذف"
+                               class="h-6 w-auto px-2 flex flex-center text-white bg-red-500 rounded-sm ">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
+                                     fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                          d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                          clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </form>
+                        <a href="{{route('edit.music', $music->slug)}}" title="ويرايش"
                            class="h-6 w-auto px-2 flex flex-center text-white bg-amber-500 rounded-sm ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                 <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />

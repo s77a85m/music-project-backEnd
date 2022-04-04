@@ -1095,6 +1095,10 @@ select {
   height: 50%;
 }
 
+.h-36 {
+  height: 9rem;
+}
+
 .max-h-\[408px\] {
   max-height: 408px;
 }
@@ -1185,6 +1189,10 @@ select {
 
 .w-5\/6 {
   width: 83.333333%;
+}
+
+.w-48 {
+  width: 12rem;
 }
 
 .max-w-xs {
@@ -2863,6 +2871,9 @@ body {
     .sm\:border-r {
     border-right-width: 1px;
   }
+    .sm\:p-4 {
+    padding: 1rem;
+  }
     .sm\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
@@ -2955,6 +2966,10 @@ body {
 
   .md\:h-24 {
     height: 6rem;
+  }
+
+  .md\:h-\[151px\] {
+    height: 151px;
   }
 
   .md\:w-1\/2 {

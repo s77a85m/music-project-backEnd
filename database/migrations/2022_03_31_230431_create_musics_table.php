@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('musics', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('slug')->unique();
             $table->foreignId('artist_id')->constrained();
             $table->foreignId('style_id')->constrained();
             $table->foreignId('album_id')->nullable()->constrained();
