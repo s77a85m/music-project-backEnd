@@ -100,7 +100,7 @@
                                         src="{{'/storage/'. $music->mp3_320}}">
                             </audio>
                             <input type="file" id="mp3_320" name="high" value="انتخاب تصوير" class="absolute invisible">
-                            <label for="mp3_320" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                            <label for="mp3_320" class="text-xs text-white font-normal rounded-t-md p-2 flex-center bg-purple-500 ">
                                 <span>كيفيت 320</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />

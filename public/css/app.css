@@ -979,6 +979,10 @@ select {
   margin-top: 1rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -993,10 +997,6 @@ select {
 
 .-ml-px {
   margin-left: -1px;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
 }
 
 .flex {
@@ -1111,8 +1111,12 @@ select {
   height: 50%;
 }
 
-.h-\[560px\] {
-  height: 560px;
+.h-0\.5 {
+  height: 0.125rem;
+}
+
+.h-0 {
+  height: 0px;
 }
 
 .max-h-\[408px\] {
@@ -1412,10 +1416,6 @@ select {
 
 .overflow-y-auto {
   overflow-y: auto;
-}
-
-.overflow-y-scroll {
-  overflow-y: scroll;
 }
 
 .rounded-md {
@@ -2999,16 +2999,16 @@ body {
     display: none;
   }
 
+  .md\:h-\[560px\] {
+    height: 560px;
+  }
+
   .md\:h-\[151px\] {
     height: 151px;
   }
 
   .md\:h-24 {
     height: 6rem;
-  }
-
-  .md\:h-\[560px\] {
-    height: 560px;
   }
 
   .md\:w-1\/2 {

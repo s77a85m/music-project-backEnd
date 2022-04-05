@@ -52,7 +52,7 @@
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
                 <h3 class="text-sm font-normal text-gray-500">اضافه كردن آهنگ</h3>
             </div>
-            <form dir="rtl" action="{{route('store.music')}}" enctype="multipart/form-data" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
+            <form id="form_1" dir="rtl" action="{{route('store.music')}}" enctype="multipart/form-data" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
                 @csrf
                 <!-- name -->
                 <input name="title" type="text" placeholder="نام آهنگ" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
@@ -90,32 +90,47 @@
                 <div class="flex gap-2 flex-center">
                     <!-- img -->
                     <div>
-                        <input type="file" id="image" name="image"  value="انتخاب تصوير براي آهنگ" class="absolute invisible">
-                        <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-green-500 ">
-                            <span>انتخاب كاور</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                            </svg>
+                        <input type="file" id="imageFile" name="image"  value="انتخاب تصوير براي آهنگ" class="absolute invisible">
+                        <label for="imageFile" class="text-xs text-white flex flex-col font-normal rounded-md p-2 flex-center bg-green-500 ">
+                            <div class="flex">
+                                <span>انتخاب كاور</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div id="image" class="w-full h-auto">
+
+                            </div>
                         </label>
                     </div>
                     <!-- 320 -->
                     <div>
-                        <input type="file" id="320" name="high" value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                        <label for="320" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
-                            <span>كيفيت 320</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-                            </svg>
+                        <input type="file" id="highFile" name="high" value="انتخاب تصوير براي خواننده" class="absolute invisible">
+                        <label for="highFile" class="text-xs text-white flex flex-col font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                            <div class="flex">
+                                <span>كيفيت 320</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                                </svg>
+                            </div>
+                            <div id="high" class="w-full h-auto">
+
+                            </div>
                         </label>
                     </div>
                     <!-- 128 -->
                     <div>
-                        <input type="file" id="128" name="low"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                        <label for="128" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
-                            <span>كيفيت 128</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-                            </svg>
+                        <input type="file" id="lowFile" name="low"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
+                        <label for="lowFile" class="text-xs flex flex-col text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
+                            <div class="flex">
+                                <span>كيفيت 128</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                                </svg>
+                            </div>
+                            <div id="low" class="w-full h-auto">
+
+                            </div>
                         </label>
                     </div>
                 </div>
@@ -203,5 +218,75 @@
                 }
             }
         }
+
+        const highFile=document.querySelector('#highFile'),
+              lowFile=document.querySelector('#lowFile'),
+              imageFile=document.querySelector('#imageFile'),
+              form=document.querySelector('#form_1');
+
+        imageFile.onchange = ({target}) =>{
+            let file= target.files[0];
+            if (file){
+                let fileName=file.name;
+                uploadImage(fileName);
+            }
+        }
+        function uploadImage(name){
+            let xhr=new XMLHttpRequest();
+            xhr.open("POST", "/musics/store");
+            xhr.upload.addEventListener("progress", ({total,loaded}) => {
+                let fileLoaded=Math.floor((loaded/total)*100);
+                let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
+                                    <div class="bg-red-500 rounded-full h-full" style="width: ${fileLoaded}%;"></div>
+                                  </div>`
+                document.querySelector('#image').innerHTML = progressHtml
+            });
+            let formData=new FormData(form);
+            xhr.send(formData);
+        }
+
+        lowFile.onchange = ({target}) => {
+            let file=target.files[0];
+            if (file){
+                let fileName=file.name;
+                uploadLowFile(fileName);
+            }
+        }
+        function uploadLowFile(name){
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/musics/store");
+            xhr.upload.addEventListener("progress", ({loaded, total}) => {
+                let uploaded=Math.floor((loaded/total)*100);
+                let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
+                                    <div class="bg-red-500 rounded-full h-full" style="width: ${uploaded}%;"></div>
+                                  </div>`
+                document.querySelector('#low').innerHTML=progressHtml;
+            });
+            let formData=new FormData(form);
+            xhr.send(formData)
+        }
+
+        highFile.onchange = ({target}) => {
+            let file=target.files[0];
+            if (file){
+                let fileName=file.name;
+                uploadHighFile(fileName);
+            }
+        }
+        function uploadHighFile(name){
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "/musics/store");
+            xhr.upload.addEventListener("progress", ({loaded, total}) => {
+                let uploaded=Math.floor((loaded/total)*100);
+                let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
+                                    <div class="bg-red-500 rounded-full h-full" style="width: ${uploaded}%;"></div>
+                                  </div>`
+                document.querySelector('#high').innerHTML=progressHtml;
+            });
+            let formData=new FormData(form);
+            xhr.send(formData)
+        }
+
+
     </script>
 @endsection
