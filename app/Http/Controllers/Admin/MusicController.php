@@ -55,7 +55,7 @@ class MusicController extends Controller
 
     public function show(Music $slug)
     {
-        $isPublish=CalendarUtils::strftime('Y/m/d', strtotime($slug->is_publish));;
+        $isPublish=CalendarUtils::strftime('Y/m/d', strtotime($slug->is_publish));
         $styles=Style::all();
         $artists=Artist::all();
         $albums=Album::all();

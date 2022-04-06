@@ -52,5 +52,14 @@ Route::controller(\App\Http\Controllers\Admin\MusicController::class)->group(fun
     Route::patch('/musics/update/{slug}', 'update')->name('update.music');
     Route::delete('/musics/delete/{slug}', 'destroy')->name('delete.music');
 });
-
+// Users
+Route::controller(\App\Http\Controllers\Admin\UserController::class)->group(function (){
+    Route::get('/users', 'index')->name('list.users');
+    Route::delete('/user/delete/{slug}', 'destroy')->name('delete.user');
+});
+// Comments
+Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(function (){
+    Route::get('/comments', 'index')->name('list.comments');
+    Route::delete('/comments/delete/{comment}', 'destroy')->name('delete.comment');
+});
 

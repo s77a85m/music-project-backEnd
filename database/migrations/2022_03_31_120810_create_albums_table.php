@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->foreignId('artist_id')->constrained();
             $table->string('slug')->unique();
+            $table->date('is_publish');
             $table->timestamps();
         });
     }

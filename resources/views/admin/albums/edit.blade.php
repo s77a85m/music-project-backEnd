@@ -1,5 +1,8 @@
 @extends('admin.layout.master')
 
+@section('style')
+    <link rel="stylesheet" href="/css/persianDatepicker-default.css">
+@endsection
 
 @section('content')
 
@@ -19,6 +22,12 @@
                 <!-- part1 form -->
                 <div class="flex flex-col gap-2 md:w-1/2  ">
                     <input type="text" name="title" value="{{$album->title}}" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
+                    <div class="relative w-full h-8">
+                        <input type="text" value="{{$publish}}" name="date" autocomplete="off" id="input1" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
                     <select name="artist" id="artist" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
                         @foreach($artists as $artist)
                             <option value="{{$artist->id}}"
@@ -40,4 +49,13 @@
         </div>
     </div>
 
+@endsection
+@section('script')
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/persianDatepicker.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $("#input1").persianDatepicker();
+        });
+    </script>
 @endsection

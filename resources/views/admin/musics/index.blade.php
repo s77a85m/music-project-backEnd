@@ -233,7 +233,7 @@
         }
         function uploadImage(name){
             let xhr=new XMLHttpRequest();
-            xhr.open("POST", "/musics/store");
+            xhr.open("POST", "/musics/storee");
             xhr.upload.addEventListener("progress", ({total,loaded}) => {
                 let fileLoaded=Math.floor((loaded/total)*100);
                 let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
@@ -254,7 +254,7 @@
         }
         function uploadLowFile(name){
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "/musics/store");
+            xhr.open("POST", "/musics/storee");
             xhr.upload.addEventListener("progress", ({loaded, total}) => {
                 let uploaded=Math.floor((loaded/total)*100);
                 let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
@@ -275,7 +275,7 @@
         }
         function uploadHighFile(name){
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "/musics/store");
+            xhr.open("POST", "/musics/storee");
             xhr.upload.addEventListener("progress", ({loaded, total}) => {
                 let uploaded=Math.floor((loaded/total)*100);
                 let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">

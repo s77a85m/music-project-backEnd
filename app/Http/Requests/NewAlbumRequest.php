@@ -25,7 +25,8 @@ class NewAlbumRequest extends FormRequest
     {
         return [
             'title'=>['required',],
-            'artist'=>['required', 'exists:artists,id']
+            'artist'=>['required', 'exists:artists,id'],
+            'date'=>['required',],
         ];
     }
     public function messages()
