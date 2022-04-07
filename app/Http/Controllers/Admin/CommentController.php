@@ -10,7 +10,11 @@ class CommentController extends Controller
 {
     public function index()
     {
-        $comments=Comment::paginate(8);
+        $comments=Comment::query();
+        if (\request()->filled('comment')){
+            $comments->where('content', 'like', '%'.\request('comment').'%');
+        }
+        $comments=$comments->paginate(8);
         return view('admin.comments.index', [
             'comments'=>$comments
         ]);
@@ -19,6 +23,6 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         $comment->delete();
-        return back();
+        return redirect(route('list.comments'));
     }
 }

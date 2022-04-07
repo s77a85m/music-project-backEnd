@@ -15,7 +15,12 @@ class ArtistController extends Controller
 {
     public function index()
     {
-        $artists=Artist::paginate(8);
+
+        $artists=Artist::query();
+        if (\request()->filled('artist')){
+            $artists->where('name', 'like', '%'.\request('artist').'%');
+        }
+        $artists=$artists->paginate(8);
         return view('admin.artists.index', [
             'artists'=>$artists,
             'styles'=>Style::all()
@@ -29,7 +34,7 @@ class ArtistController extends Controller
             'name'=>$request->get('name'),
             'image'=>$path
         ]);
-        return back();
+        return redirect(route('list.artists'));
     }
 
     public function show(Artist $slug)
@@ -63,6 +68,6 @@ class ArtistController extends Controller
     {
         Storage::disk('privat')->delete($slug->image);
         $slug->delete();
-        return back();
+        return redirect(route('list.artists'));
     }
 }

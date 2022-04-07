@@ -18,10 +18,19 @@ class MusicController extends Controller
 {
     public function index()
     {
+
         $styles=Style::all();
         $artists=Artist::all();
         $albums=Album::all();
-        $musics = Music::paginate('8');
+        $musics = Music::query();
+        if (\request()->filled('music')){
+            $val=\request()->get('music');
+            $musics->where('title', 'like', '%'.$val.'%')
+                ->orWhereHas('artist', function ($query) use ($val){
+                    return $query->where('name', 'like', '%'.$val.'%');
+                });
+        }
+        $musics=$musics->paginate(8);
         return view('admin.musics.index', [
             'musics' => $musics,
             'artists'=>$artists,
@@ -50,7 +59,7 @@ class MusicController extends Controller
             'mp3_128'=>$file_128,
             'is_publish'=>$date
         ]);
-        return back();
+        return redirect(route('list.musics'));
     }
 
     public function show(Music $slug)
@@ -118,6 +127,6 @@ class MusicController extends Controller
         Storage::disk('privat')->delete($slug->mp3_320);
         Storage::disk('privat')->delete($slug->mp3_128);
         $slug->delete();
-        return back();
+        return redirect(route('list.musics'));
     }
 }

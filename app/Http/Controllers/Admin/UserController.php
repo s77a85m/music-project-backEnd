@@ -10,7 +10,11 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users=User::paginate(8);
+        $users=User::query();
+        if (\request()->filled('user')){
+            $users->where('name', 'like', '%'.\request('user').'%');
+        }
+        $users=$users->paginate(8);
         return view('admin.users.index', [
             'users'=>$users
         ]);
@@ -19,6 +23,6 @@ class UserController extends Controller
     public function destroy(User $slug)
     {
         $slug->delete();
-        return back();
+        return redirect(route('list.users'));
     }
 }

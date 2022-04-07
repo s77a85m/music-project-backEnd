@@ -8,18 +8,21 @@
         <!-- title -->
         <div class="w-full h-auto flex items-center justify-between">
             <!-- search -->
-            <div class="flex md:w-48 w-32 h-full">
-                <button class="bg-purple-500 px-1 rounded-l-lg text-white">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
-                         fill="currentColor">
-                        <path fill-rule="evenodd"
-                              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                              clip-rule="evenodd" />
-                    </svg>
-                </button>
-                <input type="text" placeholder="نام خواننده"
-                       class="text-xs text-right font-medium border w-full shadow-md border-gray-200 text-gray-600 rounded-r-lg focus:ring-0 focus:border-gray-200">
-            </div>
+            <form action="{{route('list.artists')}}">
+                @csrf
+                <div class="flex md:w-48 w-32 h-full">
+                    <button class="bg-purple-500 px-1 rounded-l-lg text-white">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                             fill="currentColor">
+                            <path fill-rule="evenodd"
+                                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                  clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <input type="text" name="artist" placeholder="نام خواننده"
+                           class="text-xs text-right font-medium border w-full shadow-md border-gray-200 text-gray-600 rounded-r-lg focus:ring-0 focus:border-gray-200">
+                </div>
+            </form>
             <!-- title inside -->
             <div class="flex flex-col">
                 <h1>ليست هنرمندان</h1>

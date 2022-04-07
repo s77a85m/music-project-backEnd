@@ -11,7 +11,14 @@ class StyleController extends Controller
 {
     public function index(): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
     {
-        $styles=Style::paginate(8);
+
+        $styles=Style::query();
+
+        if (\request()->filled('style')){
+            $styles->where('title', \request('style'));
+        }
+        $styles=$styles->paginate(8);
+
         return view('admin.styles.index', [
             'styles'=>$styles
         ]);
@@ -21,7 +28,7 @@ class StyleController extends Controller
         $style=Style::query()->create([
             'title'=>$request->get('title'),
         ]);
-        return redirect()->back();
+        return redirect(route('list.styles'));
     }
 
     public function edit(Style $slug): \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Contracts\Foundation\Application
@@ -51,6 +58,6 @@ class StyleController extends Controller
             return back()->withErrors(["chile"=>".يوك! تعدادي از خواننده ها از اين دسته هستند"]);
         }
         $slug->delete();
-        return back();
+        return redirect(route('list.styles'));
     }
 }

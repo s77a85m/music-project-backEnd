@@ -12,7 +12,16 @@ use Morilog\Jalali\CalendarUtils;
 class AlbumController extends Controller
 {
     public function index(){
-        $albums=Album::paginate(8);
+
+        $albums=Album::query();
+        if (\request()->filled('album')){
+            $val=\request()->get('album');
+            $albums=$albums->where('title', 'like', '%'.$val.'%')
+            ->orWhereHas('artist', function ($query) use ($val){
+                return $query->where('name', 'like', '%'.$val.'%');
+            });
+        }
+        $albums=$albums->paginate(8);
         $artists=Artist::all();
         return view('admin.albums.index', [
             'albums'=>$albums ,
@@ -30,7 +39,7 @@ class AlbumController extends Controller
            'artist_id'=>$request->get('artist'),
             'is_publish'=>$date
         ]);
-        return back();
+        return redirect(route('list.albums'));
     }
 
     public function show(Album $slug)
@@ -61,6 +70,6 @@ class AlbumController extends Controller
     public function destroy(Album $slug)
     {
         $slug->delete();
-        return back();
+        return redirect(route('list.albums'));
     }
 }
