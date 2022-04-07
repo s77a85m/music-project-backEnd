@@ -16,10 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('client.home');
 });
-
-Route::get('/adminPanel', function(){
-    return view('Admin.dashboard');
-})->name('dashboard');
+// Dashboard
+Route::controller(\App\Http\Controllers\Admin\DashbordController::class)->group(function (){
+    Route::get('/dashboard', 'index')->name('dashboard');
+});
+// Downloads
+Route::controller(\App\Http\Controllers\Admin\DownloadController::class)->group(function (){
+    Route::post('/download', 'addCount')->name('count.download');
+});
 // Artists
 Route::controller(\App\Http\Controllers\Admin\ArtistController::class)->group(function(){
     Route::get('/artists', 'index')->name('list.artists');
