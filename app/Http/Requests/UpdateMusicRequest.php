@@ -28,8 +28,6 @@ class UpdateMusicRequest extends FormRequest
             'style'=>['required', 'exists:styles,id'],
             'artist'=>['required', 'exists:artists,id'],
             'image'=>['mimes:jpg,jpeg,mpeg,png'],
-            'high'=>['mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav'],
-            'low'=>['mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav'],
             'date'=>['required',],
             'description'=>['required']
         ];

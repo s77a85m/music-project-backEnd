@@ -43,7 +43,7 @@
              x-transition:enter-end="opacity-100 "
              x-transition:leave="transition ease-in duration-300"
              x-transition:leave-start="opacity-100 "
-             x-transition:leave-end="opacity-0 " class="inset-0 fixed bg-gray-900 opacity-50 "></div>
+             x-transition:leave-end="opacity-0 " class="inset-0 z-10 fixed bg-gray-900 bg-opacity-50 "></div>
         <!-- add artist part -->
         <div x-show="open" x-cloak
              x-transition:enter="transition ease-out duration-300"
@@ -51,7 +51,7 @@
              x-transition:enter-end="opacity-100 "
              x-transition:leave="transition ease-in duration-300"
              x-transition:leave-start="opacity-100 "
-             x-transition:leave-end="opacity-0 " class="flex flex-col absolute gap-2 h-auto w-72 md:w-2/3 bg-gray-200 rounded-md p-2">
+             x-transition:leave-end="opacity-0 " class="flex flex-col -top-6 overflow-y-auto  z-10 absolute gap-2 h-auto w-72 md:w-2/3 bg-gray-200 rounded-md p-2">
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
                 <h3 class="text-sm font-normal text-gray-500">اضافه كردن آهنگ</h3>
             </div>
@@ -90,7 +90,7 @@
                 <!-- text -->
                 <textarea name="description" class="resize-none w-full md:w-2/3 text-xs font-medium text-gray-500 rounded-md h-40 border border-gray-200 focus:ring-0 focus:border-gray-200" placeholder="متن آهنگ"></textarea>
                 <!-- img -->
-                <div class="flex gap-2 flex-center">
+                <div class="flex md:w-full flex-col gap-2 justify-center items-center">
                     <!-- img -->
                     <div>
                         <input type="file" id="imageFile" name="image"  value="انتخاب تصوير براي آهنگ" class="absolute invisible">
@@ -107,35 +107,49 @@
                         </label>
                     </div>
                     <!-- 320 -->
-                    <div>
-                        <input type="file" id="highFile" name="high" value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                        <label for="highFile" class="text-xs text-white flex flex-col font-normal rounded-md p-2 flex-center bg-purple-500 ">
-                            <div class="flex">
-                                <span>كيفيت 320</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-                                </svg>
-                            </div>
-                            <div id="high" class="w-full h-auto">
-
-                            </div>
-                        </label>
+                    <div class="relative w-full h-8">
+                        <input placeholder="320" type="text" autocomplete="off" name="highLink"  class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                        </svg>
                     </div>
-                    <!-- 128 -->
-                    <div>
-                        <input type="file" id="lowFile" name="low"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                        <label for="lowFile" class="text-xs flex flex-col text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
-                            <div class="flex">
-                                <span>كيفيت 128</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
-                                </svg>
-                            </div>
-                            <div id="low" class="w-full h-auto">
-
-                            </div>
-                        </label>
+                    <!-- 120 -->
+                    <div class="relative w-full h-8">
+                        <input placeholder="128" type="text" autocomplete="off" name="lowLink" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
+                        </svg>
                     </div>
+{{--                    <!-- 320 -->--}}
+{{--                    <div>--}}
+{{--                        <input type="file" id="highFile" name="high" value="انتخاب تصوير براي خواننده" class="absolute invisible">--}}
+{{--                        <label for="highFile" class="text-xs text-white flex flex-col font-normal rounded-md p-2 flex-center bg-purple-500 ">--}}
+{{--                            <div class="flex">--}}
+{{--                                <span>كيفيت 320</span>--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />--}}
+{{--                                </svg>--}}
+{{--                            </div>--}}
+{{--                            <div id="high" class="w-full h-auto">--}}
+
+{{--                            </div>--}}
+{{--                        </label>--}}
+{{--                    </div>--}}
+{{--                    <!-- 128 -->--}}
+{{--                    <div>--}}
+{{--                        <input type="file" id="lowFile" name="low"  value="انتخاب تصوير براي خواننده" class="absolute invisible">--}}
+{{--                        <label for="lowFile" class="text-xs flex flex-col text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">--}}
+{{--                            <div class="flex">--}}
+{{--                                <span>كيفيت 128</span>--}}
+{{--                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">--}}
+{{--                                    <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />--}}
+{{--                                </svg>--}}
+{{--                            </div>--}}
+{{--                            <div id="low" class="w-full h-auto">--}}
+
+{{--                            </div>--}}
+{{--                        </label>--}}
+{{--                    </div>--}}
                 </div>
                 <!-- button -->
                 <div class="flex w-full p-2 gap-3">
@@ -222,73 +236,73 @@
             }
         }
 
-        const highFile=document.querySelector('#highFile'),
-              lowFile=document.querySelector('#lowFile'),
-              imageFile=document.querySelector('#imageFile'),
-              form=document.querySelector('#form_1');
-
-        imageFile.onchange = ({target}) =>{
-            let file= target.files[0];
-            if (file){
-                let fileName=file.name;
-                uploadImage(fileName);
-            }
-        }
-        function uploadImage(name){
-            let xhr=new XMLHttpRequest();
-            xhr.open("POST", "/musics/storee");
-            xhr.upload.addEventListener("progress", ({total,loaded}) => {
-                let fileLoaded=Math.floor((loaded/total)*100);
-                let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
-                                    <div class="bg-red-500 rounded-full h-full" style="width: ${fileLoaded}%;"></div>
-                                  </div>`
-                document.querySelector('#image').innerHTML = progressHtml
-            });
-            let formData=new FormData(form);
-            xhr.send(formData);
-        }
-
-        lowFile.onchange = ({target}) => {
-            let file=target.files[0];
-            if (file){
-                let fileName=file.name;
-                uploadLowFile(fileName);
-            }
-        }
-        function uploadLowFile(name){
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "/musics/storee");
-            xhr.upload.addEventListener("progress", ({loaded, total}) => {
-                let uploaded=Math.floor((loaded/total)*100);
-                let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
-                                    <div class="bg-red-500 rounded-full h-full" style="width: ${uploaded}%;"></div>
-                                  </div>`
-                document.querySelector('#low').innerHTML=progressHtml;
-            });
-            let formData=new FormData(form);
-            xhr.send(formData)
-        }
-
-        highFile.onchange = ({target}) => {
-            let file=target.files[0];
-            if (file){
-                let fileName=file.name;
-                uploadHighFile(fileName);
-            }
-        }
-        function uploadHighFile(name){
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "/musics/storee");
-            xhr.upload.addEventListener("progress", ({loaded, total}) => {
-                let uploaded=Math.floor((loaded/total)*100);
-                let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
-                                    <div class="bg-red-500 rounded-full h-full" style="width: ${uploaded}%;"></div>
-                                  </div>`
-                document.querySelector('#high').innerHTML=progressHtml;
-            });
-            let formData=new FormData(form);
-            xhr.send(formData)
-        }
+        // const highFile=document.querySelector('#highFile'),
+        //       lowFile=document.querySelector('#lowFile'),
+        //       imageFile=document.querySelector('#imageFile'),
+        //       form=document.querySelector('#form_1');
+        //
+        // imageFile.onchange = ({target}) =>{
+        //     let file= target.files[0];
+        //     if (file){
+        //         let fileName=file.name;
+        //         uploadImage(fileName);
+        //     }
+        // }
+        // function uploadImage(name){
+        //     let xhr=new XMLHttpRequest();
+        //     xhr.open("POST", "/musics/storee");
+        //     xhr.upload.addEventListener("progress", ({total,loaded}) => {
+        //         let fileLoaded=Math.floor((loaded/total)*100);
+        //         let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
+        //                             <div class="bg-red-500 rounded-full h-full" style="width: ${fileLoaded}%;"></div>
+        //                           </div>`
+        //         document.querySelector('#image').innerHTML = progressHtml
+        //     });
+        //     let formData=new FormData(form);
+        //     xhr.send(formData);
+        // }
+        //
+        // lowFile.onchange = ({target}) => {
+        //     let file=target.files[0];
+        //     if (file){
+        //         let fileName=file.name;
+        //         uploadLowFile(fileName);
+        //     }
+        // }
+        // function uploadLowFile(name){
+        //     let xhr = new XMLHttpRequest();
+        //     xhr.open("POST", "/musics/storee");
+        //     xhr.upload.addEventListener("progress", ({loaded, total}) => {
+        //         let uploaded=Math.floor((loaded/total)*100);
+        //         let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
+        //                             <div class="bg-red-500 rounded-full h-full" style="width: ${uploaded}%;"></div>
+        //                           </div>`
+        //         document.querySelector('#low').innerHTML=progressHtml;
+        //     });
+        //     let formData=new FormData(form);
+        //     xhr.send(formData)
+        // }
+        //
+        // highFile.onchange = ({target}) => {
+        //     let file=target.files[0];
+        //     if (file){
+        //         let fileName=file.name;
+        //         uploadHighFile(fileName);
+        //     }
+        // }
+        // function uploadHighFile(name){
+        //     let xhr = new XMLHttpRequest();
+        //     xhr.open("POST", "/musics/storee");
+        //     xhr.upload.addEventListener("progress", ({loaded, total}) => {
+        //         let uploaded=Math.floor((loaded/total)*100);
+        //         let progressHtml=`<div class="bg-white rounded-full flex justify-end w-full h-0.5">
+        //                             <div class="bg-red-500 rounded-full h-full" style="width: ${uploaded}%;"></div>
+        //                           </div>`
+        //         document.querySelector('#high').innerHTML=progressHtml;
+        //     });
+        //     let formData=new FormData(form);
+        //     xhr.send(formData)
+        // }
 
 
     </script>

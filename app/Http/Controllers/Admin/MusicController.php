@@ -46,8 +46,18 @@ class MusicController extends Controller
         $date_bad=CalendarUtils::toGregorian($explode['0'], $explode['1'], $explode['2']);
         $date=implode('-', $date_bad);
         $image=$request->file('image')->store('/admin/cover-music', 'privat');
-        $file_320=$request->file('high')->store('/admin/high-music', 'privat');
-        $file_128=$request->file('low')->store('/admin/low-music', 'privat');
+//        $file_320=$request->file('high')->store('/admin/high-music', 'privat');
+//        $file_128=$request->file('low')->store('/admin/low-music', 'privat');
+        if ($request->filled('highLink')){
+            $link_320=$request->get('highLink');
+        }else{
+            $link_320=null;
+        }
+        if ($request->filled('lowLink')){
+            $link_128=$request->get('lowLink');
+        }else{
+            $link_128=null;
+        }
         Music::query()->create([
             'title'=>$request->get('title'),
             'artist_id'=>$request->get('artist'),
@@ -55,8 +65,8 @@ class MusicController extends Controller
             'album_id'=>$request->get('album'),
             'description'=>$request->get('description'),
             'image'=>$image,
-            'mp3_320'=>$file_320,
-            'mp3_128'=>$file_128,
+            'mp3_320'=>$link_320,
+            'mp3_128'=>$link_128,
             'is_publish'=>$date
         ]);
         return redirect(route('list.musics'));
@@ -96,15 +106,23 @@ class MusicController extends Controller
             Storage::disk('privat')->delete($slug->image);
             $image=$request->file('image')->store('/admin/cover-music', 'privat');
         }
+//        $high=$slug->mp3_320;
+//        if($request->hasFile('high')){
+//            Storage::disk('privat')->delete($slug->mp3_320);
+//            $high=$request->file('high')->store('/admin/high-music', 'privat');
+//        }
+//        $low=$slug->mp3_128;
+//        if($request->hasFile('low')){
+//            Storage::disk('privat')->delete($slug->mp3_128);
+//            $low=$request->file('low')->store('/admin/low-music', 'privat');
+//        }
         $high=$slug->mp3_320;
-        if($request->hasFile('high')){
-            Storage::disk('privat')->delete($slug->mp3_320);
-            $high=$request->file('high')->store('/admin/high-music', 'privat');
+        if($request->filled('highLink')){
+            $high=$request->get('highLink');
         }
         $low=$slug->mp3_128;
-        if($request->hasFile('low')){
-            Storage::disk('privat')->delete($slug->mp3_128);
-            $low=$request->file('low')->store('/admin/low-music', 'privat');
+        if($request->filled('lowLink')){
+            $low=$request->get('lowLink');
         }
         $slug->slug=null;
         $slug->update([
@@ -124,8 +142,6 @@ class MusicController extends Controller
     public function destroy(Music $slug)
     {
         Storage::disk('privat')->delete($slug->image);
-        Storage::disk('privat')->delete($slug->mp3_320);
-        Storage::disk('privat')->delete($slug->mp3_128);
         $slug->delete();
         return redirect(route('list.musics'));
     }

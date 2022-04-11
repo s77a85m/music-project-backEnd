@@ -31,4 +31,9 @@ class Style extends Model
     {
         return $this->hasMany(Artist::class);
     }
+
+    public function getHasArtistsAttribute()
+    {
+        return $this->artists()->exists();
+    }
 }

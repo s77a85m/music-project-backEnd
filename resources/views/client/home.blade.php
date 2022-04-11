@@ -10,15 +10,11 @@
                 <div class="absolute inset-0 top_swiper_container">
                     <div class="swiper rtl:text-ltr top_swiper w-full h-full rounded-2xl mb-4 ">
                         <div class="swiper-wrapper">
-                            <a href="#" class="swiper-slide">
-                                <img src="/image/slider1.jpg" class="w-full h-full" alt="slider1">
-                            </a>
-                            <a href="#" class="swiper-slide">
-                                <img src="/image/slider2.jpg" class="w-full h-full" alt="slider1">
-                            </a>
-                            <a href="#" class="swiper-slide">
-                                <img src="/image/slider3.jpg" class="w-full h-full" alt="slider1">
-                            </a>
+                            @foreach($topSwipers as $topSwiper)
+                                <a href="#" class="swiper-slide">
+                                    <img src="{{'/storage/'.$topSwiper->image}}" title="{{$topSwiper->title}}" class="w-full h-full" alt="{{$topSwiper->title}}">
+                                </a>
+                            @endforeach
                         </div>
                     </div>
                     <div class="swiper-button-next top_swiper_next"></div>
@@ -28,12 +24,11 @@
             <!-- cards -->
             <div class="col-span-1">
                 <div class="grid grid-cols-2 sm:grid-cols-1 gap-4">
-                    <a href="#" class="aspect-video rounded-2xl overflow-hidden">
-                        <img src="/image/slider2.jpg" alt="slider2" class="w-full h-full">
-                    </a>
-                    <a href="#" class="aspect-video rounded-2xl overflow-hidden">
-                        <img src="/image/slider3.jpg" alt="slider2" class="w-full h-full">
-                    </a>
+                    @foreach($leftSwipers as $leftSwiper)
+                        <a href="#" class="aspect-video rounded-2xl overflow-hidden">
+                            <img src="{{'/storage/'.$leftSwiper->image}}" alt="{{$leftSwiper->name}}" title="{{$leftSwiper->name}}" class="w-full h-full">
+                        </a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -66,112 +61,34 @@
             <div class="lg:col-span-3 swiper-slider">
                 <div class="swiper rtl:text-ltr suggested_musics mini_swiper_cotainer lg:pr-0">
                     <div class="swiper-wrapper">
-                        <div
-                                class="swiper-slide cursor-pointer flex rounded-2xl group overflow-hidden border shadow-md border-style dark:shadow-gray-800 shadow-gray-400 flex-col">
-                            <div class="w-full relative pt-md">
-                                <img src="/image/slider1.jpg" alt="slider1" class="absolute inset-0 w-full h-full">
-                                <!-- new -->
-                                <div
-                                        class="absolute top-3 group-hover:left-0 -left-7 rtl:left-auto rtl:-right-7 rtl:group-hover:left-auto rtl:group-hover:right-0 w-20 custom-transition h-10 bg-red-600 text-white text-sm font-normal flex items-center justify-end rtl:justify-start pr-4 rtl:pr-0 rtl:pl-4 rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg ">
-                                    NEW</div>
-                            </div>
-                            <!-- info -->
-                            <div class="p-4 flex flex-col bg-white dark:bg-dark-800">
-                                <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                                <div class="h-12 flex mb-8">
-                                    <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">
-                                        اين آهنگ توسط مهدي احمدوند منتشر شده است </h3>
+                        @foreach($suggests as $suggest)
+                            <div class="swiper-slide cursor-pointer flex rounded-2xl group overflow-hidden border shadow-md border-style dark:shadow-gray-800 shadow-gray-400 flex-col">
+                                <div class="w-full relative pt-md">
+                                    <img src="{{'/storage/'.$suggest->image}}" alt="{{$suggest->title}}" title="{{$suggest->title}}" class="absolute inset-0 w-full h-full">
+                                    <!-- new -->
+                                    <div
+                                            class="absolute top-3 group-hover:left-0 -left-7 rtl:left-auto rtl:-right-7 rtl:group-hover:left-auto rtl:group-hover:right-0 w-20 custom-transition h-10 bg-red-600 text-white text-sm font-normal flex items-center justify-end rtl:justify-start pr-4 rtl:pr-0 rtl:pl-4 rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg ">
+                                        NEW</div>
                                 </div>
-                                <a href="#"
-                                   class="flex-center rtl:flex-row-reverse title-color hover:bg-indigo-700 hover:text-white transition-colors ease-in duration-300 gap-2 h-10 w-full border rounded-2xl border-style">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viex="0 0 24 24"
-                                         stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                                    </svg>
-                                    <span class="font-medium text-sm">مشاهده موزيك</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div
-                                class="swiper-slide cursor-pointer flex rounded-2xl group overflow-hidden border shadow-md border-style dark:shadow-gray-800 shadow-gray-400 flex-col">
-                            <div class="w-full relative pt-md">
-                                <img src="/image/slider1.jpg" alt="slider1" class="absolute inset-0 w-full h-full">
-                                <div
-                                        class="absolute top-3 group-hover:left-0 -left-7 rtl:left-auto rtl:-right-7 rtl:group-hover:left-auto rtl:group-hover:right-0 w-20 custom-transition h-10 bg-red-600 text-white text-sm font-normal flex items-center justify-end rtl:justify-start pr-4 rtl:pr-0 rtl:pl-4 rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
-                                    NEW</div>
-                            </div>
-                            <!-- info -->
-                            <div class="p-4 flex flex-col bg-white dark:bg-dark-800">
-                                <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                                <div class="h-12 flex mb-8">
-                                    <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">.
-                                        اين آهنگ توسط مهدي احمدوند منتشر شده است زماني كه منتشر شد طرفداران زيادي را
-                                        پيدا كرد و تعداد دانلود زيادي داشت</h3>
+                                <!-- info -->
+                                <div class="p-4 flex flex-col bg-white dark:bg-dark-800">
+                                    <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">{{$suggest->title}}</h2>
+                                    <div class="h-12 flex mb-8">
+                                        <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">
+                                            {{$suggest->description}} </h3>
+                                    </div>
+                                    <a href="#"
+                                       class="flex-center rtl:flex-row-reverse title-color hover:bg-indigo-700 hover:text-white transition-colors ease-in duration-300 gap-2 h-10 w-full border rounded-2xl border-style">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viex="0 0 24 24"
+                                             stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                  d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                                        </svg>
+                                        <span class="font-medium text-sm">مشاهده موزيك</span>
+                                    </a>
                                 </div>
-                                <a href="#"
-                                   class="flex-center rtl:flex-row-reverse title-color hover:bg-indigo-700 hover:text-white transition-colors ease-in duration-300 gap-2 h-10 w-full border rounded-2xl border-style">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viex="0 0 24 24"
-                                         stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                                    </svg>
-                                    <span class="font-medium text-sm">مشاهده موزيك</span>
-                                </a>
                             </div>
-                        </div>
-                        <div
-                                class="swiper-slide cursor-pointer flex rounded-2xl group overflow-hidden border shadow-md border-style dark:shadow-gray-800 shadow-gray-400 flex-col">
-                            <div class="w-full relative pt-md">
-                                <img src="/image/slider1.jpg" alt="slider1" class="absolute inset-0 w-full h-full">
-                                <div
-                                        class="absolute top-3 group-hover:left-0 -left-7 rtl:left-auto rtl:-right-7 rtl:group-hover:left-auto rtl:group-hover:right-0 w-20 custom-transition h-10 bg-red-600 text-white text-sm font-normal flex items-center justify-end rtl:justify-start pr-4 rtl:pr-0 rtl:pl-4 rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
-                                    NEW</div>
-                            </div>
-                            <!-- info -->
-                            <div class="p-4 flex flex-col bg-white dark:bg-dark-800">
-                                <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                                <div class="h-12 flex mb-8">
-                                    <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">
-                                        اين آهنگ توسط مهدي احمدوند منتشر شده است </h3>
-                                </div>
-                                <a href="#"
-                                   class="flex-center rtl:flex-row-reverse title-color hover:bg-indigo-700 hover:text-white transition-colors ease-in duration-300 gap-2 h-10 w-full border rounded-2xl border-style">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viex="0 0 24 24"
-                                         stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                                    </svg>
-                                    <span class="font-medium text-sm">مشاهده موزيك</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div
-                                class="swiper-slide cursor-pointer flex rounded-2xl group overflow-hidden border  shadow-md border-style dark:shadow-gray-800 shadow-gray-400 flex-col">
-                            <div class="w-full relative pt-md">
-                                <img src="/image/slider1.jpg" alt="slider1" class="absolute inset-0 w-full h-full">
-                                <div
-                                        class="absolute top-3 group-hover:left-0 -left-7 rtl:left-auto rtl:-right-7 rtl:group-hover:left-auto rtl:group-hover:right-0 w-20 custom-transition h-10 bg-red-600 text-white text-sm font-normal flex items-center justify-end rtl:justify-start pr-4 rtl:pr-0 rtl:pl-4 rounded-r-lg rtl:rounded-r-none rtl:rounded-l-lg">
-                                    NEW</div>
-                            </div>
-                            <!-- info -->
-                            <div class="p-4 flex flex-col bg-white dark:bg-dark-800">
-                                <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                                <div class="h-12 flex mb-8">
-                                    <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">
-                                        اين آهنگ توسط مهدي احمدوند منتشر شده است </h3>
-                                </div>
-                                <a href="#"
-                                   class="flex-center rtl:flex-row-reverse title-color hover:bg-indigo-700 hover:text-white transition-colors ease-in duration-300 gap-2 h-10 w-full border rounded-2xl border-style">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
-                                         viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
-                                    </svg>
-                                    <span class="font-medium text-sm">مشاهده موزيك</span>
-                                </a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <div class="swiper-button-next swiper_mini_next"></div>
                     <div class="swiper-button-prev swiper_mini_prev"></div>
@@ -183,12 +100,12 @@
             <h2 id="h11" class=" title-color ">آهنگ هاي پربازديد</h2>
             <!-- cards -->
             <div class="grid grid-cols-1 sm:grid-cols-4  gap-4">
-                <!-- card1 -->
-                <div class="flex flex-col rounded-2xl shadow-2xl overflow-hidden">
+                @foreach($visites as $visit)
+                    <div class="flex flex-col rounded-2xl shadow-2xl overflow-hidden">
                     <!-- image -->
                     <div class="relative pt-md w-full cursor-pointer group">
                         <div class="absolute inset-0 overflow-hidden">
-                            <img src="/image/slider1.jpg" alt="slider1"
+                            <img src="{{'/storage/'.$visit->image}}" alt="{{$visit->title}}" title="{{$visit->title}}"
                                  class="w-full h-full group-hover:scale-125 transition-all duration-150 ease-in">
                         </div>
                         <div
@@ -200,100 +117,16 @@
                     </div>
                     <!-- info -->
                     <div class="flex flex-col p-4">
-                        <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
+                        <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">{{$visit->title}}</h2>
                         <div class="h-12 flex mb-8">
                             <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">.
-                                اين آهنگ توسط مهدي احمدوند منتشر شده است زماني كه منتشر شد طرفداران زيادي را
-                                پيدا كرد و تعداد دانلود زيادي داشت</h3>
+                                {{$visit->description}}</h3>
                         </div>
                         <a href="#" class="flex dark:text-indigo-400 text-purple-700 text-sm font-medium">ادامه
                             مطلب...</a>
                     </div>
                 </div>
-
-                <!-- card2 -->
-
-                <div class="flex rounded-2xl shadow-2xl overflow-hidden flex-col">
-                    <!-- image -->
-                    <div class="pt-md relative w-full group">
-                        <div class="inset-0 overflow-hidden absolute">
-                            <img src="/image/slider2.jpg" alt="slider2"
-                                 class="w-full h-full group-hover:scale-125 transition-all duration-150 ease-in">
-                        </div>
-                        <div
-                                class="inset-0 bg-gray-900 flex flex-center opacity-0 bg-opacity-50 absolute group-hover:opacity-100 transition-opacity duration-150 ease-in">
-                            <a href="#"
-                               class="bg-purple-700 dark:bg-indigo-500 text-white text-base font-medium rounded-2xl flex px-4 py-2">ادامه
-                                مطلب</a>
-                        </div>
-                    </div>
-                    <!-- info -->
-                    <div class="flex flex-col p-4">
-                        <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                        <div class="h-12 flex mb-8">
-                            <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">.
-                                اين آهنگ توسط مهدي احمدوند منتشر شده است زماني كه منتشر شد طرفداران زيادي را
-                                پيدا كرد و تعداد دانلود زيادي داشت</h3>
-                        </div>
-                        <a href="#" class="text-sm font-medium dark:text-indigo-400 text-purple-700">ادامه مطالب...</a>
-                    </div>
-                </div>
-
-                <!-- card3 -->
-
-                <div class="flex rounded-2xl shadow-2xl overflow-hidden flex-col">
-                    <!-- image -->
-                    <div class="pt-md relative w-full group">
-                        <div class="inset-0 overflow-hidden absolute">
-                            <img src="/image/slider3.jpg" alt="slider3"
-                                 class="w-full h-full group-hover:scale-125 transition-all duration-150 ease-in">
-                        </div>
-                        <div
-                                class="inset-0 bg-gray-900 flex flex-center opacity-0 bg-opacity-50 absolute group-hover:opacity-100 transition-opacity duration-150 ease-in">
-                            <a href="#"
-                               class="bg-purple-700 dark:bg-indigo-500 text-white text-base font-medium rounded-2xl flex px-4 py-2">ادامه
-                                مطلب</a>
-                        </div>
-                    </div>
-                    <!-- info -->
-                    <div class="flex flex-col p-4">
-                        <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                        <div class="h-12 flex mb-8">
-                            <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">.
-                                اين آهنگ توسط مهدي احمدوند منتشر شده است زماني كه منتشر شد طرفداران زيادي را
-                                پيدا كرد و تعداد دانلود زيادي داشت</h3>
-                        </div>
-                        <a href="#" class="text-sm font-medium dark:text-indigo-400 text-purple-700">ادامه مطالب...</a>
-                    </div>
-                </div>
-
-                <!-- card4 -->
-
-                <div class="flex rounded-2xl shadow-2xl overflow-hidden flex-col">
-                    <!-- image -->
-                    <div class="pt-md relative w-full group">
-                        <div class="inset-0 overflow-hidden absolute">
-                            <img src="/image/slider1.jpg" alt="slider1"
-                                 class="w-full h-full group-hover:scale-125 transition-all duration-150 ease-in">
-                        </div>
-                        <div
-                                class="inset-0 bg-gray-900 flex flex-center opacity-0 bg-opacity-50 absolute group-hover:opacity-100 transition-opacity duration-150 ease-in">
-                            <a href="#"
-                               class="bg-purple-700 dark:bg-indigo-500 text-white text-base font-medium rounded-2xl flex px-4 py-2">ادامه
-                                مطلب</a>
-                        </div>
-                    </div>
-                    <!-- info -->
-                    <div class="flex flex-col p-4">
-                        <h2 class="title-color font-normal text-base mb-4 text-center line-clamp-1">عشق اول</h2>
-                        <div class="h-12 flex mb-8">
-                            <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">.
-                                اين آهنگ توسط مهدي احمدوند منتشر شده است زماني كه منتشر شد طرفداران زيادي را
-                                پيدا كرد و تعداد دانلود زيادي داشت</h3>
-                        </div>
-                        <a href="#" class="text-sm font-medium dark:text-indigo-400 text-purple-700">ادامه مطالب...</a>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
         <!-- get ticket -->
@@ -302,9 +135,9 @@
                     class="bg-white flex flex-col dark:bg-dark-700 rounded-xl sm:max-w-[34rem] md:max-w-2xl lg:max-w-3xl sm:mx-auto">
                 <!-- title -->
                 <div class="flex-center w-full border-b border-style  h-14 text-base font-medium title-color">درخواست
-                    بليط</div>
+                    بليط كنسرت(بزودي)</div>
                 <!-- count ticket -->
-                <div class="px-4" x-data="handleMenu">
+                <div class="px-4 pointer-events-none opacity-50" x-data="handleMenu">
                     <div class="grid grid-cols-1 sm:grid-cols-2 border-b-2 border-dashed border-style">
                         <div class="sm:py-6">
                             <div
@@ -714,7 +547,7 @@
             </div>
         </section>
         <!-- flex-table -->
-        <section class="container mb-10">
+        <section class="container pointer-events-none opacity-50 mb-10">
             <!-- title -->
             <div class="hidden lg:grid grid-cols-12 text-xs font-medium title-color gap-4 p-4">
                 <div class="col-span-3 ">خواننده</div>

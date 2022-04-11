@@ -43,7 +43,7 @@
              x-transition:enter-end="opacity-100 "
              x-transition:leave="transition ease-in duration-300"
              x-transition:leave-start="opacity-100 "
-             x-transition:leave-end="opacity-0 " class="inset-0 fixed bg-gray-900 opacity-50 "></div>
+             x-transition:leave-end="opacity-0 " class="inset-0 fixed bg-gray-900 bg-opacity-50"></div>
         <!-- add artist part -->
         <div x-show="open" x-cloak
              x-transition:enter="transition ease-out duration-300"
@@ -51,7 +51,7 @@
              x-transition:enter-end="opacity-100 "
              x-transition:leave="transition ease-in duration-300"
              x-transition:leave-start="opacity-100 "
-             x-transition:leave-end="opacity-0 " class="flex flex-col absolute gap-2 h-auto w-72 md:w-2/3 bg-gray-200 rounded-md p-2">
+             x-transition:leave-end="opacity-0 " class="flex flex-col absolute -top-6 overflow-y-auto  z-10 gap-2 h-auto w-72 md:w-2/3 bg-gray-200 rounded-md p-2">
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
                 <h3 class="text-sm font-normal text-gray-500">اضافه كردن آهنگ</h3>
             </div>

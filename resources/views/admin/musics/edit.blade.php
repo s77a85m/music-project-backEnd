@@ -80,34 +80,26 @@
                         <div class="w-full">
                             <audio class="w-full h-8" controls name="baran">
                                 <source type="audio/mpeg"
-                                        src="{{'/storage/'. $music->mp3_128}}">
+                                        src="{{$music->mp3_128}}">
                             </audio>
-                            <input type="file" id="mp3_128" name="low" value="انتخاب تصوير" class="absolute invisible">
-                            <label for="mp3_128" class="text-xs text-white font-normal rounded-t-md cursor-pointer p-2 flex-center bg-purple-500 ">
-                                <span>كيفيت 128</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <div class="relative w-full h-8">
+                                <input type="text" autocomplete="off" value="{{$music->mp3_128}}" name="lowLink" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
                                 </svg>
-                            </label>
-                            <div id="onePart" class="w-full h-auto flex flex-col justify-center items-center bg-blue-200 rounded-b-md">
-
                             </div>
                         </div>
                         <!-- 320 -->
                         <div class="w-full">
                             <audio class="w-full h-8" controls >
                                 <source type="audio/mpeg"
-                                        src="{{'/storage/'. $music->mp3_320}}">
+                                        src="{{$music->mp3_320}}">
                             </audio>
-                            <input type="file" id="mp3_320" name="high" value="انتخاب تصوير" class="absolute invisible">
-                            <label for="mp3_320" class="text-xs text-white font-normal rounded-t-md p-2 flex-center bg-purple-500 ">
-                                <span>كيفيت 320</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <div class="relative w-full h-8">
+                                <input type="text" autocomplete="off" value="{{$music->mp3_320}}" name="highLink" class="w-full pr-7 h-full border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg"/>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="absolute h-5 w-5 top-1 right-1 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M18 3a1 1 0 00-1.196-.98l-10 2A1 1 0 006 5v9.114A4.369 4.369 0 005 14c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V7.82l8-1.6v5.894A4.37 4.37 0 0015 12c-1.657 0-3 .895-3 2s1.343 2 3 2 3-.895 3-2V3z" />
                                 </svg>
-                            </label>
-                            <div id="twoPart" class="w-full h-auto flex flex-col justify-center items-center bg-blue-200 rounded-b-md">
-
                             </div>
                         </div>
                     </div>
@@ -133,66 +125,66 @@
             $("#input1").persianDatepicker();
         });
         //upload progress
-        const inputFileLow= document.querySelector('#mp3_128'),
-              inputFileHigh= document.querySelector('#mp3_320'),
+        {{--const inputFileLow= document.querySelector('#mp3_128'),--}}
+        {{--      inputFileHigh= document.querySelector('#mp3_320'),--}}
 
-              form=document.querySelector('#form_1');
+        {{--      form=document.querySelector('#form_1');--}}
 
-        inputFileLow.onchange = ({target}) =>{
-            let file=target.files[0];
-            if(file){
-                let fileName=file.name;
-                uploadFileLow(fileName);
-            }
-        }
-        inputFileHigh.onchange = ({target}) =>{
-            let file=target.files[0];
-            if(file){
-                let fileName=file.name;
-                uploadFileHigh(fileName);
-            }
-        }
-        function uploadFileLow(name){
-            let xhr= new XMLHttpRequest();
-            xhr.open("POST", "/musics/update/"+"{{$music->slug}}");
-            xhr.upload.addEventListener("progress", ({loaded,total}) => {
-                let fileLoaded=Math.floor((loaded/total)*100);
-                let progressHtml=`<span class="text-gray-500 mt-1 text-xs font-medium">${name} - uploading</span>
-                                <div class="flex-center m-2 px-3 gap-2 w-full">
-                                    <span class="text-gray-500 text-xs font-medium">${fileLoaded}%</span>
-                                    <div class="w-full flex justify-end bg-white rounded-full h-1">
-                                        <div class="h-full bg-blue-600 rounded-full" style="width: ${fileLoaded}%;"></div>
-                                    </div>
-                                </div>`;
-                let uploaded=`<span class="text-gray-500 m-1 text-xs font-medium">${name} - uploaded</span>`;
-                document.querySelector('#onePart').innerHTML= progressHtml ;
-                if (loaded === total){
-                    document.querySelector('#onePart').innerHTML= uploaded ;
-                }
-            })
-            let formData= new FormData(form);
-            xhr.send(formData)
-        }
-        function uploadFileHigh(name){
-            let xhr= new XMLHttpRequest();
-            xhr.open("POST", "/musics/update/"+"{{$music->slug}}");
-            xhr.upload.addEventListener("progress", ({loaded,total}) => {
-                let fileLoaded=Math.floor((loaded/total)*100);
-                let progressHtml=`<span class="text-gray-500 mt-1 text-xs font-medium">${name} - uploading</span>
-                                <div class="flex-center m-2 px-3 gap-2 w-full">
-                                    <span class="text-gray-500 text-xs font-medium">${fileLoaded}%</span>
-                                    <div class="w-full flex justify-end bg-white rounded-full h-1">
-                                        <div class="h-full bg-blue-600 rounded-full" style="width: ${fileLoaded}%;"></div>
-                                    </div>
-                                </div>`;
-                let uploaded=`<span class="text-gray-500 m-1 text-xs font-medium">${name} - uploaded</span>`;
-                document.querySelector('#twoPart').innerHTML= progressHtml ;
-                if (loaded === total){
-                    document.querySelector('#twoPart').innerHTML= uploaded ;
-                }
-            })
-            let formData= new FormData(form);
-            xhr.send(formData)
-        }
+        {{--inputFileLow.onchange = ({target}) =>{--}}
+        {{--    let file=target.files[0];--}}
+        {{--    if(file){--}}
+        {{--        let fileName=file.name;--}}
+        {{--        uploadFileLow(fileName);--}}
+        {{--    }--}}
+        {{--}--}}
+        {{--inputFileHigh.onchange = ({target}) =>{--}}
+        {{--    let file=target.files[0];--}}
+        {{--    if(file){--}}
+        {{--        let fileName=file.name;--}}
+        {{--        uploadFileHigh(fileName);--}}
+        {{--    }--}}
+        {{--}--}}
+        {{--function uploadFileLow(name){--}}
+        {{--    let xhr= new XMLHttpRequest();--}}
+        {{--    xhr.open("POST", "/musics/update/"+"{{$music->slug}}");--}}
+        {{--    xhr.upload.addEventListener("progress", ({loaded,total}) => {--}}
+        {{--        let fileLoaded=Math.floor((loaded/total)*100);--}}
+        {{--        let progressHtml=`<span class="text-gray-500 mt-1 text-xs font-medium">${name} - uploading</span>--}}
+        {{--                        <div class="flex-center m-2 px-3 gap-2 w-full">--}}
+        {{--                            <span class="text-gray-500 text-xs font-medium">${fileLoaded}%</span>--}}
+        {{--                            <div class="w-full flex justify-end bg-white rounded-full h-1">--}}
+        {{--                                <div class="h-full bg-blue-600 rounded-full" style="width: ${fileLoaded}%;"></div>--}}
+        {{--                            </div>--}}
+        {{--                        </div>`;--}}
+        {{--        let uploaded=`<span class="text-gray-500 m-1 text-xs font-medium">${name} - uploaded</span>`;--}}
+        {{--        document.querySelector('#onePart').innerHTML= progressHtml ;--}}
+        {{--        if (loaded === total){--}}
+        {{--            document.querySelector('#onePart').innerHTML= uploaded ;--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--    let formData= new FormData(form);--}}
+        {{--    xhr.send(formData)--}}
+        {{--}--}}
+        {{--function uploadFileHigh(name){--}}
+        {{--    let xhr= new XMLHttpRequest();--}}
+        {{--    xhr.open("POST", "/musics/update/"+"{{$music->slug}}");--}}
+        {{--    xhr.upload.addEventListener("progress", ({loaded,total}) => {--}}
+        {{--        let fileLoaded=Math.floor((loaded/total)*100);--}}
+        {{--        let progressHtml=`<span class="text-gray-500 mt-1 text-xs font-medium">${name} - uploading</span>--}}
+        {{--                        <div class="flex-center m-2 px-3 gap-2 w-full">--}}
+        {{--                            <span class="text-gray-500 text-xs font-medium">${fileLoaded}%</span>--}}
+        {{--                            <div class="w-full flex justify-end bg-white rounded-full h-1">--}}
+        {{--                                <div class="h-full bg-blue-600 rounded-full" style="width: ${fileLoaded}%;"></div>--}}
+        {{--                            </div>--}}
+        {{--                        </div>`;--}}
+        {{--        let uploaded=`<span class="text-gray-500 m-1 text-xs font-medium">${name} - uploaded</span>`;--}}
+        {{--        document.querySelector('#twoPart').innerHTML= progressHtml ;--}}
+        {{--        if (loaded === total){--}}
+        {{--            document.querySelector('#twoPart').innerHTML= uploaded ;--}}
+        {{--        }--}}
+        {{--    })--}}
+        {{--    let formData= new FormData(form);--}}
+        {{--    xhr.send(formData)--}}
+        {{--}--}}
     </script>
 @endsection

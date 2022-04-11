@@ -11,7 +11,7 @@
     @yield('style')
 </head>
 
-<body class="bg-gray-100 sm:scroll_fixed">
+<body class="bg-gray-100 md:scroll_fixed">
 <div x-data="mobileMenu" class="flex gap-2 p-3 ">
     <!-- navbar -->
     <div class="h-full w-full flex flex-col">

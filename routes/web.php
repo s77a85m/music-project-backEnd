@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 // Dashboard
 Route::controller(\App\Http\Controllers\Admin\DashbordController::class)->group(function (){
-    Route::get('/dashboard', 'index')->name('dashboard');
+    Route::get('/adminPanel', 'index')->name('dashboard');
 });
 // Downloads
 Route::controller(\App\Http\Controllers\Admin\DownloadController::class)->group(function (){
@@ -67,3 +67,9 @@ Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(f
     Route::delete('/comments/delete/{comment}', 'destroy')->name('delete.comment');
 });
 
+//..............client
+
+// Home
+Route::controller(\App\Http\Controllers\Client\HomeController::class)->group(function (){
+    Route::get('/', 'index')->name('home');
+});

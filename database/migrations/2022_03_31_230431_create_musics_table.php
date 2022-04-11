@@ -21,10 +21,11 @@ return new class extends Migration
             $table->foreignId('style_id')->constrained();
             $table->foreignId('album_id')->nullable()->constrained();
             $table->string('image');
-            $table->string('mp3_320');
-            $table->string('mp3_128');
+            $table->string('mp3_320')->nullable();
+            $table->string('mp3_128')->nullable();
             $table->text('description');
             $table->date('is_publish');
+            $table->integer('count_view')->default(0);
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
     <title>arkenmusic</title>
 </head>
 
-<body class="bg-[#f2f2f2] dark:bg-dark-600">
+<body dir="rtl" class="bg-[#f2f2f2] dark:bg-dark-600">
     <!-- navbar start -->
     @include('client.layout.header')
     {{--  main  --}}
@@ -52,24 +52,24 @@
                 }
             }
         }
-        function handleDirection() {
-            return {
-                // false for ltr & true for rtl
-                // direction:false,
-                makeRtl() {
-                    // this.direction=true
-                    document.querySelector('.handle_direction').classList.add('rtl')
-                    document.documentElement.dir = "rtl"
-                    localStorage.setItem('dir', 'rtl')
-                },
-                makeLtr() {
-                    // this.direction=false
-                    document.querySelector('.handle_direction').classList.remove('rtl')
-                    document.documentElement.dir = "ltr"
-                    localStorage.setItem('dir', 'ltr')
-                }
-            }
-        }
+        // function handleDirection() {
+        //     return {
+        //         // false for ltr & true for rtl
+        //         // direction:false,
+        //         makeRtl() {
+        //             // this.direction=true
+        //             document.querySelector('.handle_direction').classList.add('rtl')
+        //             document.documentElement.dir = "rtl"
+        //             localStorage.setItem('dir', 'rtl')
+        //         },
+        //         makeLtr() {
+        //             // this.direction=false
+        //             document.querySelector('.handle_direction').classList.remove('rtl')
+        //             document.documentElement.dir = "ltr"
+        //             localStorage.setItem('dir', 'ltr')
+        //         }
+        //     }
+        // }
         function darkMod() {
             return {
                 moonMod() {
@@ -104,11 +104,10 @@
             document.querySelector('.handle_darkmod').classList.remove('darkMod')
             document.documentElement.classList.remove('dark')
         }
-        document.documentElement.dir = localStorage.getItem('dir')
-        if (localStorage.getItem('dir') === 'rtl') {
-            document.querySelector('.handle_direction').classList.add('rtl')
-            document.querySelector('.top_swiper').setAttribute("dir", "rtl")
-        }
+        // document.documentElement.dir = localStorage.getItem('dir')
+        // if (localStorage.getItem('dir') === 'rtl') {
+        //     document.querySelector('.handle_direction').classList.add('rtl')
+        // }
     </script>
     @yield('script')
 </body>

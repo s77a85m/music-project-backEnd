@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Admin\Style;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->composer(['client.layout.header'], function($view){
+            $view->with([
+                'styles'=>Style::all(),
+            ]);
+        });
     }
 }

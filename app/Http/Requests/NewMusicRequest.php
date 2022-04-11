@@ -29,8 +29,6 @@ class NewMusicRequest extends FormRequest
             'artist'=>['required', 'exists:artists,id'],
             'album'=>['exists:albums,id'],
             'image'=>['required', 'mimes:jpg,jpeg,mpeg,png'],
-            'high'=>['required', 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav'],
-            'low'=>['required', 'mimes:application/octet-stream,audio/mpeg,mpga,mp3,wav'],
             'date'=>['required',],
             'description'=>['required']
         ];

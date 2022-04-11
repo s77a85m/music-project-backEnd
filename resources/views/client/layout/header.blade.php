@@ -9,9 +9,13 @@
                       clip-rule="evenodd" />
             </svg>
             <ul class="hidden list-none md:flex items-center gap-2">
+                <!-- logo -->
+                <a href="{{route('home')}}" class="w-32 sm:w-auto">
+                    <img src="/image/smal-dimonds.png" alt="arkenmusic" class="w-full h-full">
+                </a>
                 <!-- home -->
                 <li>
-                    <a href="#"
+                    <a href="/"
                        class="title-color px-2 py-1 text-xs font-mediom sm:hover:shadow-md duration-300 transition-custom">خانه</a>
                 </li>
                 <!-- persian music -->
@@ -28,71 +32,32 @@
                     </div>
                     <ul x-show="open" x-transition.duration.400ms x-cloak
                         class="border border-style list-none absolute left-0 rtl:left-auto rtl:right-0 top-7 w-40 flex flex-col  z-10  rounded-lg dark:bg-dark-800 bg-white">
-                        <li>
-                            <a href="#"
-                               class=" p-2 text-xs font-medium flex text-gray-600 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 hover:text-indigo-700 hover:bg-gray-300 custom-transition">پاپ</a>
-                        </li>
-                        <li class="relative group">
-                            <a href="#"
-                               class=" p-2 text-xs font-medium flex justify-between items-center text-gray-600 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 hover:text-indigo-700 hover:bg-gray-300 custom-transition">
-                                <span>سنتي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 rtl:rotate-180 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <ul
-                                    class="list-none hidden group-hover:flex absolute rtl:left-auto rtl:right-full dark:bg-dark-800 top-0 left-full bg-white w-40  flex-col rounded-lg  border border-style">
-                                <li class="relative group2">
-                                    <a href="#"
-                                       class=" p-2 text-xs font-medium flex justify-between items-center text-gray-600 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 hover:text-indigo-700 hover:bg-gray-300 custom-transition">
-                                        <span>مهدي احمدوند</span>
+                        @foreach($styles as $style)
+                            <li class="relative group">
+                                <div class=" p-2 rounded-lg text-xs font-medium flex justify-between items-center text-gray-600 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 hover:text-indigo-700 hover:bg-gray-300 custom-transition">
+                                    <span>{{$style->title}}</span>
+                                    @if($style->has_artists)
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 rtl:rotate-180 w-3"
                                              viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd"
                                                   d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
                                                   clip-rule="evenodd" />
                                         </svg>
-                                    </a>
+                                    @endif
+                                </div>
+                                @if($style->has_artists)
                                     <ul
-                                            class="list-none hidden group2-hover:flex absolute rtl:left-auto rtl:right-full dark:bg-dark-800 top-0 left-full bg-white w-40  flex-col rounded-lg overflow-hidden border border-style">
+                                        class="list-none hidden group-hover:flex absolute rtl:left-auto rtl:right-full dark:bg-dark-800 top-0 left-full bg-white w-40  flex-col rounded-lg  border border-style">
+                                    @foreach($style->artists as $artist)
                                         <li>
-                                            <a href="#"
-                                               class="p-2 flex text-xs text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">دريا</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                               class="p-2 flex text-xs text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">عشق
-                                                اول</a>
-                                        </li>
-                                        <li>
-                                            <a href="#"
-                                               class="p-2 flex text-xs text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">آرامش</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                       class=" p-2 flex text-xs text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">علي
-                                        لهراسبي</a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                       class="p-2 flex text-xs text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">ميثم
-                                        ابراهيمي</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#"
-                               class=" p-2 text-xs font-medium flex text-gray-600 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 hover:text-indigo-700 hover:bg-gray-300 custom-transition">رپ</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                               class=" p-2 text-xs font-medium flex text-gray-600 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 hover:text-indigo-700 hover:bg-gray-300 custom-transition">شاد</a>
-                        </li>
+                                        <a href="#"
+                                           class=" p-2 flex text-xs rounded-lg text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">{{$artist->name}}</a>
+                                    </li>
+                                    @endforeach
+                                </ul>
+                                @endif
+                            </li>
+                        @endforeach
                     </ul>
                 </li>
                 <!-- Foreign music -->
@@ -198,26 +163,11 @@
             </ul>
         </div>
         <!-- darkmod, direction, pro img -->
-        <div class="flex flex-row-reverse gap-2 justify-center items-center w-64 sm:w-auto">
-            <!-- logo -->
-            <a href="#" class="w-32 sm:w-auto">
-                <img src="/image/smal-dimonds.png" alt="arkenmusic" class="w-full h-full">
-            </a>
+        <div class="flex flex-row-reverse gap-2 items-center w-64 sm:w-auto">
             <!-- avatar -->
             <a href="#" class=" w-9">
                 <img src="/image/avatar.jpg" class="h-full w-full rounded-full" alt="avatar" />
             </a>
-            <!-- rtl -->
-            <div x-data="handleDirection" class="handle_direction">
-                <div x-on:click="makeRtl()" x-cloak
-                     class="flex-center rtl_flag w-8 h-8 rounded-full hover:shadow-lg hover:cursor-pointer custom-transition">
-                    <img src="/image/rtl.jpg" alt="rtl" class="w-5 h-5 rounded-full" />
-                </div>
-                <div x-on:click="makeLtr()" x-cloak
-                     class="flex-center ltr_flag w-8 h-5 rounded-full hover:shadow-lg hover:cursor-pointer custom-transition">
-                    <img src="/image/ltr.jpg" alt="rtl" class="w-5 h-5 rounded-full" />
-                </div>
-            </div>
             <!-- dark mod -->
             <div x-data="darkMod"
                  class="flex-center w-10 h-10 rounded-full handle_darkmod hover:shadow-lg hover:cursor-pointer custom-transition">
@@ -356,8 +306,14 @@
          x-transition:leave="transition-all ease-in duration-300" x-transition:leave-start="left-0 right-0"
          x-transition:leave-end="-left-96 rtl:-right-96">
         <div class="p-4 flex flex-col text-sm font-medium title-color gap-4">
+            {{-- icon site --}}
+                <div class="w-full h-16 border-b border-gray-300">
+                    <a href="/">
+                        <img src="/image/smal-dimonds.png" alt="arkenmusic" class="w-full h-full">
+                    </a>
+                </div>
             <!-- home -->
-            <a href="#">خانه</a>
+            <a href="/">خانه</a>
             <!-- persian music -->
             <div class="flex flex-col">
                 <div x-on:click="firstMenu(2)" class="flex flex-col">
@@ -375,29 +331,30 @@
                 <div class="pl-4 rtl:pl-0 rtl:pr-4 transition-all overflow-hidden"
                      x-bind:class="menuTab==2 ? 'max-h-96': 'max-h-0'">
                     <div class="flex flex-col gap-4 pt-4">
-                        <a href="#">رپ</a>
-                        <div class="flex flex-col">
+                        @foreach($styles as $style)
+                            <div class="flex flex-col">
                             <div class="flex items-center justify-between" x-on:click="menuChild(1)">
-                                <span>پاپ</span>
-                                <svg xmlns="http://www.w3.org/2000/svg"
-                                     x-bind:class="menuTabChild==1 ? 'rotate-90 rtl:rotate-90' : 'rtl:rotate-180'"
-                                     class="h-5  transition-all w-5" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                          clip-rule="evenodd" />
-                                </svg>
+                                <span>{{$style->title}}</span>
+                                @if($style->has_artists)
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                         x-bind:class="menuTabChild==1 ? 'rotate-90 rtl:rotate-90' : 'rtl:rotate-180'"
+                                         class="h-5  transition-all w-5" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                              clip-rule="evenodd" />
+                                    </svg>
+                                @endif
                             </div>
                             <div class="pl-9 rtl:pl-0 rtl:pr-9 overflow-hidden transition-all"
                                  x-bind:class="menuTabChild==1 ? 'max-h-96' : 'max-h-0'">
                                 <div class="flex flex-col gap-4 pt-4">
-                                    <a href="#">مهدي احمدوند</a>
-                                    <a href="#">ميثم ابراهيمي</a>
-                                    <a href="#">مسعود جهاني</a>
+                                    @foreach($style->artists as $artist)
+                                        <a href="#">{{$artist->name}}</a>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                        <a href="#">سنتي</a>
-                        <a href="#">شاد</a>
+                        @endforeach
                     </div>
                 </div>
             </div>
