@@ -10,7 +10,7 @@
     <title>arkenmusic</title>
 </head>
 
-<body dir="rtl" class="bg-[#f2f2f2] dark:bg-dark-600">
+<body class="bg-[#f2f2f2] dark:bg-dark-600">
     <!-- navbar start -->
     @include('client.layout.header')
     {{--  main  --}}

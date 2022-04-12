@@ -11,7 +11,7 @@
                     <div class="swiper rtl:text-ltr top_swiper w-full h-full rounded-2xl mb-4 ">
                         <div class="swiper-wrapper">
                             @foreach($topSwipers as $topSwiper)
-                                <a href="#" class="swiper-slide">
+                                <a href="{{route('single.music', $topSwiper->slug)}}" class="swiper-slide">
                                     <img src="{{'/storage/'.$topSwiper->image}}" title="{{$topSwiper->title}}" class="w-full h-full" alt="{{$topSwiper->title}}">
                                 </a>
                             @endforeach
@@ -25,8 +25,8 @@
             <div class="col-span-1">
                 <div class="grid grid-cols-2 sm:grid-cols-1 gap-4">
                     @foreach($leftSwipers as $leftSwiper)
-                        <a href="#" class="aspect-video rounded-2xl overflow-hidden">
-                            <img src="{{'/storage/'.$leftSwiper->image}}" alt="{{$leftSwiper->name}}" title="{{$leftSwiper->name}}" class="w-full h-full">
+                        <a href="{{route('single.music', $leftSwiper->slug)}}" class="aspect-video rounded-2xl overflow-hidden">
+                            <img src="{{'/storage/'.$leftSwiper->image}}" alt="{{$leftSwiper->title}}" title="{{$leftSwiper->title}}" class="w-full h-full">
                         </a>
                     @endforeach
                 </div>
@@ -77,7 +77,7 @@
                                         <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">
                                             {{$suggest->description}} </h3>
                                     </div>
-                                    <a href="#"
+                                    <a href="{{route('single.music', $suggest->slug)}}"
                                        class="flex-center rtl:flex-row-reverse title-color hover:bg-indigo-700 hover:text-white transition-colors ease-in duration-300 gap-2 h-10 w-full border rounded-2xl border-style">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viex="0 0 24 24"
                                              stroke="currentColor" stroke-width="2">
@@ -110,7 +110,7 @@
                         </div>
                         <div
                                 class="absolute flex-center bg-gray-900 bg-opacity-50 inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-150 ease-in">
-                            <a href="#"
+                            <a href="{{route('single.music', $visit->slug)}}"
                                class="flex px-4 py-2 rounded-2xl bg-purple-700 dark:bg-indigo-500 text-white text-base font-medium">ادامه
                                 مطلب</a>
                         </div>
@@ -122,7 +122,7 @@
                             <h3 class="title-color font-medium text-xs text-center leading-6 rtl line-clamp-2">.
                                 {{$visit->description}}</h3>
                         </div>
-                        <a href="#" class="flex dark:text-indigo-400 text-purple-700 text-sm font-medium">ادامه
+                        <a href="{{route('single.music', $visit->slug)}}" class="flex dark:text-indigo-400 text-purple-700 text-sm font-medium">ادامه
                             مطلب...</a>
                     </div>
                 </div>

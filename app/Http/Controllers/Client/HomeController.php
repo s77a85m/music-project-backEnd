@@ -13,7 +13,7 @@ class HomeController extends Controller
     public function index()
     {
         $topSwiper=Music::query()->inRandomOrder()->limit(3)->get();
-        $leftSwiper=Artist::query()->inRandomOrder()->limit(2)->get();
+        $leftSwiper=Music::query()->inRandomOrder()->limit(2)->get();
         $suggest=Music::query()->orderByDesc('is_publish')->limit(7)->get();
         $visited=Music::query()->orderByDesc('count_view')->limit(8)->get();
 

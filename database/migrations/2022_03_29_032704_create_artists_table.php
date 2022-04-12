@@ -18,7 +18,6 @@ return new class extends Migration
             $table->foreignId('style_id')->constrained();
             $table->string('slug')->unique();
             $table->string('name');
-            $table->string('image');
             $table->timestamps();
         });
     }

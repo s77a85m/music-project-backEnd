@@ -13,7 +13,7 @@
         </div>
         <!-- edit form -->
         <div class="bg-white rounded-md shadow-md p-4 w-full h-auto">
-            <form dir="rtl" action="{{route('update.artist', $artist->slug)}}" enctype="multipart/form-data" method="post" class="w-full gap-3 flex flex-col md:grid md:grid-cols-2 h-auto  ">
+            <form dir="rtl" action="{{route('update.artist', $artist->slug)}}" enctype="multipart/form-data" method="post" class="w-full gap-3 flex flex-col md:grid md:grid-cols-1 h-auto  ">
                 @csrf
                 @method('PATCH')
                 <!-- part1 form -->
@@ -28,19 +28,6 @@
                             >{{$style->title}}</option>
                         @endforeach
                     </select>
-                </div>
-                <!-- part2 form-->
-                <div class="flex flex-col justify-center gap-3 items-center">
-                    <div class="w-40">
-                        <img src="{{'/storage/'.$artist->image}}" alt="{{$artist->name}}" class="w-full h-full rounded-md">
-                    </div>
-                    <input type="file" id="image" name="image" value="انتخاب تصوير" class="absolute invisible">
-                    <label for="image" class="text-xs text-white font-normal cursor-pointer rounded-md p-2 flex-center bg-purple-500 ">
-                        <span>انتخاب تصوير جديد</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                        </svg>
-                    </label>
                 </div>
                 <!-- btn -->
                 <div class="col-span-2 flex-center">

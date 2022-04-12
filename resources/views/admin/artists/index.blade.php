@@ -64,14 +64,6 @@
                         <option value="{{$style->id}}">{{$style->title}}</option>
                     @endforeach
                 </select>
-                <!-- img -->
-                <input type="file" id="image" name="image"  value="انتخاب تصوير براي خواننده" class="absolute invisible">
-                <label for="image" class="text-xs text-white font-normal rounded-md p-2 flex-center bg-purple-500 ">
-                    <span>انتخاب تصوير</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                    </svg>
-                </label>
                 <!-- button -->
                 <div class="flex w-full p-2 gap-3">
                     <input type="submit" value="ثبت" class="bg-green-500 w-full text-xs font-normal text-white rounded-md p-2">
@@ -85,7 +77,6 @@
                 <thead>
                 <tr class="text-xs">
                     <th class=" p-2  text-right">#</th>
-                    <th class=" p-2  text-right">تصوير</th>
                     <th class=" p-2  text-right">نام</th>
                     <th class=" p-2  text-right">سبك موسيقي</th>
                     <th class=" p-2  text-right">اقدامات</th>
@@ -95,11 +86,6 @@
                 @foreach($artists as $artist)
                     <tr class="text-xs odd:bg-white even:bg-gray-100">
                     <td class="p-2  ">{{$artist->id}}</td>
-                    <td class="p-2">
-                        <div class="h-8 w-8 rounded-full overflow-hidden">
-                            <img src="{{'storage/'. $artist->image}}" alt="{{$artist->name}}" class="w-full h-full">
-                        </div>
-                    </td>
                     <td class="p-2  ">{{$artist->name}}</td>
                     <td class="p-2  ">{{$artist->style->title}}</td>
                     <td class="p-2 flex gap-2">

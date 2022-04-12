@@ -28,11 +28,10 @@ class ArtistController extends Controller
     }
 
     public function store(NewArtistRequest $request){
-        $path=$request->file('image')->store('/admin/artists' , 'privat' );
-        $artist=Artist::query()->create([
+
+        Artist::query()->create([
             'style_id'=>$request->get('style'),
             'name'=>$request->get('name'),
-            'image'=>$path
         ]);
         return redirect(route('list.artists'));
     }
@@ -48,25 +47,17 @@ class ArtistController extends Controller
 
     public function update(UpdateArtistRequest $request, Artist $slug)
     {
-        if ($request->hasFile('image')){
-            $image=$request->file('image');
-            Storage::disk('privat')->delete($slug->image);
-            $path=$image->store('/admin/artists', 'privat');
-        }else{
-            $path=$slug->image;
-        }
+
         $slug->slug=null;
         $slug->update([
             'name'=>$request->get('name'),
             'style_id'=>$request->get('style'),
-            'image'=>$path
         ]);
         return redirect(route('list.artists'));
     }
 
     public function destroy(Artist $slug)
     {
-        Storage::disk('privat')->delete($slug->image);
         $slug->delete();
         return redirect(route('list.artists'));
     }

@@ -9,47 +9,14 @@
             <div class="mb-4 relative top_swiper_singles">
                 <div class="swiper top_swiper_single px-3">
                     <div class="swiper-wrapper flex sliders">
-                        <div class="swiper-slide slider  w-full shadow-lg rounded-lg overflow-hidden"
+                        @foreach($topMusics as $topMusic)
+                            <div class="swiper-slide slider  w-full shadow-lg rounded-lg overflow-hidden"
                              style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider1.jpg" alt="slider1" class="hover:scale-105 duration-300">
+                            <a href="{{route('single.music', $topMusic->slug)}}" class="aspect-square">
+                                <img src="{{'/storage/'. $topMusic->image}}" alt="{{$topMusic->title}}" title="{{$topMusic->title}}" class="hover:scale-105 duration-300">
                             </a>
                         </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider2.jpg" alt="slider2" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider3.jpg" alt="slider3" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider1.jpg" alt="slider1" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider2.jpg" alt="slider2" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider3.jpg" alt="slider3" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider1.jpg" alt="slider1" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
-                        <div class="swiper-slide w-full shadow-lg rounded-lg overflow-hidden" style="width: 6rem;">
-                            <a href="#" class="aspect-square">
-                                <img src="/image/slider2.jpg" alt="slider2" class="hover:scale-105 duration-300">
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="swiper-button-next swiper_top_next absolute"></div>
@@ -75,8 +42,9 @@
                     <div class="p-4">
                         <div
                                 class="flex flex-col m-2 gap-4 items-end title-color text-sm font-medium  border-r border-style">
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
+                            @foreach($relStyles as $relStyle)
+                                <a href="{{route('single.music', $relStyle->slug)}}" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
+                                <span>{{$relStyle->title}} - {{$relStyle->artist->name}}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
                                      viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -84,177 +52,7 @@
                                           clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>دلتنگي-مهديجهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>دلتنگي-مهديجهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>دلتنگي-مهديجهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>دلتنگي-مهديجهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>قول ميدم-محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>فندكتبدار-محسن چاوشي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -266,8 +64,8 @@
                             class="w-full h-auto border border-style rounded-lg flex flex-col  items-end gap-3 shadow-md p-3 bg-gray-400 dark:bg-dark-800">
                         <!-- artist title -->
                         <div class="flex">
-                            <span class="text-sm font-normal title-color">آهنگ <span class="text-red-500">عشق اول
-                                </span>از <a href="#" class="text-blue-500">مهدي احمدوند</a></span>
+                            <span class="text-sm font-normal title-color">آهنگ <span class="text-red-500">{{$music->title}}
+                                </span>از <a href="#" class="text-blue-500">{{$music->artist->name}}</a></span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 title-color w-5" viewBox="0 0 20 20"
                                  fill="currentColor">
                                 <path
@@ -278,7 +76,7 @@
                         <div class="flex gap-2">
                             <div
                                     class="w-auto p-2 gap-1 dark:bg-dark-700 h-8 flex-center rounded-md text-sm font-medium title-color bg-gray-200 flex">
-                                <span>23 نظر</span>
+                                <span>{{$music->comments()->count()}} نظر</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
                                      fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -288,7 +86,7 @@
                             </div>
                             <div
                                     class="w-auto p-2 h-8 gap-1 dark:bg-dark-700 flex-center rounded-md text-sm font-medium title-color bg-gray-200 flex">
-                                <span>فروردين 1401</span>
+                                <span>{{\Morilog\Jalali\Jalalian::forge($music->is_publish)->format('%B ، %Y')}}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20"
                                      fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -300,58 +98,54 @@
                     </div>
                     <!-- image -->
                     <div class="aspect-video overflow-hidden rounded-lg">
-                        <img src="/image/slider1.jpg" alt="slider1" class="w-full h-full">
+                        <img src="{{'/storage/'.$music->image}}" alt="{{'/storage/'.$music->title}}" title="{{'/storage/'.$music->title}}" class="w-full h-full">
                     </div>
                     <!-- title-text -->
                     <div
                             class="w-full h-auto border border-style rounded-lg flex flex-col items-center justify-center shadow-md p-2">
                         <span class="text-sm font-bold title-color">متن موسيقي</span>
-                        <p class="pt-4 leading-loose text-xs font-medium text-center title-color">لورم ایپسوم متن ساختگی
-                            با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
-                            روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-                            کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته
-                            حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
-                            طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت
-                            می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و
-                            زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی
-                            اساسا مورد استفاده قرار گیرد.</p>
+                        <p class="pt-4 leading-loose text-xs font-medium text-center title-color">{{$music->description}}</p>
                     </div>
                     <!-- download -->
                     <span class="text-sm font-medium text-right title-color">:دانلود</span>
                     <div class="flex flex-col items-center gap-3">
-                        <div
-                                class="w-5/6 h-8 border border-styel rounded-2xl dark:bg-green-500 bg-green-500 hover:shadow-md transition-all duration-300 ">
-                            <a href="http://dl.tabamusic.com/Music/1399/12/Hojat Ashrafzadeh & Reza Rashidpour - Baran Bebarad (128).mp3"
-                               download="baran.mp3"
-                               class="flex h-full flex-center w-full text-gray-500 dark:text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                                <span class="text-sm font-bold">كيفيت 320</span>
-                            </a>
-                        </div>
-                        <div
-                                class="w-5/6 h-8 border border-styel rounded-2xl bg-green-500 hover:shadow-md transition-all duration-300">
-                            <a href="http://dl.tabamusic.com/Music/1399/12/Hojat Ashrafzadeh & Reza Rashidpour - Baran Bebarad (128).mp3"
-                               download="baran.mp3"
-                               class="flex h-full flex-center w-full text-gray-500 dark:text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                                     stroke="currentColor" stroke-width="2">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                          d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                                <span class="text-sm font-bold">كيفيت 128</span>
-                            </a>
-                        </div>
+                        @if($music->mp3_320 != null)
+                            <div
+                                    class="w-5/6 h-8 border border-styel rounded-2xl dark:bg-green-500 bg-green-500 hover:shadow-md transition-all duration-300 ">
+                                <a href="{{$music->mp3_320}}"
+                                   download="{{$music->slug}}.mp3"
+                                   class="flex h-full flex-center w-full text-gray-500 dark:text-gray-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    <span class="text-sm font-bold">كيفيت 320</span>
+                                </a>
+                            </div>
+                        @endif
+                        @if($music->mp3_128 != null)
+                            <div
+                                    class="w-5/6 h-8 border border-styel rounded-2xl bg-green-500 hover:shadow-md transition-all duration-300">
+                                <a href="{{$music->mp3_128}}"
+                                   download="{{$music->slug}}.mp3"
+                                   class="flex h-full flex-center w-full text-gray-500 dark:text-gray-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
+                                         stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                    </svg>
+                                    <span class="text-sm font-bold">كيفيت 128</span>
+                                </a>
+                            </div>
+                        @endif
                     </div>
                     <!-- play -->
                     <span class="text-sm font-medium text-right title-color">:پخش آنلاين</span>
                     <div class="flex justify-center">
                         <audio controls name="baran">
                             <source type="audio/mpeg"
-                                    src="../mp3/Hojat Ashrafzadeh & Reza Rashidpour - Baran Bebarad.mp3">
+                                    src="{{$music->mp3_320}}">
                         </audio>
                     </div>
                     <!-- add to favorites -->
@@ -382,8 +176,9 @@
                     <div class="p-4">
                         <div
                                 class="flex flex-col m-2 gap-4 items-end title-color text-sm font-medium  border-r border-style">
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>محسن يگانه</span>
+                            @foreach($relArtists as $relArtist)
+                                <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
+                                <span>{{$relArtist->name}}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
                                      viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -391,177 +186,7 @@
                                           clip-rule="evenodd" />
                                 </svg>
                             </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>مهدي جهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>محسن يگانه</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>مهدي جهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>ناصرپوركرم</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>علي لهراسبي</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>مهدي جهاني</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
-                            <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>ناصرپوركرم</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
-                                     viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd"
-                                          d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z"
-                                          clip-rule="evenodd" />
-                                </svg>
-                            </a>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -669,88 +294,53 @@
                 <!-- comments -->
                 <div class="flex flex-col w-full gap-3 h-auto">
                     <!-- comment-1 -->
-                    <div
+                    @foreach($music->comments as $comment)
+                        <div
                             class="flex dark:bg-dark-700 shadow-md bg-gray-200 flex-row-reverse gap-3 h-auto w-full border border-style rounded-md p-4">
                         <!-- img -->
                         <div class="w-24 h-24">
-                            <img src="/image/avatar.jpg" alt="avatar" class="w-full rounded-full">
+                            <img src="/image/user.jpg" alt="avatar" class="w-full rounded-full">
                         </div>
                         <div class="flex gap-3 flex-col lg:justify-center w-full h-auto">
                             <!-- name and date -->
                             <div class="flex flex-row-reverse gap-3 text-sm font-bold title-color">
-                                <span>سيدعلي موسوي</span>
-                                <span>1400/12/3</span>
+                                <span>{{$comment->user->name}}</span>
+                                <span>{{\Morilog\Jalali\Jalalian::forge($comment->created_at)->ago()}}</span>
                             </div>
                             <!-- text -->
                             <div class="text-xs font-normal text-right w-auto title-color">
-                                <p> از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون، و برای شرایط فعلی
-                                    تکنولوژی مورد</p>
+                                <p>{{$comment->content}}</p>
                             </div>
                         </div>
                     </div>
-                    <!-- comment-2 -->
-                    <div
-                            class="flex dark:bg-dark-700 shadow-md bg-gray-200 flex-row-reverse gap-3 h-auto w-full border border-style rounded-md p-4">
-                        <!-- img -->
-                        <div class="w-24 h-24">
-                            <img src="/image/avatar.jpg" alt="avatar" class="w-full rounded-full">
-                        </div>
-                        <div class="flex lg:justify-center gap-3 flex-col w-full h-auto">
-                            <!-- name and date -->
-                            <div class="flex flex-row-reverse gap-3 text-sm font-bold title-color">
-                                <span>سيدعلي موسوي</span>
-                                <span>1400/12/3</span>
-                            </div>
-                            <!-- text -->
-                            <div class="text-xs font-normal text-right w-auto title-color">
-                                <p> از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                                    است و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- comment-3 -->
-                    <div
-                            class="flex dark:bg-dark-700 shadow-md bg-gray-200 flex-row-reverse gap-3 h-auto w-full border border-style rounded-md p-4">
-                        <!-- img -->
-                        <div class="w-24 h-24">
-                            <img src="/image/avatar.jpg" alt="avatar" class="w-full rounded-full">
-                        </div>
-                        <div class="flex lg:justify-center gap-3 flex-col w-full h-auto">
-                            <!-- name and date -->
-                            <div class="flex flex-row-reverse gap-3 text-sm font-bold title-color">
-                                <span>سيدعلي موسوي</span>
-                                <span>1400/12/3</span>
-                            </div>
-                            <!-- text -->
-                            <div class="text-xs font-normal text-right w-auto title-color">
-                                <p> از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                                    است، و برای شرایط فعلی تکنولوژی مورد</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- comment-4 -->
-                    <div
-                            class="flex dark:bg-dark-700 shadow-md bg-gray-200 flex-row-reverse gap-3 h-auto w-full border border-style rounded-md p-4">
-                        <!-- img -->
-                        <div class="w-24 h-24">
-                            <img src="/image/avatar.jpg" alt="avatar" class="w-full rounded-full">
-                        </div>
-                        <div class="flex lg:justify-center gap-3 flex-col w-full h-auto">
-                            <!-- name and date -->
-                            <div class="flex flex-row-reverse gap-3 text-sm font-bold title-color">
-                                <span>سيدعلي موسوي</span>
-                                <span>1400/12/3</span>
-                            </div>
-                            <!-- text -->
-                            <div class="text-xs font-normal text-right w-auto title-color">
-                                <p> از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم
-                                    است، و برای شرایط فعلی تکنولوژی مورد</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
     </main>
 
+@endsection
+
+@section('script')
+    <script>
+        var top_swiper_single = new Swiper(".top_swiper_single", {
+            slidesPerView: 3,
+            spaceBetween: 16,
+            breakpoints: {
+                640: {
+                    slidesPerView: 4,
+                },
+                760: {
+                    slidesPerView: 5,
+                },
+                1080: {
+                    slidesPerView: 6,
+                }
+            },
+            navigation: {
+                nextEl: ".swiper_top_next",
+                prevEl: ".swiper_top_prev",
+            }
+        });
+    </script>
 @endsection

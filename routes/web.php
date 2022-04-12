@@ -73,3 +73,7 @@ Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(f
 Route::controller(\App\Http\Controllers\Client\HomeController::class)->group(function (){
     Route::get('/', 'index')->name('home');
 });
+// Single Music
+Route::controller(\App\Http\Controllers\Client\SingleMusicController::class)->group(function (){
+    Route::get('/music/{slug}', 'show')->name('single.music');
+});

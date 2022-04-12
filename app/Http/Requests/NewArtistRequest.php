@@ -26,7 +26,6 @@ class NewArtistRequest extends FormRequest
         return [
             'name'=>['required',],
             'style'=>['required', 'exists:styles,id'],
-            'image'=>['required', 'mimes:jpg,png,mpeg']
         ];
     }
 
