@@ -168,6 +168,8 @@
             <a href="#" class=" w-9">
                 <img src="/image/avatar.jpg" class="h-full w-full rounded-full" alt="avatar" />
             </a>
+            <!-- login-regester -->
+            <button class="h-7 border border-gray-500 px-2 bg-gradient-to-r from-gray-900 via-gray-500 to-gray-900 rounded hover:shadow-md transition-all text-gray-300 font-normal text-xs">ورود/ثبت نام</button>
             <!-- dark mod -->
             <div x-data="darkMod"
                  class="flex-center w-10 h-10 rounded-full handle_darkmod hover:shadow-lg hover:cursor-pointer custom-transition">
