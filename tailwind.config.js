@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
@@ -6,6 +7,10 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    screens: {
+      'xs': '360px',
+      ...defaultTheme.screens,
+    },
     backgroundPosition: {
       'left-center': 'left 0.5rem center'
     },

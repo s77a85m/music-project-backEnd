@@ -77,3 +77,9 @@ Route::controller(\App\Http\Controllers\Client\HomeController::class)->group(fun
 Route::controller(\App\Http\Controllers\Client\SingleMusicController::class)->group(function (){
     Route::get('/music/{slug}', 'show')->name('single.music');
 });
+// Register
+Route::controller(\App\Http\Controllers\Client\RegisterController::class)->group(function (){
+    Route::post('/register', 'store')->name('register');
+    Route::delete('/logout', 'destroy')->name('logout');
+    Route::post('/login', 'create')->name('login');
+});

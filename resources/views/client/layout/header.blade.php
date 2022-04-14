@@ -163,13 +163,104 @@
             </ul>
         </div>
         <!-- darkmod, direction, pro img -->
-        <div class="flex flex-row-reverse gap-2 items-center w-64 sm:w-auto">
+        <div class="flex flex-row-reverse gap-2 items-center w-64 sm:w-auto" x-data="registerMenu">
+            @auth
             <!-- avatar -->
-            <a href="#" class=" w-9">
-                <img src="/image/avatar.jpg" class="h-full w-full rounded-full" alt="avatar" />
-            </a>
+                <div x-data="dashbord" class="relative w-9" x-on:click.away="showDash=false">
+                    <img src="/image/user.jpg" title="{{auth()->user()->name}}" alt="{{auth()->user()->name}}" x-on:click="showDash = !showDash" class="h-full w-full cursor-pointer rounded-full" />
+                    <div x-cloak x-bind:class="showDash ? 'max-h-96 border border-gray-400' : 'max-h-0' "  class="absolute transition-all  duration-300 sm:w-36 w-32 bg-gray-200 dark:bg-dark-700 right-0 z-20 overflow-hidden rounded-lg flex flex-col">
+                        <a href="#" class="w-full py-2 flex gap-2 items-center transition-colors duration-300 justify-center cursor-pointer border-b dark:border-gray-600 border-gray-400 hover:dark:bg-gray-600 hover:text-blue-500 hover:bg-gray-300 text-xs font-medium text-gray-500 dark:text-gray-200">
+                            <span>داشبورد</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggles2" viewBox="0 0 16 16">
+                                <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z"/>
+                                <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z"/>
+                                <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="w-full py-2 flex items-center transition-colors hover:text-blue-500 duration-300 justify-center cursor-pointer border-b dark:border-gray-600 border-gray-400 hover:dark:bg-gray-600 hover:bg-gray-300 text-xs font-medium text-gray-500 dark:text-gray-200">
+                            <span>داشبورد</span>
+                        </a>
+                        <form action="{{route('logout')}}" method="post">
+                            @csrf
+                            @method("DELETE")
+                            <button class="w-full py-2 flex gap-2 items-center transition-colors duration-300 justify-center cursor-pointer hover:dark:bg-gray-600 hover:bg-gray-300 text-xs font-medium text-red-500 dark:text-red-500">
+                                <span>خروج</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            @else
             <!-- login-regester -->
-            <button class="h-7 border border-gray-500 px-2 bg-gradient-to-r from-gray-900 via-gray-500 to-gray-900 rounded hover:shadow-md transition-all text-gray-300 font-normal text-xs">ورود/ثبت نام</button>
+            <button  x-on:click="openLayer()" class="h-7 border border-gray-500 px-2 bg-gradient-to-r from-gray-900 via-gray-500 to-gray-900 rounded hover:shadow-md transition-all text-gray-300 font-normal text-sm">ورود/ثبت نام</button>
+            @endauth
+                <!-- register layer -->
+            <div x-show="openRegister" x-cloak
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0"
+                 x-transition:enter-end="opacity-100 "
+                 x-transition:leave="transition ease-in duration-300"
+                 x-transition:leave-start="opacity-100 "
+                 x-transition:leave-end="opacity-0 " class="inset-0 backdrop-blur-sm fixed bg-opacity-50 px-3 bg-gray-900 z-20 flex flex-center">
+                <div x-on:click.away="closRegister()" class="w-full py-2 px-4 bg-gray-100 bg-opacity-30 border xs:w-10/12 sm:w-2/3 md:w-[430px] border-gray-200 rounded">
+                    <div class="w-full h-9 mb-3 flex items-center justify-end text-sm text-gray-100 font-normal gap-2">
+                        <button x-on:click="openLog" x-bind:class="{'border-b-2 border-blue-500' : registerTab==3}" class="px-2">ورود</button>
+                        <button x-on:click="openReg" x-bind:class="{'border-b-2 border-blue-500' : registerTab==2}" class="px-2">ثبت نام</button>
+                    </div>
+                    <form dir="rtl" x-cloak x-show="registerTab==2" action="{{route('register')}}" method="post" class="w-full">
+                        @csrf
+                        <!-- name -->
+                        <label for="name" class="text-xs text-gray-100 font-medium">نام</label>
+                        <div class="relative">
+                            <input type="text" name="name" id="name" autocomplete="off" class="py-2 flex items-center px-6 text-sm shadow-inner bg-gray-200 rounded-2xl h-8 w-full border border-green-300 focus:ring-0 focus:border-green-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-green-400 absolute top-1.5 right-1 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- email -->
+                        <label for="email" class="text-xs text-gray-100 font-medium">ايميل</label>
+                        <div class="relative">
+                            <input type="email" name="email" id="email" autocomplete="off" class="py-2 flex items-center text-sm px-6 shadow-inner bg-gray-200 rounded-2xl h-8 w-full border border-green-300 focus:ring-0 focus:border-green-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-green-400 absolute top-1.5 right-1 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- password -->
+                        <label for="pass" class="text-xs text-gray-100 font-medium">رمز عبور</label>
+                        <div class="relative">
+                            <input type="text" name="password" id="pass" autocomplete="off" class="py-2 flex items-center text-sm px-6 shadow-inner bg-gray-200 rounded-2xl h-8 w-full border border-green-300 focus:ring-0 focus:border-green-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-green-400 absolute top-1.5 right-1 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- btn -->
+                        <button class="w-full rounded-2xl mb-3 h-8 text-sm font-normal mt-5 text-white bg-green-500">ثبت نام</button>
+                    </form>
+                    <form dir="rtl" x-cloak x-show="registerTab==3" method="post" action="{{route('login')}}" class="w-full">
+                        @csrf
+                        <!-- email -->
+                        <label for="email" class="text-xs text-gray-100 font-medium">ايميل</label>
+                        <div class="relative">
+                            <input type="email" name="email" id="email" autocomplete="off" class="py-2 flex items-center text-sm px-6 shadow-inner bg-gray-200 rounded-2xl h-8 w-full border border-blue-300 focus:ring-0 focus:border-blue-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-blue-400 absolute top-1.5 right-1 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- password -->
+                        <label for="password" class="text-xs text-gray-100 font-medium">رمز عبور</label>
+                        <div class="relative">
+                            <input type="text" name="password" id="password" autocomplete="off" class="py-2 flex items-center text-sm px-6 shadow-inner bg-gray-200 rounded-2xl h-8 w-full border border-blue-300 focus:ring-0 focus:border-blue-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 text-blue-400 absolute top-1.5 right-1 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <!-- btn -->
+                        <button class="w-full rounded-2xl mb-3 h-8 text-sm font-normal mt-5 text-white bg-blue-500">ورود</button>
+                    </form>
+                </div>
+            </div>
             <!-- dark mod -->
             <div x-data="darkMod"
                  class="flex-center w-10 h-10 rounded-full handle_darkmod hover:shadow-lg hover:cursor-pointer custom-transition">

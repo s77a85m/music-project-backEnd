@@ -97,6 +97,31 @@
                 }
             }
         }
+        function registerMenu() {
+            return {
+                registerTab: 3,
+                openRegister: false,
+                openLayer() {
+                    this.openRegister=true;
+                    document.body.classList.add('scroll_fixed')
+                },
+                openLog() {
+                    this.registerTab=3
+                },
+                openReg() {
+                    this.registerTab=2
+                },
+                closRegister() {
+                    this.openRegister=false
+                    document.body.classList.remove('scroll_fixed')
+                }
+            }
+        }
+        function dashbord() {
+            return {
+                showDash: false,
+            }
+        }
         if (localStorage.getItem('mode') === 'dark') {
             document.documentElement.classList.add('dark')
             document.querySelector('.handle_darkmod').classList.add('darkMod')
