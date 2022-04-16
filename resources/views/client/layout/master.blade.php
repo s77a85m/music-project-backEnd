@@ -133,6 +133,24 @@
         // if (localStorage.getItem('dir') === 'rtl') {
         //     document.querySelector('.handle_direction').classList.add('rtl')
         // }
+
+        let errorBg=document.querySelector('#errorBg');
+        let errorProcess=document.querySelector('#errorProcess');
+        let errorContent=document.querySelector('#errorContent');
+        let process=100;
+        errorProcess.style.width=`${process}%`
+        let progress=setInterval(()=>{
+            process -= 1
+            errorProcess.style.width=`${process}%`
+            if (process===0){
+                errorBg.classList.remove("right-0");
+                errorBg.classList.add("-right-[500px]");
+                clearInterval(progress);
+            }
+        },30);
+        process=100;
+
+
     </script>
     @yield('script')
 </body>

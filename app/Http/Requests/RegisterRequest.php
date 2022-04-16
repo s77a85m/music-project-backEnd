@@ -29,4 +29,15 @@ class RegisterRequest extends FormRequest
             'password'=>['required', 'min:8'],
         ];
     }
+    public function messages()
+    {
+        return [
+            'name.required'=>'يك نام انتخاب كنيد',
+            'email.required'=>'يك ايميل وارد كنيد',
+            'email.unique'=>'اين ايميل قبلا استفاده شده است',
+            'email.email'=>'ايميل صحيح وارد كنيد',
+            'password.required'=>'يك پسورد انتخاب كنيد',
+            'password.min'=>'حداقل طول كاراكتر پسورد 8',
+        ];
+    }
 }

@@ -162,7 +162,20 @@
                 </li>
             </ul>
         </div>
-        <!-- darkmod, direction, pro img -->
+        {{-- error --}}
+        @if($errors->any())
+            <div id="errorBg" class="w-full flex z-30 fixed transition-all duration-200 bottom-0 right-0 mt-2 flex-col items-end h-auto">
+                    <div class="rounded-md flex overflow-hidden items-end z-10 flex-col md:w-1/2 w-full h-auto lg:w-1/3  bg-red-400 ">
+                        @foreach($errors->all() as $error)
+                            <li dir="rtl" id="errorContent" class=" list-disc border-t border-gray-200 w-full px-3 text-xs text-right flex items-center text-gray-100 h-8 ">
+                                {{$error}}
+                            </li>
+                        @endforeach
+                        <div id="errorProcess" class=" h-1 bg-gray-200"></div>
+                    </div>
+            </div>
+        @endif
+    <!-- darkmod, direction, pro img -->
         <div class="flex flex-row-reverse gap-2 items-center w-64 sm:w-auto" x-data="registerMenu">
             @auth
             <!-- avatar -->

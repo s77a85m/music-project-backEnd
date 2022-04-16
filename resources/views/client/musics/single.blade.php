@@ -98,7 +98,7 @@
                     </div>
                     <!-- image -->
                     <div class="aspect-video overflow-hidden rounded-lg">
-                        <img src="{{'/storage/'.$music->image}}" alt="{{'/storage/'.$music->title}}" title="{{'/storage/'.$music->title}}" class="w-full h-full">
+                        <img src="{{'/storage/'.$music->image}}" alt="{{$music->title}}" title="{{$music->title}}" class="w-full h-full">
                     </div>
                     <!-- title-text -->
                     <div
@@ -260,15 +260,7 @@
                 </div>
             </div>
             <!-- comment -->
-            @if($errors->any())
-                <div class="w-full flex mt-2 flex-col items-end h-auto">
-                    @foreach($errors->all() as $error)
-                        <li dir="rtl" class="bg-red-300 w-full bg-opacity-70 md:w-1/2 px-3 lg:w-1/3 text-xs text-right flex items-center text-gray-100 border border-red-700 h-8 rounded-md">
-                            {{$error}}
-                        </li>
-                    @endforeach
-                </div>
-            @endif
+
             <form action="{{route('create.comment', $music->slug)}}" method="post" class="flex flex-col gap-2 lg:mt-3 mb-3 ">
                 @csrf
                 <span class="text-right title-color text-sm font-bold">ثبت نظر</span>

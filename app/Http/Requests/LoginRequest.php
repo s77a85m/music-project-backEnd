@@ -28,4 +28,14 @@ class LoginRequest extends FormRequest
             'password'=>['required', 'min:8']
         ];
     }
+    public function messages()
+    {
+        return [
+            'email.required'=>'ايميل را وارد كنيد',
+            'email.email'=>'يك ايميل صحيح وارد كنيد',
+            'email.exists'=>'نام كاربري يا رمز عبو اشتباه است',
+            'password.required'=>'پسورد خود را وارد كنيد',
+            'password.min'=>'حداقل تعداد كاراكتر پسورد8',
+        ];
+    }
 }

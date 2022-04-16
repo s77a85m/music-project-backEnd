@@ -916,6 +916,14 @@ select {
   right: -0.25rem;
 }
 
+.-right-96 {
+  right: -24rem;
+}
+
+.-right-\[500px\] {
+  right: -500px;
+}
+
 .z-10 {
   z-index: 10;
 }
@@ -1346,6 +1354,10 @@ select {
   list-style-type: none;
 }
 
+.list-disc {
+  list-style-type: disc;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
@@ -1746,16 +1758,12 @@ select {
   --tw-bg-opacity: 0.3;
 }
 
-.bg-opacity-90 {
-  --tw-bg-opacity: 0.9;
-}
-
-.bg-opacity-80 {
-  --tw-bg-opacity: 0.8;
-}
-
 .bg-opacity-70 {
   --tw-bg-opacity: 0.7;
+}
+
+.bg-opacity-90 {
+  --tw-bg-opacity: 0.9;
 }
 
 .bg-gradient-to-r {
@@ -1900,10 +1908,6 @@ select {
 
 .pl-9 {
   padding-left: 2.25rem;
-}
-
-.text-left {
-  text-align: left;
 }
 
 .text-center {
@@ -2431,36 +2435,6 @@ body {
 }
 .all_slider .all_swiper {
   padding-bottom: 1rem;
-}
-.placeholder\:text-left::-moz-placeholder {
-  text-align: left;
-}
-.placeholder\:text-left:-ms-input-placeholder {
-  text-align: left;
-}
-.placeholder\:text-left::placeholder {
-  text-align: left;
-}
-.placeholder\:text-right::-moz-placeholder {
-  text-align: right;
-}
-.placeholder\:text-right:-ms-input-placeholder {
-  text-align: right;
-}
-.placeholder\:text-right::placeholder {
-  text-align: right;
-}
-.placeholder\:text-red-200::-moz-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(254 202 202 / var(--tw-text-opacity));
-}
-.placeholder\:text-red-200:-ms-input-placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(254 202 202 / var(--tw-text-opacity));
-}
-.placeholder\:text-red-200::placeholder {
-  --tw-text-opacity: 1;
-  color: rgb(254 202 202 / var(--tw-text-opacity));
 }
 .odd\:bg-gray-200:nth-child(odd) {
   --tw-bg-opacity: 1;

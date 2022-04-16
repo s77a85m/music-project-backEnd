@@ -31,7 +31,7 @@ class CommentController extends Controller
             ],[
                 'name.*'=>'يك نام انتخاب كنيد',
                 'email.*'=>'يك ايميل انتخاب كنيد',
-                'content.*'=>'يك كامنت بنويسيد انتخاب كنيد',
+                'content.*'=>'يك كامنت بنويسيد',
             ]);
             $comment=Comment::query()->create([
                 'content'=>$request->get('content'),
