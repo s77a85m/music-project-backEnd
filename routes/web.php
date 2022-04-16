@@ -64,6 +64,7 @@ Route::controller(\App\Http\Controllers\Admin\UserController::class)->group(func
 // Comments
 Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(function (){
     Route::get('/comments', 'index')->name('list.comments');
+    Route::post('/comments/{slug}', 'store')->name('create.comment');
     Route::delete('/comments/delete/{comment}', 'destroy')->name('delete.comment');
 });
 

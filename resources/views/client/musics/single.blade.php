@@ -44,7 +44,7 @@
                                 class="flex flex-col m-2 gap-4 items-end title-color text-sm font-medium  border-r border-style">
                             @foreach($relStyles as $relStyle)
                                 <a href="{{route('single.music', $relStyle->slug)}}" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>{{$relStyle->title}} - {{$relStyle->artist->name}}</span>
+                                <span class="text-right">{{$relStyle->title}} - {{$relStyle->artist->name}}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
                                      viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -178,7 +178,7 @@
                                 class="flex flex-col m-2 gap-4 items-end title-color text-sm font-medium  border-r border-style">
                             @foreach($relArtists as $relArtist)
                                 <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
-                                <span>{{$relArtist->name}}</span>
+                                <span class="text-right">{{$relArtist->name}}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
                                      viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd"
@@ -260,24 +260,34 @@
                 </div>
             </div>
             <!-- comment -->
-            <div class="flex flex-col gap-2 lg:mt-3 mb-3 ">
+            @if($errors->any())
+                <div class="w-full flex mt-2 flex-col items-end h-auto">
+                    @foreach($errors->all() as $error)
+                        <li dir="rtl" class="bg-red-300 w-full bg-opacity-70 md:w-1/2 px-3 lg:w-1/3 text-xs text-right flex items-center text-gray-100 border border-red-700 h-8 rounded-md">
+                            {{$error}}
+                        </li>
+                    @endforeach
+                </div>
+            @endif
+            <form action="{{route('create.comment', $music->slug)}}" method="post" class="flex flex-col gap-2 lg:mt-3 mb-3 ">
+                @csrf
                 <span class="text-right title-color text-sm font-bold">ثبت نظر</span>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-8">
                     <!-- textarea -->
                     <div class="flex flex-col items-end md:col-span-1 ">
-                        <textarea name="" placeholder="...نظر خودرا بنويسيد" id="" cols="30" rows="10"
+                        <textarea dir="rtl" name="content" placeholder="نظر خودرا بنويسيد..." id="" cols="30" rows="10"
                                   class="w-full rounded-2xl text-right dark:bg-zinc-800 text-xs font-normal title-color focus:ring-0 resize-none ease-in-out border border-style focus:shadow-md transition-shadow dark:text-gray-400 focus:border-style h-40"></textarea>
                     </div>
                     <!-- button and email and name -->
                     <div class="md:col-span-1 flex flex-col md:pb-2 md:justify-between gap-2 md:gap-4">
                         <!-- name -->
                         <div class="flex flexitems-end">
-                            <input type="text" placeholder="نام"
+                            <input name="name" type="text" @auth value="{{auth()->user()->name}}" @endauth  placeholder="نام"
                                    class="w-full  rounded-2xl border text-right dark:bg-zinc-800 border-style text-xs font-normal title-color h-9 focus:ring-0 ease-in-out focus:shadow-md transition-shadow dark:text-gray-400 focus:border-style">
                         </div>
                         <!-- email -->
                         <div class="flex items-end">
-                            <input type="email" placeholder="ايميل"
+                            <input name="email" @auth value="{{auth()->user()->email}}" @endauth type="email" placeholder="ايميل"
                                    class="w-full rounded-2xl border text-right dark:bg-zinc-800 border-style text-xs font-normal title-color h-9 ease-in-out focus:ring-0 focus:shadow-md transition-shadow dark:text-gray-400 focus:border-style">
                         </div>
                         <!-- btn -->
@@ -286,7 +296,7 @@
                             نظر</button>
                     </div>
                 </div>
-            </div>
+            </form>
             <!-- users comments -->
             <div class="flex flex-col gap-2 mb-3">
                 <!-- title -->
@@ -298,18 +308,22 @@
                         <div
                             class="flex dark:bg-dark-700 shadow-md bg-gray-200 flex-row-reverse gap-3 h-auto w-full border border-style rounded-md p-4">
                         <!-- img -->
-                        <div class="w-24 h-24">
+                        <div class="w-12 h-12">
                             <img src="/image/user.jpg" alt="avatar" class="w-full rounded-full">
                         </div>
                         <div class="flex gap-3 flex-col lg:justify-center w-full h-auto">
                             <!-- name and date -->
                             <div class="flex flex-row-reverse gap-3 text-sm font-bold title-color">
+                                @if($comment->user_id != null)
                                 <span>{{$comment->user->name}}</span>
-                                <span>{{\Morilog\Jalali\Jalalian::forge($comment->created_at)->ago()}}</span>
+                                @else
+                                    <span>{{$comment->name}}</span>
+                                @endif
+                                    <span>{{\Morilog\Jalali\Jalalian::forge($comment->created_at)->ago()}}</span>
                             </div>
                             <!-- text -->
-                            <div class="text-xs font-normal text-right w-auto title-color">
-                                <p>{{$comment->content}}</p>
+                            <div dir="rtl" class="text-xs flex justify-start font-normal w-auto title-color">
+                                <p class="text-right">{{$comment->content}}</p>
                             </div>
                         </div>
                     </div>

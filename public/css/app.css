@@ -1147,16 +1147,16 @@ select {
   max-height: 5rem;
 }
 
-.max-h-\[408px\] {
-  max-height: 408px;
-}
-
 .max-h-96 {
   max-height: 24rem;
 }
 
 .max-h-0 {
   max-height: 0px;
+}
+
+.max-h-\[408px\] {
+  max-height: 408px;
 }
 
 .w-full {
@@ -1394,6 +1394,10 @@ select {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -1585,6 +1589,11 @@ select {
   border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
 
+.border-gray-400 {
+  --tw-border-opacity: 1;
+  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+}
+
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
@@ -1608,11 +1617,6 @@ select {
 .border-green-500 {
   --tw-border-opacity: 1;
   border-color: rgb(34 197 94 / var(--tw-border-opacity));
-}
-
-.border-gray-400 {
-  --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
 }
 
 .bg-blue-400 {
@@ -1740,6 +1744,18 @@ select {
 
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
+}
+
+.bg-opacity-90 {
+  --tw-bg-opacity: 0.9;
+}
+
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+
+.bg-opacity-70 {
+  --tw-bg-opacity: 0.7;
 }
 
 .bg-gradient-to-r {
@@ -1884,6 +1900,10 @@ select {
 
 .pl-9 {
   padding-left: 2.25rem;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .text-center {
@@ -2142,10 +2162,6 @@ select {
 
 .duration-200 {
   transition-duration: 200ms;
-}
-
-.duration-100 {
-  transition-duration: 100ms;
 }
 
 .ease-in {
@@ -2416,6 +2432,36 @@ body {
 .all_slider .all_swiper {
   padding-bottom: 1rem;
 }
+.placeholder\:text-left::-moz-placeholder {
+  text-align: left;
+}
+.placeholder\:text-left:-ms-input-placeholder {
+  text-align: left;
+}
+.placeholder\:text-left::placeholder {
+  text-align: left;
+}
+.placeholder\:text-right::-moz-placeholder {
+  text-align: right;
+}
+.placeholder\:text-right:-ms-input-placeholder {
+  text-align: right;
+}
+.placeholder\:text-right::placeholder {
+  text-align: right;
+}
+.placeholder\:text-red-200::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(254 202 202 / var(--tw-text-opacity));
+}
+.placeholder\:text-red-200:-ms-input-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(254 202 202 / var(--tw-text-opacity));
+}
+.placeholder\:text-red-200::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(254 202 202 / var(--tw-text-opacity));
+}
 .odd\:bg-gray-200:nth-child(odd) {
   --tw-bg-opacity: 1;
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
@@ -2496,6 +2542,10 @@ body {
   --tw-text-opacity: 1;
   color: rgb(67 56 202 / var(--tw-text-opacity));
 }
+.hover\:text-blue-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity));
+}
 .hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
   color: rgb(107 114 128 / var(--tw-text-opacity));
@@ -2503,10 +2553,6 @@ body {
 .hover\:text-gray-400:hover {
   --tw-text-opacity: 1;
   color: rgb(156 163 175 / var(--tw-text-opacity));
-}
-.hover\:text-blue-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(59 130 246 / var(--tw-text-opacity));
 }
 .hover\:shadow-md:hover {
   --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -2804,13 +2850,13 @@ body {
   --tw-text-opacity: 1;
   color: rgb(229 231 235 / var(--tw-text-opacity));
 }
-.dark .dark\:text-gray-700 {
-  --tw-text-opacity: 1;
-  color: rgb(55 65 81 / var(--tw-text-opacity));
-}
 .dark .dark\:text-red-500 {
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+.dark .dark\:text-gray-700 {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .dark .dark\:shadow-gray-800 {
   --tw-shadow-color: #1f2937;
@@ -2954,14 +3000,14 @@ body {
     .sm\:w-48 {
     width: 12rem;
   }
+    .sm\:w-36 {
+    width: 9rem;
+  }
     .sm\:w-2\/3 {
     width: 66.666667%;
   }
     .sm\:w-9\/12 {
     width: 75%;
-  }
-    .sm\:w-36 {
-    width: 9rem;
   }
     .sm\:max-w-\[34rem\] {
     max-width: 34rem;
@@ -3241,6 +3287,10 @@ body {
 
   .lg\:w-96 {
     width: 24rem;
+  }
+
+  .lg\:w-1\/3 {
+    width: 33.333333%;
   }
 
   .lg\:max-w-3xl {
