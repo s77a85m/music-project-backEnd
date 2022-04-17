@@ -18,7 +18,8 @@
     {{--  footer  --}}
     @include('client.layout.footer')
     <script src="{{asset('/js/swiper-bundle.min.js')}}"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script defer src="/js/alpin.js"></script>
     <script>
         function handleMobileMenu() {
             return {
@@ -134,23 +135,46 @@
         //     document.querySelector('.handle_direction').classList.add('rtl')
         // }
 
+        /* alert validation */
         let errorBg=document.querySelector('#errorBg');
         let errorProcess=document.querySelector('#errorProcess');
         let errorContent=document.querySelector('#errorContent');
         let process=100;
-        errorProcess.style.width=`${process}%`
-        let progress=setInterval(()=>{
-            process -= 1
+        if (errorBg){
             errorProcess.style.width=`${process}%`
-            if (process===0){
-                errorBg.classList.remove("right-0");
-                errorBg.classList.add("-right-[500px]");
-                clearInterval(progress);
+            let progress=setInterval(()=>{
+                process -= 1
+                errorProcess.style.width=`${process}%`
+                if (process===0){
+                    errorBg.classList.remove("right-0");
+                    errorBg.classList.add("-right-[750px]");
+                    clearInterval(progress);
+                }
+            },30);
+            process=100;
+        }
+
+        /* shoe result search */
+        let input= document.querySelector('#inputSearch');
+        let result= document.querySelector('#resultSearch');
+        input.addEventListener("input", function (event){
+            if (input.value.length >= 3){
+                let val=input.value;
+                $.ajax({
+                    type: 'get',
+                    url: '/search',
+                    data: {
+                        _token: "{{csrf_token()}}",
+                        value: val
+                    },
+                    success:function (data){
+                        $('#resultSearch').html(data);
+                    }
+                })
+            }else {
+                result.innerHTML='';
             }
-        },30);
-        process=100;
-
-
+        });
     </script>
     @yield('script')
 </body>

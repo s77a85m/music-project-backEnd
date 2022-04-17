@@ -164,7 +164,7 @@
         </div>
         {{-- error --}}
         @if($errors->any())
-            <div id="errorBg" class="w-full flex z-30 fixed transition-all duration-200 bottom-0 right-0 mt-2 flex-col items-end h-auto">
+            <div id="errorBg" class="w-full flex z-40 fixed transition-all duration-500 bottom-0 right-0 mt-2 flex-col items-end h-auto">
                     <div class="rounded-md flex overflow-hidden items-end z-10 flex-col md:w-1/2 w-full h-auto lg:w-1/3  bg-red-400 ">
                         @foreach($errors->all() as $error)
                             <li dir="rtl" id="errorContent" class=" list-disc border-t border-gray-200 w-full px-3 text-xs text-right flex items-center text-gray-100 h-8 ">
@@ -312,7 +312,7 @@
                      x-transition:enter-start="-top-96" x-transition:enter-end="top-0"
                      x-transition:leave="transition-all ease-in duration-300" x-transition:leave-start="top-0"
                      x-transition:leave-end="-top-96"
-                     class="inset-0 px-2 pt-20 fixed z-30 flex justify-center items-start">
+                     class="inset-0 px-2 lg:px-60 pt-20 fixed z-30 flex justify-center items-start">
                     <div x-on:click.away="closSearch()"
                          class="bg-white dark:bg-dark-600 p-2 rounded-lg relative scroll_bar items-center flex-col w-full sm:w-9/12  max-h-[408px] overflow-y-auto">
                         <!-- clos -->
@@ -323,11 +323,11 @@
                                   d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <!-- input search -->
-                        <input type="text" placeholder="جست وجو"
+                        <input id="inputSearch" autocomplete="off" type="text" placeholder="جست وجو"
                                class="w-full my-4 dark:bg-dark-700 focus:ring-0 focus:border-style text-xs font-normal title-color rounded-lg h-10 border border-style ">
                         <!-- result -->
-                        <div class="flex flex-col gap-1 w-full h-auto">
-                            <!-- slid 1 -->
+                        <div id="resultSearch" class="flex flex-col gap-1 w-full h-auto">
+                            {{--<!-- slid 1 -->
                             <a href="#"
                                class="border border-style dark:bg-dark-800 shadow-md rounded-md p-1 w-full gap-3 h-16 flex ">
                                 <div class="aspect-square rounded-md overflow-hidden">
@@ -392,7 +392,7 @@
                                     <h3>دريا</h3>
                                     <h4>مهدي احمدوند</h4>
                                 </div>
-                            </a>
+                            </a>--}}
                         </div>
                     </div>
                 </div>

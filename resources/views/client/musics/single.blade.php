@@ -64,7 +64,7 @@
                             class="w-full h-auto border border-style rounded-lg flex flex-col  items-end gap-3 shadow-md p-3 bg-gray-400 dark:bg-dark-800">
                         <!-- artist title -->
                         <div class="flex">
-                            <span class="text-sm font-normal title-color">آهنگ <span class="text-red-500">{{$music->title}}
+                            <span class="text-sm text-right font-normal title-color">آهنگ <span class="text-red-500">{{$music->title}}
                                 </span>از <a href="#" class="text-blue-500">{{$music->artist->name}}</a></span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 title-color w-5" viewBox="0 0 20 20"
                                  fill="currentColor">

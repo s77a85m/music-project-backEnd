@@ -84,3 +84,7 @@ Route::controller(\App\Http\Controllers\Client\RegisterController::class)->group
     Route::delete('/logout', 'destroy')->name('logout');
     Route::post('/login', 'create')->name('login');
 });
+// Search
+Route::controller(\App\Http\Controllers\Client\SearchController::class)->group(function (){
+    Route::get('/search', 'index')->name('search');
+});

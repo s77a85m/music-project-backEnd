@@ -904,6 +904,10 @@ select {
   left: -24rem;
 }
 
+.-right-\[500px\] {
+  right: -500px;
+}
+
 .-right-1\.5 {
   right: -0.375rem;
 }
@@ -916,12 +920,8 @@ select {
   right: -0.25rem;
 }
 
-.-right-96 {
-  right: -24rem;
-}
-
-.-right-\[500px\] {
-  right: -500px;
+.-right-\[750px\] {
+  right: -750px;
 }
 
 .z-10 {
@@ -938,6 +938,10 @@ select {
 
 .z-0 {
   z-index: 0;
+}
+
+.z-40 {
+  z-index: 40;
 }
 
 .col-span-1 {
@@ -1758,14 +1762,6 @@ select {
   --tw-bg-opacity: 0.3;
 }
 
-.bg-opacity-70 {
-  --tw-bg-opacity: 0.7;
-}
-
-.bg-opacity-90 {
-  --tw-bg-opacity: 0.9;
-}
-
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -2166,6 +2162,10 @@ select {
 
 .duration-200 {
   transition-duration: 200ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
 }
 
 .ease-in {
@@ -3165,6 +3165,30 @@ body {
     .md\:overflow-y-auto {
     overflow-y: auto;
   }
+    .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+    .md\:px-10 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+    .md\:px-32 {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+    .md\:px-40 {
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+    .md\:px-56 {
+    padding-left: 14rem;
+    padding-right: 14rem;
+  }
+    .md\:px-60 {
+    padding-left: 15rem;
+    padding-right: 15rem;
+  }
     .md\:pb-2 {
     padding-bottom: 0.5rem;
   }
@@ -3315,6 +3339,11 @@ body {
   .lg\:px-6 {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .lg\:px-60 {
+    padding-left: 15rem;
+    padding-right: 15rem;
   }
 
   .lg\:pr-0 {
