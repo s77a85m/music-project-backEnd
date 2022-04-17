@@ -181,7 +181,7 @@
             <!-- avatar -->
                 <div x-data="dashbord" class="relative w-9" x-on:click.away="showDash=false">
                     <img src="/image/user.jpg" title="{{auth()->user()->name}}" alt="{{auth()->user()->name}}" x-on:click="showDash = !showDash" class="h-full w-full cursor-pointer rounded-full" />
-                    <div x-cloak x-bind:class="showDash ? 'max-h-96 border border-gray-400' : 'max-h-0' "  class="absolute transition-all  duration-300 sm:w-36 w-32 bg-gray-200 dark:bg-dark-700 right-0 z-20 overflow-hidden rounded-lg flex flex-col">
+                    <div x-cloak x-bind:class="showDash ? 'max-h-96 border border-gray-400' : 'max-h-0' "  class="absolute transition-all  duration-300 sm:w-36 w-32 bg-gray-200 dark:bg-dark-700 right-0 z-20 overflow-hidden rounded-sm flex flex-col">
                         <a href="#" class="w-full py-2 flex gap-2 items-center transition-colors duration-300 justify-center cursor-pointer border-b dark:border-gray-600 border-gray-400 hover:dark:bg-gray-600 hover:text-blue-500 hover:bg-gray-300 text-xs font-medium text-gray-500 dark:text-gray-200">
                             <span>داشبورد</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-toggles2" viewBox="0 0 16 16">
@@ -314,7 +314,7 @@
                      x-transition:leave-end="-top-96"
                      class="inset-0 px-2 lg:px-60 pt-20 fixed z-30 flex justify-center items-start">
                     <div x-on:click.away="closSearch()"
-                         class="bg-white dark:bg-dark-600 p-2 rounded-lg relative scroll_bar items-center flex-col w-full sm:w-9/12  max-h-[408px] overflow-y-auto">
+                         class="bg-white dark:bg-dark-600 p-2 rounded-md relative scroll_bar items-center flex-col w-full sm:w-9/12  max-h-[408px] overflow-y-auto">
                         <!-- clos -->
                         <svg x-on:click="closSearch()" xmlns="http://www.w3.org/2000/svg"
                              class="h-5 w-5 title-color absolute left-1 top-1" fill="none" viewBox="0 0 24 24"
@@ -438,12 +438,12 @@
                      x-bind:class="menuTab==2 ? 'max-h-96': 'max-h-0'">
                     <div class="flex flex-col gap-4 pt-4">
                         @foreach($styles as $style)
-                            <div class="flex flex-col">
-                            <div class="flex items-center justify-between" x-on:click="menuChild(1)">
+                        <div class="flex flex-col">
+                            <div class="flex items-center justify-between" x-on:click="menuChild({{$style->id}})">
                                 <span>{{$style->title}}</span>
                                 @if($style->has_artists)
                                     <svg xmlns="http://www.w3.org/2000/svg"
-                                         x-bind:class="menuTabChild==1 ? 'rotate-90 rtl:rotate-90' : 'rtl:rotate-180'"
+                                         x-bind:class="menuTabChild=={{$style->id}} ? 'rotate-90 rtl:rotate-90' : 'rtl:rotate-180'"
                                          class="h-5  transition-all w-5" viewBox="0 0 20 20" fill="currentColor">
                                         <path fill-rule="evenodd"
                                               d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
@@ -452,7 +452,7 @@
                                 @endif
                             </div>
                             <div class="pl-9 rtl:pl-0 rtl:pr-9 overflow-hidden transition-all"
-                                 x-bind:class="menuTabChild==1 ? 'max-h-96' : 'max-h-0'">
+                                 x-bind:class="menuTabChild=={{$style->id}} ? 'max-h-96' : 'max-h-0'">
                                 <div class="flex flex-col gap-4 pt-4">
                                     @foreach($style->artists as $artist)
                                         <a href="#">{{$artist->name}}</a>
