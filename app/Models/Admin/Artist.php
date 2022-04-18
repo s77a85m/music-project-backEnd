@@ -36,4 +36,6 @@ class Artist extends Model
     {
         return $this->hasMany(Album::class);
     }
+
+
 }

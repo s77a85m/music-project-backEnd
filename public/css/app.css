@@ -904,8 +904,8 @@ select {
   left: -24rem;
 }
 
-.-right-\[500px\] {
-  right: -500px;
+.-right-\[750px\] {
+  right: -750px;
 }
 
 .-right-1\.5 {
@@ -920,8 +920,8 @@ select {
   right: -0.25rem;
 }
 
-.-right-\[750px\] {
-  right: -750px;
+.-right-\[1110px\] {
+  right: -1110px;
 }
 
 .z-10 {
@@ -936,12 +936,12 @@ select {
   z-index: 30;
 }
 
-.z-0 {
-  z-index: 0;
-}
-
 .z-40 {
   z-index: 40;
+}
+
+.z-0 {
+  z-index: 0;
 }
 
 .col-span-1 {
@@ -1253,6 +1253,10 @@ select {
 
 .w-5\/6 {
   width: 83.333333%;
+}
+
+.w-0 {
+  width: 0px;
 }
 
 .max-w-xs {
@@ -3164,30 +3168,6 @@ body {
   }
     .md\:overflow-y-auto {
     overflow-y: auto;
-  }
-    .md\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-    .md\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-    .md\:px-32 {
-    padding-left: 8rem;
-    padding-right: 8rem;
-  }
-    .md\:px-40 {
-    padding-left: 10rem;
-    padding-right: 10rem;
-  }
-    .md\:px-56 {
-    padding-left: 14rem;
-    padding-right: 14rem;
-  }
-    .md\:px-60 {
-    padding-left: 15rem;
-    padding-right: 15rem;
   }
     .md\:pb-2 {
     padding-bottom: 0.5rem;

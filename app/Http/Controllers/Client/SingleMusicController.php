@@ -11,6 +11,7 @@ class SingleMusicController extends Controller
 {
     public function show(Music $slug)
     {
+        $randMusMob=Music::query()->where('style_id', $slug->style->id)->inRandomOrder()->limit(6)->get();
         $topMusics=Music::query()->inRandomOrder()->limit(10)->get();
         $relStyle=Music::query()->where('id', '!=', $slug->id)
             ->where('style_id', $slug->style_id)->limit(20)->get();
@@ -26,7 +27,8 @@ class SingleMusicController extends Controller
             'topMusics'=>$topMusics,
             'music'=>$slug,
             'relStyles'=>$relStyle,
-            'relArtists'=>$relArtist
+            'relArtists'=>$relArtist,
+            'randMusMobs'=>$randMusMob
         ]);
     }
 }

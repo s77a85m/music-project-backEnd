@@ -88,3 +88,7 @@ Route::controller(\App\Http\Controllers\Client\RegisterController::class)->group
 Route::controller(\App\Http\Controllers\Client\SearchController::class)->group(function (){
     Route::get('/search', 'index')->name('search');
 });
+// Beloved
+Route::controller(\App\Http\Controllers\Client\BelovedController::class)->group(function (){
+    Route::post('/beloved/{slug}', 'store')->name('beloved');
+});

@@ -147,10 +147,11 @@
                 errorProcess.style.width=`${process}%`
                 if (process===0){
                     errorBg.classList.remove("right-0");
-                    errorBg.classList.add("-right-[750px]");
+                    errorBg.classList.add("-right-[1110px]");
                     clearInterval(progress);
                 }
             },30);
+
             process=100;
         }
 

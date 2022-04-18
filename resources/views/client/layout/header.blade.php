@@ -423,7 +423,7 @@
             <!-- persian music -->
             <div class="flex flex-col">
                 <div x-on:click="firstMenu(2)" class="flex flex-col">
-                    <div class="flex items-center cursor-pointer justify-between">
+                    <div class="flex  items-center cursor-pointer justify-between">
                         <span>موزيك هاي فارسي</span>
                         <svg xmlns="http://www.w3.org/2000/svg"
                              x-bind:class="menuTab==2 ? 'rotate-90 rtl:rotate-90': 'rtl:rotate-180'"
@@ -434,7 +434,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="pl-4 rtl:pl-0 rtl:pr-4 transition-all overflow-hidden"
+                <div class="pl-4 rtl:pl-0 rtl:pr-4 transition-all overflow-y-scroll"
                      x-bind:class="menuTab==2 ? 'max-h-96': 'max-h-0'">
                     <div class="flex flex-col gap-4 pt-4">
                         @foreach($styles as $style)

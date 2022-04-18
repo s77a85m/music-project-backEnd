@@ -151,13 +151,20 @@
                     <!-- add to favorites -->
                     <span class="text-sm font-medium text-right title-color">:افزودن به علاقه مندي</span>
                     <div class="flex justify-center">
-                        <button
-                                class="w-auto h-8 border text-xs font-medium items-center px-2 transition-all bg-gray-300 dark:bg-dark-700 text-green-500 hover:shadow-lg border-green-500 rounded-lg flex">
-                            <span>اضافه به علاقه مندي</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                 stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
+                        <button id="btnFav_{{$music->slug}}" onclick="addFavorite('{{$music->slug}}')"
+                                class="w-auto h-8 border text-xs font-medium items-center px-2 transition-all @if($music->is_favorite) bg-red-500 text-gray-100 @else bg-gray-300 text-green-500 dark:bg-dark-700 @endif  hover:shadow-lg border-green-500 rounded-lg flex">
+                            @if($music->is_favorite)
+                                <span>حذف از علاقمندي</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            @else
+                                <span>اضافه به علاقه مندي</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                            @endif
                         </button>
                     </div>
                 </div>
@@ -197,66 +204,18 @@
                 <span class="text-right title-color text-sm font-bold">پيشنهادها</span>
                 <!-- music -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                    <a href="#"
-                       class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
-                        <div class="aspect-square">
-                            <img src="/image/slider1.jpg" alt="slider1" class="w-full h-full">
-                        </div>
-                        <div class="flex flex-col text-sm title-color font-normal flex-center">
-                            <span>بارون</span>
-                            <span>محدي احمدوند</span>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
-                        <div class="aspect-square ">
-                            <img src="/image/slider3.jpg" alt="slider3" class="w-full h-full">
-                        </div>
-                        <div class="flex flex-col text-sm title-color font-normal flex-center">
-                            <span>بارون</span>
-                            <span>محدي احمدوند</span>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
-                        <div class="aspect-square">
-                            <img src="/image/slider3.jpg" alt="slider3" class="w-full h-full">
-                        </div>
-                        <div class="flex flex-col text-sm title-color font-normal flex-center">
-                            <span>بارون</span>
-                            <span>محدي احمدوند</span>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
-                        <div class="aspect-square">
-                            <img src="/image/slider2.jpg" alt="slider2" class="w-full h-full">
-                        </div>
-                        <div class="flex flex-col text-sm title-color font-normal flex-center">
-                            <span>دلتنگي</span>
-                            <span>مهدي جهاني</span>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
-                        <div class="aspect-square">
-                            <img src="/image/slider2.jpg" alt="slider2" class="w-full h-full">
-                        </div>
-                        <div class="flex flex-col text-sm title-color font-normal flex-center">
-                            <span>عشق اول</span>
-                            <span>محدي احمدوند</span>
-                        </div>
-                    </a>
-                    <a href="#"
-                       class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
-                        <div class="aspect-square">
-                            <img src="/image/slider1.jpg" alt="slider2" class="w-full h-full">
-                        </div>
-                        <div class="flex flex-col text-sm title-color font-normal flex-center">
-                            <span>فندك تبدار</span>
-                            <span>مخسن چاوشي</span>
-                        </div>
-                    </a>
+                    @foreach($randMusMobs as $randMusMob)
+                        <a href="{{route('single.music', $randMusMob->slug)}}"
+                           class="flex flex-col items-center justify-center border border-style rounded-lg p-2 w-full">
+                            <div class="aspect-square">
+                                <img src="{{'/storage/'.$randMusMob->image}}" alt="{{$randMusMob->name}}" title="{{$randMusMob->name}}" class="w-full h-full">
+                            </div>
+                            <div class="flex flex-col text-sm title-color font-normal flex-center">
+                                <span>{{$randMusMob->title}}</span>
+                                <span>{{$randMusMob->artist->name}}</span>
+                            </div>
+                        </a>
+                    @endforeach
                 </div>
             </div>
             <!-- comment -->
@@ -348,5 +307,34 @@
                 prevEl: ".swiper_top_prev",
             }
         });
+    </script>
+    <script>
+        function addFavorite(music){
+            $.ajax({
+                type: 'post',
+                url: '/beloved/'+music,
+                data: {
+                    _token: "{{csrf_token()}}",
+                },
+                success: function (data){
+                    let favorite= $('#btnFav_'+music);
+                    console.log(favorite)
+                    if (favorite.hasClass('bg-red-500')){
+                        favorite.removeClass('bg-red-500')
+                        favorite.html(`<span>اضافه به علاقه مندي</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                     stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>`)
+                    }else{
+                        favorite.addClass('bg-red-500');
+                        favorite.html(`<span>حذف از علاقمندي</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>`)
+                    }
+                }
+            })
+        }
     </script>
 @endsection

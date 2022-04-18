@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Music;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -59,4 +60,19 @@ class User extends Authenticatable
             ]
         ];
     }
+
+    public function musics()
+    {
+        return $this->belongsToMany(Music::class);
+    }
+
+    public function addFavorite(Music $slug)
+    {
+        $isFavorite=$this->musics()->where('music_id', $slug->id)->exists();
+        if ($isFavorite){
+            return $this->musics()->detach($slug);
+        }
+        return $this->musics()->attach($slug);
+    }
+
 }
