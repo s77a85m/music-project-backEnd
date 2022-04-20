@@ -904,8 +904,8 @@ select {
   left: -24rem;
 }
 
-.-right-\[750px\] {
-  right: -750px;
+.-right-\[1110px\] {
+  right: -1110px;
 }
 
 .-right-1\.5 {
@@ -918,10 +918,6 @@ select {
 
 .-right-1 {
   right: -0.25rem;
-}
-
-.-right-\[1110px\] {
-  right: -1110px;
 }
 
 .z-10 {
@@ -1253,10 +1249,6 @@ select {
 
 .w-5\/6 {
   width: 83.333333%;
-}
-
-.w-0 {
-  width: 0px;
 }
 
 .max-w-xs {
@@ -1940,6 +1932,14 @@ select {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-\[11px\] {
+  font-size: 11px;
+}
+
+.text-\[10px\] {
+  font-size: 10px;
 }
 
 .font-normal {

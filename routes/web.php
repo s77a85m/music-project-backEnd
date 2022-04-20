@@ -92,3 +92,7 @@ Route::controller(\App\Http\Controllers\Client\SearchController::class)->group(f
 Route::controller(\App\Http\Controllers\Client\BelovedController::class)->group(function (){
     Route::post('/beloved/{slug}', 'store')->name('beloved');
 });
+// Collect Email
+Route::controller(\App\Http\Controllers\Client\ColectEmailController::class)->group(function(){
+    Route::post('/submitEmail', 'store')->name('submit.email');
+});

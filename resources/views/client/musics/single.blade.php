@@ -149,23 +149,27 @@
                         </audio>
                     </div>
                     <!-- add to favorites -->
-                    <span class="text-sm font-medium text-right title-color">:افزودن به علاقه مندي</span>
+                    <span class="text-sm font-medium text-right title-color">:افزودن به ليست پخش</span>
                     <div class="flex justify-center">
+                        @auth
                         <button id="btnFav_{{$music->slug}}" onclick="addFavorite('{{$music->slug}}')"
                                 class="w-auto h-8 border text-xs font-medium items-center px-2 transition-all @if($music->is_favorite) bg-red-500 text-gray-100 @else bg-gray-300 text-green-500 dark:bg-dark-700 @endif  hover:shadow-lg border-green-500 rounded-lg flex">
                             @if($music->is_favorite)
-                                <span>حذف از علاقمندي</span>
+                                <span>حذف از ليست پخش</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             @else
-                                <span>اضافه به علاقه مندي</span>
+                                <span>اضافه به ليست پخش</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                      stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>
                             @endif
                         </button>
+                        @else
+                        <div class="bg-gray-300 dark:bg-dark-800 rounded-sm p-2 text-[11px] text-justify font-medium text-gray-600 dark:text-gray-300">.براي اضافه كردن به لست پخش ، وارد حساب كاربري شويد</div>
+                        @endauth
                     </div>
                 </div>
                 <!-- relation-artist -->
@@ -318,17 +322,18 @@
                 },
                 success: function (data){
                     let favorite= $('#btnFav_'+music);
-                    console.log(favorite)
-                    if (favorite.hasClass('bg-red-500')){
-                        favorite.removeClass('bg-red-500')
-                        favorite.html(`<span>اضافه به علاقه مندي</span>
+                    if (favorite.hasClass("bg-red-500")){
+                        favorite.removeClass("bg-red-500");
+                        favorite.addClass("bg-gray-300 dark:bg-dark-700");
+                        favorite.html(`<span>اضافه به ليست پخش</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                                      stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                                 </svg>`)
-                    }else{
-                        favorite.addClass('bg-red-500');
-                        favorite.html(`<span>حذف از علاقمندي</span>
+                    }else if(favorite.hasClass("bg-gray-300")){
+                        favorite.removeClass("bg-gray-300 dark:bg-dark-700");
+                        favorite.addClass("bg-red-500");
+                        favorite.html(`<span>حذف از ليست پخش</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>`)

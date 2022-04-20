@@ -18,6 +18,13 @@
                         <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
                     </svg>
                 </div>
+                <div class=" md:hidden w-full h-auto grid-cols-12 ">
+                    <form method="post" action="{{route('submit.email')}}" class=" flex">
+                        @csrf
+                        <input name="email" placeholder="ايميل براي درياف نتيفيكيشن" type="email" class="w-full focus:shadow-inner focus:shadow-gray-500 text-right h-6 flex-4  flex-grow  text-gray-700 text-[10px] font-medium  bg-gray-300 focus:ring-0  focus:border-0 rounded-l-full">
+                        <button class="rounded-r-full cursor-pointer  flex-3 flex-none hover:bg-purple-500 transition-colors text-white text-[10px] font-medium bg-red-500 px-2 h-6 ">ثبت ايميل</button>
+                    </form>
+                </div>
             </div>
             <!-- social media -->
             <div class="flex w-full gap-3 border-l sm:flex-row sm:pl-8 border-gray-700 col-span-1 items-center mt-3 p-2 flex-col">
@@ -50,10 +57,11 @@
         </div>
         <!-- send new notification -->
         <div class=" md:grid w-full hidden absolute top-20 z-10 h-auto grid-cols-12 mt-2">
-            <div class="lg:col-start-7 md:col-start-6 md:col-end-12 lg:col-end-11 flex">
-                <input placeholder="برايد دريافت نتيفيكيشن ها ايميل خود را وارد كنيد" type="email" class="w-full focus:shadow-inner focus:shadow-gray-500 text-right h-9 flex-4  flex-grow  text-gray-700 text-xs font-normal  bg-gray-300 focus:ring-0  focus:border-0 rounded-l-full">
+            <form method="post" action="{{route('submit.email')}}" class="lg:col-start-7 md:col-start-6 md:col-end-12 lg:col-end-11 flex">
+                @csrf
+                <input name="email" placeholder="برايد دريافت نتيفيكيشن ها ايميل خود را وارد كنيد" type="email" class="w-full focus:shadow-inner focus:shadow-gray-500 text-right h-9 flex-4  flex-grow  text-gray-700 text-xs font-normal  bg-gray-300 focus:ring-0  focus:border-0 rounded-l-full">
                 <button class="rounded-r-full cursor-pointer  flex-3 flex-none hover:bg-purple-500 transition-colors text-white text-sm font-normal bg-red-500 px-2 h-9 ">ثبت ايميل</button>
-            </div>
+            </form>
         </div>
         <img src="/image/button-footer.png" alt="" class="w-full  h-1/2 opacity-40">
         <a href="#" class="absolute bottom-16 right-5 w-40 h-16 sm:w-48 sm:h-24 sm:bottom-24 sm:right-10 md:bottom-36 md:right-28 md:w-60 md:h-24 lg:bottom-60 lg:right-48 lg:w-96 lg:h-44">
