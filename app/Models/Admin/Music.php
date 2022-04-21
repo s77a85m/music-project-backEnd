@@ -54,4 +54,9 @@ class Music extends Model
         return $this->users()->where('user_id', auth()->id())->exists();
     }
 
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
+
 }

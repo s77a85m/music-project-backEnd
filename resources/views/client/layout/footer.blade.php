@@ -59,8 +59,8 @@
         <div class=" md:grid w-full hidden absolute top-20 z-10 h-auto grid-cols-12 mt-2">
             <form method="post" action="{{route('submit.email')}}" class="lg:col-start-7 md:col-start-6 md:col-end-12 lg:col-end-11 flex">
                 @csrf
-                <input name="email" placeholder="برايد دريافت نتيفيكيشن ها ايميل خود را وارد كنيد" type="email" class="w-full focus:shadow-inner focus:shadow-gray-500 text-right h-9 flex-4  flex-grow  text-gray-700 text-xs font-normal  bg-gray-300 focus:ring-0  focus:border-0 rounded-l-full">
-                <button class="rounded-r-full cursor-pointer  flex-3 flex-none hover:bg-purple-500 transition-colors text-white text-sm font-normal bg-red-500 px-2 h-9 ">ثبت ايميل</button>
+                <input name="email" placeholder="برايد دريافت نتيفيكيشن ها ايميل خود را وارد كنيد" type="email" class="w-full focus:shadow-inner focus:shadow-gray-500 text-right h-9 flex-4  flex-grow  text-gray-700 text-xs font-normal  bg-gray-300 border border-gray-300 focus:ring-0  focus:border-0 rounded-l-full">
+                <button class="rounded-r-full cursor-pointer  flex-3 flex-none hover:bg-purple-500 transition-all duration-500 text-white text-sm font-normal bg-red-500 px-2 h-9 ">ثبت ايميل</button>
             </form>
         </div>
         <img src="/image/button-footer.png" alt="" class="w-full  h-1/2 opacity-40">

@@ -1934,12 +1934,12 @@ select {
   line-height: 1.75rem;
 }
 
-.text-\[11px\] {
-  font-size: 11px;
-}
-
 .text-\[10px\] {
   font-size: 10px;
+}
+
+.text-\[11px\] {
+  font-size: 11px;
 }
 
 .font-normal {

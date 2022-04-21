@@ -30,4 +30,15 @@ class Album extends Model
             ]
         ];
     }
+
+    public function musics()
+    {
+        return $this->hasMany(Music::class);
+    }
+
+    public function getMusicsAlbumAttribute()
+    {
+        return $this->musics()->get();
+    }
+
 }

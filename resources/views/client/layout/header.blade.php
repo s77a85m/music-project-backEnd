@@ -50,7 +50,7 @@
                                         class="list-none hidden group-hover:flex absolute rtl:left-auto rtl:right-full dark:bg-dark-800 top-0 left-full bg-white w-40  flex-col rounded-lg  border border-style">
                                     @foreach($style->artists as $artist)
                                         <li>
-                                        <a href="#"
+                                        <a href="{{route('all.musics', $artist->slug)}}"
                                            class=" p-2 flex text-xs rounded-lg text-gray-700 dark:text-gray-400 dark:hover:bg-transparent dark:hover:text-indigo-600 font-medium hover:bg-gray-300 hover:text-indigo-700 custom-transition">{{$artist->name}}</a>
                                     </li>
                                     @endforeach
@@ -455,7 +455,7 @@
                                  x-bind:class="menuTabChild=={{$style->id}} ? 'max-h-96' : 'max-h-0'">
                                 <div class="flex flex-col gap-4 pt-4">
                                     @foreach($style->artists as $artist)
-                                        <a href="#">{{$artist->name}}</a>
+                                        <a href="{{route('all.musics', $artist->slug)}}">{{$artist->name}}</a>
                                     @endforeach
                                 </div>
                             </div>

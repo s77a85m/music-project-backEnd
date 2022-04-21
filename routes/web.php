@@ -96,3 +96,7 @@ Route::controller(\App\Http\Controllers\Client\BelovedController::class)->group(
 Route::controller(\App\Http\Controllers\Client\ColectEmailController::class)->group(function(){
     Route::post('/submitEmail', 'store')->name('submit.email');
 });
+// All music artist
+Route::controller(\App\Http\Controllers\Client\AllMusicController::class)->group(function (){
+    Route::get('/all_musics/{slug}', 'index')->name('all.musics');
+});
