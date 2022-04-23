@@ -65,7 +65,7 @@
                         <!-- artist title -->
                         <div class="flex">
                             <span class="text-sm text-right font-normal title-color">آهنگ <span class="text-red-500">{{$music->title}}
-                                </span>از <a href="#" class="text-blue-500">{{$music->artist->name}}</a></span>
+                                </span>از <a href="{{route('all.musics', $music->artist->slug)}}" class="text-blue-500">{{$music->artist->name}}</a></span>
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 title-color w-5" viewBox="0 0 20 20"
                                  fill="currentColor">
                                 <path
@@ -188,7 +188,7 @@
                         <div
                                 class="flex flex-col m-2 gap-4 items-end title-color text-sm font-medium  border-r border-style">
                             @foreach($relArtists as $relArtist)
-                                <a href="#" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
+                                <a href="{{route('all.musics', $relArtist->slug)}}" class="pr-4 flex relative hover:text-blue-600 transition-all duration-200">
                                 <span class="text-right">{{$relArtist->name}}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 absolute -right-1.5 top-0.5 w-3"
                                      viewBox="0 0 20 20" fill="currentColor">

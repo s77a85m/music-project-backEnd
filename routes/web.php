@@ -67,6 +67,13 @@ Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(f
     Route::post('/comments/{slug}', 'store')->name('create.comment');
     Route::delete('/comments/delete/{comment}', 'destroy')->name('delete.comment');
 });
+// Roles
+Route::controller(\App\Http\Controllers\Admin\RoleController::class)->group(function (){
+    Route::get('/roles', 'index')->name('list.roles');
+    Route::post('/roles/store', 'store')->name('create.role');
+    Route::patch('/roles/{slug}', 'index')->name('update.role');
+    Route::delete('/roles/delete/{slug}', 'destroy')->name('delete.role');
+});
 
 //..............client
 

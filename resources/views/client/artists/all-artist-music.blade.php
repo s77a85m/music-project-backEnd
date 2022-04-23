@@ -97,7 +97,7 @@
                             <div class="flex flex-initial gap-3 dark:bg-dark-800 dark:text-gray-200 items-center h-5 px-3 text-xs font-medium text-gray-700 rounded-2xl bg-gray-300 ">
                                 <div class="flex gap-1 flex-center">
                                     @php
-                                        $date=\Morilog\Jalali\Jalalian::forge('last sunday')->format('%B %Y');
+                                        $date=\Morilog\Jalali\Jalalian::forge($musicAlbum->is_publish)->format('%B %Y');
                                     @endphp
                                     <span>{{$date}}</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -111,7 +111,7 @@
                         <div class="pr-4">
                             <div class="py-2 pr-2 w-full h-auto border-r border-style">
                                 <div class="swiper album_slider">
-                                    <div class="swiper-wrapper album_slider_wrapper">
+                                    <div dir="rtl" class="swiper-wrapper album_slider_wrapper">
                                         @foreach($musicAlbum->musics_album as $albumMusic)
                                         <div class="swiper-slide dark:bg-dark-700 border border-style overflow-hidden bg-gray-200 rounded-md">
                                             <a href="#" class="flex flex-col text-xs font-medium title-color gap-2 flex-center aspect-square">
