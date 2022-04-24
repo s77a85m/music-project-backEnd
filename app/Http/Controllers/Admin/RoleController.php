@@ -12,7 +12,7 @@ class RoleController extends Controller
     {
         $roles=Role::query();
         if (\request()->filled('role')){
-            $roles=$roles->where('title', 'like', '%'.\request('role').'%')->get();
+            $roles->where('title', 'like', '%'.\request('role').'%');
         }
         $roles=$roles->paginate(8);
         return view('admin.roles.index', [

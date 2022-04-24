@@ -8,7 +8,7 @@
         <!-- title -->
         <div class="w-full h-auto flex items-center justify-between">
             <!-- search -->
-            <form action="{{route('list.roles')}}">
+            <form action="{{route('list.permissions')}}">
                 @csrf
                 <div class="flex md:w-48 w-32 h-full">
                     <button class="bg-purple-500 px-1 rounded-l-lg text-white">
@@ -19,13 +19,13 @@
                                   clip-rule="evenodd" />
                         </svg>
                     </button>
-                    <input type="text"  name="role" placeholder="نام نقش"
+                    <input type="text" name="permission" placeholder="نام دسترسي"
                            class="text-xs text-right font-medium border w-full shadow-md border-gray-200 text-gray-600 rounded-r-lg focus:ring-0 focus:border-gray-200">
                 </div>
             </form>
             <!-- title inside -->
             <div class="flex flex-col">
-                <h1>ليست نقش ها </h1>
+                <h1>ليست دسترسي ها </h1>
                 <button x-on:click="openTab()" class="flex text-xs justify-center font-normal text-white bg-blue-500 rounded-md w-auto p-1 gap-1">
                     <h4>اضافه كردن</h4>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -51,40 +51,12 @@
              x-transition:leave-start="opacity-100 "
              x-transition:leave-end="opacity-0 " class="flex flex-col -top-6 overflow-y-auto  z-10 absolute gap-2 h-auto w-72 md:w-2/3 bg-gray-200 rounded-md p-2">
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
-                <h3 class="text-sm font-normal text-gray-500">اضافه كردن نقش</h3>
+                <h3 class="text-sm font-normal text-gray-500">اضافه كردن دسترسي</h3>
             </div>
-            <form dir="rtl" action="{{route('store.styles')}}" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
+            <form dir="rtl" action="{{route('create.permission')}}" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
                 @csrf
                 <!-- title -->
-                <input type="text" name="role" placeholder="عنوان نقش" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
-                <ul id="form" class="flex w-full h-auto gap-2 flex-wrap">
-                    {{-- select all --}}
-                    <li class=" relative ">
-                        <input type="checkbox" id="checkAll" class="absolute lable-checked:bg-green-700 lable-checked:text-white invisible">
-                        <label for="checkAll" class="text-xs text-green-700 font-medium p-1 border border-green-700 transition-colors duration-300 ease-in rounded cursor-pointer">همه</label>
-                    </li>
-                    {{-- single select --}}
-                    <li class="relative">
-                        <input type="checkbox" id="check2" name="permission[]" value="2" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check2" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آهنگ ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check3" name="permission[]" value="3" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check3" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت كامنت ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check4" name="permission[]" value="4" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check4" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آلبوم ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check5" name="permission[]" value="5" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check5" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آلبوم ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check6" name="permission[]" value="6" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check6" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آلبوم ها</label>
-                    </li>
-                </ul>
+                <input type="text" name="permission" placeholder="عنوان دسترسي" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
                 <!-- button -->
                 <div class="flex w-full p-2 gap-3">
                     <input type="submit" value="ثبت" class="bg-green-500 w-full text-xs font-normal text-white rounded-md p-2">
@@ -103,12 +75,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($roles as $role)
+                    @foreach($permissions as $permission)
                         <tr class="text-xs odd:bg-white even:bg-gray-100">
-                            <td class="p-2  ">{{$role->id}}</td>
-                            <td class="p-2  ">{{$role->title}}</td>
+                            <td class="p-2  ">{{$permission->id}}</td>
+                            <td class="p-2  ">{{$permission->title}}</td>
                             <td class="p-2 flex gap-2">
-                                <form method="post" action="{{route('delete.style', $role->slug)}}">
+                                <form method="post" action="{{route('delete.permission', $permission->slug)}}">
                                     @csrf
                                     @method('DELETE')
                                     <button title="حذف"
@@ -121,7 +93,7 @@
                                         </svg>
                                     </button>
                                 </form>
-                                <a href="{{route('edit.style', $role->slug)}}" title="ويرايش"
+                                <a href="{{route('edit.permission', $permission->slug)}}" title="ويرايش"
                                    class="h-6 w-auto px-2 flex flex-center text-white bg-amber-500 rounded-sm ">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
@@ -134,21 +106,13 @@
             </table>
             <!-- pagination -->
             <div class="flex h-6 w-full justify-center ">
-                {{ $roles->links() }}
+                {{ $permissions->links() }}
             </div>
         </div>
     </div>
 
 @endsection
 @section('script')
-    <script src="/js/jquery.js"></script>
-    <script>
-        $(document).ready(function (){
-            $("#checkAll").click(function (){
-                 $("#form li input[type='checkbox']").prop('checked', this.checked)
-            });
-        });
-    </script>
     <script>
         function newArtist(){
             return{
@@ -161,8 +125,5 @@
                 }
             }
         }
-    </script>
-    <script>
-
     </script>
 @endsection

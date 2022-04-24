@@ -4,8 +4,8 @@
 @section('content')
 
     <div class="flex container relative p-7 flex-col gap-2 items-end">
-        @include('admin.layout.errors')
-        <!-- title -->
+    @include('admin.layout.errors')
+    <!-- title -->
         <div class="w-full h-auto flex items-center justify-end">
             <!-- title inside -->
             <div class="flex flex-col">
@@ -15,9 +15,9 @@
         <!-- edit form -->
         <div class="bg-white rounded-md shadow-md p-4 w-full h-auto">
             <form dir="rtl" action="{{route('update.permission', $permission->slug)}}" method="post" class="w-full gap-3 flex flex-col flex-center h-auto ">
-                @csrf
-                @method('PATCH')
-                <!-- part1 form -->
+            @csrf
+            @method('PATCH')
+            <!-- part1 form -->
                 <div class="flex flex-col gap-2 md:w-1/2  ">
                     <input type="text" name="permission" value="{{$permission->title}}" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
                 </div>

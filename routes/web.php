@@ -71,8 +71,17 @@ Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(f
 Route::controller(\App\Http\Controllers\Admin\RoleController::class)->group(function (){
     Route::get('/roles', 'index')->name('list.roles');
     Route::post('/roles/store', 'store')->name('create.role');
+    Route::get('/roles/edit/{slug}', 'show')->name('edit.music');
     Route::patch('/roles/{slug}', 'index')->name('update.role');
     Route::delete('/roles/delete/{slug}', 'destroy')->name('delete.role');
+});
+// Permissions
+Route::controller(\App\Http\Controllers\Admin\PermissionController::class)->group(function (){
+    Route::get('/permissions', 'index')->name('list.permissions');
+    Route::post('/permissions/store', 'store')->name('create.permission');
+    Route::get('/permissions/edit/{slug}', 'show')->name('edit.permission');
+    Route::patch('/permissions/{slug}', 'update')->name('update.permission');
+    Route::delete('/permissions/delete/{slug}', 'destroy')->name('delete.permission');
 });
 
 //..............client

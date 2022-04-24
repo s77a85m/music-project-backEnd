@@ -76,6 +76,14 @@
                     <path fill-rule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 4h3a3 3 0 006 0h3a2 2 0 012 2v9a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zm2.5 7a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm2.45 4a2.5 2.5 0 10-4.9 0h4.9zM12 9a1 1 0 100 2h3a1 1 0 100-2h-3zm-1 4a1 1 0 011-1h2a1 1 0 110 2h-2a1 1 0 01-1-1z" clip-rule="evenodd" />
                 </svg>
             </a>
+            <!-- permissions -->
+            <a href="{{route('list.permissions')}}"
+                    class="{{Nav::isResource('permissions')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 gap-2 text-sm font-normal px-2 flex title-color justify-end items-center ">
+                <span>دسترسي ها</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
+                </svg>
+            </a>
             <!-- artists -->
             <a href="{{route('list.artists')}}"
                     class="{{Nav::isResource('artists')}} w-full  h-10 cursor-pointer hover:bg-gray-200 transition-all duration-200 gap-2 text-sm font-normal px-2 flex title-color justify-end items-center ">
