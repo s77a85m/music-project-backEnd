@@ -61,4 +61,5 @@ class PermissionController extends Controller
         return redirect(route('list.permissions'));
     }
 
+
 }

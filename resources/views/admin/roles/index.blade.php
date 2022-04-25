@@ -53,7 +53,7 @@
             <div class="w-full flex justify-end items-center h-7 border-b border-gray-300 ">
                 <h3 class="text-sm font-normal text-gray-500">اضافه كردن نقش</h3>
             </div>
-            <form dir="rtl" action="{{route('store.styles')}}" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
+            <form dir="rtl" action="{{route('create.role')}}" method="post" class="w-full flex relative flex-col gap-2 justify-center items-center ">
                 @csrf
                 <!-- title -->
                 <input type="text" name="role" placeholder="عنوان نقش" class="w-full md:w-1/3 h-8 border border-gray-300 focus:ring-0 focus:border-gray-300 text-xs font-normal  text-gray-500 rounded-lg">
@@ -64,26 +64,12 @@
                         <label for="checkAll" class="text-xs text-green-700 font-medium p-1 border border-green-700 transition-colors duration-300 ease-in rounded cursor-pointer">همه</label>
                     </li>
                     {{-- single select --}}
-                    <li class="relative">
-                        <input type="checkbox" id="check2" name="permission[]" value="2" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check2" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آهنگ ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check3" name="permission[]" value="3" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check3" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت كامنت ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check4" name="permission[]" value="4" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check4" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آلبوم ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check5" name="permission[]" value="5" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check5" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آلبوم ها</label>
-                    </li>
-                    <li class="relative">
-                        <input type="checkbox" id="check6" name="permission[]" value="6" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
-                        <label for="check6" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">مديريت آلبوم ها</label>
-                    </li>
+                    @foreach($permissions as $permission)
+                        <li class="relative">
+                            <input type="checkbox" id="check{{$permission->id}}" name="permission[]" value="{{$permission->id}}" class="absolute lable-checked:bg-purple-700 lable-checked:text-white invisible">
+                            <label for="check{{$permission->id}}" class="text-xs text-purple-700 font-medium p-1 border border-purple-700 transition-colors duration-300 ease-in rounded cursor-pointer">{{$permission->title}}</label>
+                        </li>
+                    @endforeach
                 </ul>
                 <!-- button -->
                 <div class="flex w-full p-2 gap-3">
@@ -121,7 +107,7 @@
                                         </svg>
                                     </button>
                                 </form>
-                                <a href="{{route('edit.style', $role->slug)}}" title="ويرايش"
+                                <a href="{{route('edit.role', $role->slug)}}" title="ويرايش"
                                    class="h-6 w-auto px-2 flex flex-center text-white bg-amber-500 rounded-sm ">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                         <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />

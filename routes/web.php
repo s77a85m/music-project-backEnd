@@ -71,8 +71,8 @@ Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(f
 Route::controller(\App\Http\Controllers\Admin\RoleController::class)->group(function (){
     Route::get('/roles', 'index')->name('list.roles');
     Route::post('/roles/store', 'store')->name('create.role');
-    Route::get('/roles/edit/{slug}', 'show')->name('edit.music');
-    Route::patch('/roles/{slug}', 'index')->name('update.role');
+    Route::get('/roles/edit/{slug}', 'show')->name('edit.role');
+    Route::patch('/roles/{slug}', 'update')->name('update.role');
     Route::delete('/roles/delete/{slug}', 'destroy')->name('delete.role');
 });
 // Permissions
