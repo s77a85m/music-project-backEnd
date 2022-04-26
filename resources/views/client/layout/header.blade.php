@@ -216,7 +216,7 @@
                  x-transition:enter-end="opacity-100 "
                  x-transition:leave="transition ease-in duration-300"
                  x-transition:leave-start="opacity-100 "
-                 x-transition:leave-end="opacity-0 " class="inset-0 backdrop-blur-sm fixed bg-opacity-50 px-3 bg-gray-900 z-20 flex flex-center">
+                 x-transition:leave-end="opacity-0 " class="inset-0 fixed bg-opacity-60 px-3 bg-gray-900 z-20 flex flex-center">
                 <div x-on:click.away="closRegister()" class="w-full py-2 px-4 bg-gray-100 bg-opacity-30 border xs:w-10/12 sm:w-2/3 md:w-[430px] border-gray-200 rounded">
                     <div class="w-full h-9 mb-3 flex items-center justify-end text-sm text-gray-100 font-normal gap-2">
                         <button x-on:click="openLog" x-bind:class="{'border-b-2 border-blue-500' : registerTab==3}" class="px-2">ورود</button>

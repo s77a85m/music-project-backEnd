@@ -14,11 +14,13 @@ class RegisterController extends Controller
 {
     public function store(RegisterRequest $request)
     {
+        $role=Role::query()->where('title', 'user-normal')->get();
         $user=User::query()->create([
             'name'=>$request->get('name'),
             'email'=>$request->get('email'),
             'password'=>bcrypt($request->get('password'))
         ]);
+        $user->roles()->attach($role);
         auth()->login($user);
 
         return back();
@@ -26,12 +28,12 @@ class RegisterController extends Controller
 
     public function create(LoginRequest $request)
     {
-        $role=Role::query()->where('title', 'user-normal')->get();
+
+
         $user=User::query()->where('email', $request->get('email'))->firstOrFail();
         if (!Hash::check($request->get('password'), $user->password)){
             return back()->withErrors(['password'=>'نام كاربري يا رمز عبور اشتباه است.']);
         }
-        $user->roles()->attach($role);
         auth()->login($user);
         return back();
     }

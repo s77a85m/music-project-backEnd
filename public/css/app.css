@@ -1758,6 +1758,10 @@ select {
   --tw-bg-opacity: 0.3;
 }
 
+.bg-opacity-60 {
+  --tw-bg-opacity: 0.6;
+}
+
 .bg-gradient-to-r {
   background-image: linear-gradient(to right, var(--tw-gradient-stops));
 }
@@ -3127,9 +3131,6 @@ body {
     .md\:w-1\/2 {
     width: 50%;
   }
-    .md\:w-full {
-    width: 100%;
-  }
     .md\:w-48 {
     width: 12rem;
   }
@@ -3141,6 +3142,9 @@ body {
   }
     .md\:w-1\/4 {
     width: 25%;
+  }
+    .md\:w-full {
+    width: 100%;
   }
     .md\:w-60 {
     width: 15rem;

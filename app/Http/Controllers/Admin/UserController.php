@@ -31,12 +31,20 @@ class UserController extends Controller
 
     public function update(User $slug, Request $request)
     {
+        $this->validate($request,[
+            'role'=>['array', 'required'],
+            'role.*'=>['exists:roles,id']
+        ],[
+            'role.required'=>'حتما يك نشق وارد كنيد.',
+            'role.exists'=>'اين نقش وجود ندارد',
+        ]);
         $slug->roles()->sync($request->get('role'));
         return to_route('list.users');
     }
 
     public function destroy(User $slug)
     {
+        $slug->roles()->detach();
         $slug->delete();
         return redirect(route('list.users'));
     }
