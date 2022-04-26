@@ -39,7 +39,7 @@
                     </select>
                 </div>
                 <!-- btn -->
-                <div class="col-span-2 flex-center md:w-full">
+                <div class="col-span-2 flex-center w-full">
                     <input type="submit" value="ويرايش" class="bg-green-500 md:w-1/2 w-full text-white rounded-md shadow-md h-7 cursor-pointer">
                 </div>
             </form>

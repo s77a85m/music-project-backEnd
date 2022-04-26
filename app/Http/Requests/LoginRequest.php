@@ -25,7 +25,9 @@ class LoginRequest extends FormRequest
     {
         return [
             'email'=>['required', 'email:rfc,dns', 'exists:users,email'],
-            'password'=>['required', 'min:8']
+            'password'=>['required', 'min:8'],
+            'role'=>['required', 'array'],
+            'role.*'=>['exists:roles,id']
         ];
     }
     public function messages()
@@ -36,6 +38,9 @@ class LoginRequest extends FormRequest
             'email.exists'=>'نام كاربري يا رمز عبو اشتباه است',
             'password.required'=>'پسورد خود را وارد كنيد',
             'password.min'=>'حداقل تعداد كاراكتر پسورد8',
+            'role.array'=>'فرمت صحيح وارد نشده است.',
+            'role.required'=>'فرمت صحيح وارد نشده است.',
+            'role.exist'=>'اين دسترسي وجود ندارد',
         ];
     }
 }

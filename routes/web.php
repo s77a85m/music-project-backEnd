@@ -59,6 +59,8 @@ Route::controller(\App\Http\Controllers\Admin\MusicController::class)->group(fun
 // Users
 Route::controller(\App\Http\Controllers\Admin\UserController::class)->group(function (){
     Route::get('/users', 'index')->name('list.users');
+    Route::get('/users/edit/{slug}', 'show')->name('edit.user');
+    Route::patch('/users/update/{slug}', 'update')->name('update.user');
     Route::delete('/user/delete/{slug}', 'destroy')->name('delete.user');
 });
 // Comments

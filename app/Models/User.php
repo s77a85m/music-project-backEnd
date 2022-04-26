@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Admin\Music;
+use App\Models\Admin\Role;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -73,6 +74,11 @@ class User extends Authenticatable
             return $this->musics()->detach($slug);
         }
         return $this->musics()->attach($slug);
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
     }
 
 }

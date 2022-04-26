@@ -94,7 +94,7 @@
                             <td class="p-2  ">{{$role->id}}</td>
                             <td class="p-2  ">{{$role->title}}</td>
                             <td class="p-2 flex gap-2">
-                                <form method="post" action="{{route('delete.style', $role->slug)}}">
+                                <form method="post" action="{{route('delete.role', $role->slug)}}">
                                     @csrf
                                     @method('DELETE')
                                     <button title="حذف"

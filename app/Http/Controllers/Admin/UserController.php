@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -18,6 +19,20 @@ class UserController extends Controller
         return view('admin.users.index', [
             'users'=>$users
         ]);
+    }
+    public function show(User $slug)
+    {
+        $roles=Role::query()->get();
+        return view('admin.users.edit', [
+            'user'=>$slug,
+            'roles'=>$roles
+        ]);
+    }
+
+    public function update(User $slug, Request $request)
+    {
+        $slug->roles()->sync($request->get('role'));
+        return to_route('list.users');
     }
 
     public function destroy(User $slug)

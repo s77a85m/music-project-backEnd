@@ -75,4 +75,11 @@ class RoleController extends Controller
         $slug->permissions()->sync($request->get('permission'));
         return to_route('list.roles');
     }
+
+    public function destroy(Role $slug)
+    {
+        $slug->permissions()->detach();
+        $slug->delete();
+        return to_route('list.roles');
+    }
 }

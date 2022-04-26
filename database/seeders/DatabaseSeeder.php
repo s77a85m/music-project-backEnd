@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Couchbase\UserSettings;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,6 +17,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             DownloadSeeder::class,
+            PermissionSeeder::class,
+            RoleSeeder::class,
+            AdminSeeder::class,
         ]);
     }
 }

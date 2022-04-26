@@ -22,7 +22,7 @@
                     <input type="text" name="permission" value="{{$permission->title}}" class="w-full h-8 rounded-lg focus:ring-0 focus:border-gray-300 border border-gray-300 text-xs font-normal text-gray-500">
                 </div>
                 <!-- btn -->
-                <div class="col-span-2 flex-center md:w-full">
+                <div class="col-span-2 flex-center w-full">
                     <input type="submit" value="ويرايش" class="bg-green-500 md:w-1/2 w-full text-white rounded-md shadow-md h-7 cursor-pointer">
                 </div>
             </form>

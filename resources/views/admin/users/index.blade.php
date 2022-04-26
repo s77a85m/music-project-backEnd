@@ -42,7 +42,7 @@
                     <td class="p-2  ">{{$user->id}}</td>
                     <td class="p-2  ">{{$user->name}}</td>
                     <td class="p-2  ">كاربر سايت</td>
-                    <td class="p-2 flex">
+                    <td class="p-2 flex gap-2">
                         <form action="{{route('delete.user', $user->slug)}}" method="post">
                             @csrf
                             @method('DELETE')
@@ -56,6 +56,12 @@
                                 </svg>
                             </button>
                         </form>
+                        <a href="{{route('edit.user', $user->slug)}}" title="ويرايش"
+                           class="h-6 w-auto px-2 flex flex-center text-white bg-amber-500 rounded-sm ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                            </svg>
+                        </a>
                     </td>
                 </tr>
                 @endforeach
