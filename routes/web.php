@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckPermission;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth')->group(function(){
+Route::middleware(['auth',CheckPermission::class.":پنل ادمين"])->group(function(){
     // Dashboard
     Route::controller(\App\Http\Controllers\Admin\DashbordController::class)->group(function (){
         Route::get('/adminPanel', 'index')->name('dashboard');
@@ -56,7 +57,7 @@ Route::middleware('auth')->group(function(){
     });
 // Users
     Route::controller(\App\Http\Controllers\Admin\UserController::class)
-        ->middleware(\App\Http\Middleware\CheckPermission::class.":مديريت كاربران")->group(function (){
+        ->middleware(CheckPermission::class.":مديريت كاربران")->group(function (){
         Route::get('/users', 'index')->name('list.users');
         Route::get('/users/edit/{slug}', 'show')->name('edit.user');
         Route::patch('/users/update/{slug}', 'update')->name('update.user');
@@ -65,7 +66,7 @@ Route::middleware('auth')->group(function(){
 // Comments
     Route::controller(\App\Http\Controllers\Admin\CommentController::class)->group(function (){
         Route::get('/comments', 'index')->name('list.comments');
-        Route::post('/comments/{slug}', 'store')->name('create.comment');
+        Route::post('/comments/{slug}', 'store')->name('create.comment')->withoutMiddleware(CheckPermission::class.":پنل ادمين");
         Route::delete('/comments/delete/{comment}', 'destroy')->name('delete.comment');
     });
 // Roles

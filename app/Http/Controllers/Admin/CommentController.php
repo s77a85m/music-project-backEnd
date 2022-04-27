@@ -44,7 +44,6 @@ class CommentController extends Controller
             $comment->user_id=$user->id;
             $comment->save();
         }
-        $user=auth()->user();
 
 
         return back();
