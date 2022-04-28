@@ -1,4 +1,4 @@
-<nav class="h-14 w-full border-b bg-white dark:bg-dark-800 border-style shadow-lg" x-data="handleMobileMenu">
+<nav id="header-nav" class="h-14 w-full transition-all duration-300 ease-in border-b bg-white dark:bg-dark-800 border-style shadow-lg" x-data="handleMobileMenu">
     <section class="container flex justify-between items-center h-full">
         <!-- hamberger menu -->
         <div>
@@ -222,6 +222,7 @@
                         <button x-on:click="openLog" x-bind:class="{'border-b-2 border-blue-500' : registerTab==3}" class="px-2">ورود</button>
                         <button x-on:click="openReg" x-bind:class="{'border-b-2 border-blue-500' : registerTab==2}" class="px-2">ثبت نام</button>
                     </div>
+                    {{--register--}}
                     <form dir="rtl" x-cloak x-show="registerTab==2" action="{{route('register')}}" method="post" class="w-full">
                         @csrf
                         <!-- name -->
@@ -251,6 +252,7 @@
                         <!-- btn -->
                         <button class="w-full rounded-2xl mb-3 h-8 text-sm font-normal mt-5 text-white bg-green-500">ثبت نام</button>
                     </form>
+                    {{--login--}}
                     <form dir="rtl" x-cloak x-show="registerTab==3" method="post" action="{{route('login')}}" class="w-full">
                         @csrf
                         <!-- email -->
@@ -269,8 +271,15 @@
                                 <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <!-- btn -->
+                        <!-- btn login -->
                         <button class="w-full rounded-2xl mb-3 h-8 text-sm font-normal mt-5 text-white bg-blue-500">ورود</button>
+                        <!-- btn google -->
+                        <a href="{{route('login.google')}}" class="w-full rounded-2xl mb-3 gap-3 h-8 flex-center text-sm font-normal mt-5 text-white bg-red-500">
+                            <span>ورود با حساب گوگل</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16">
+                                <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                            </svg>
+                        </a>
                     </form>
                 </div>
             </div>

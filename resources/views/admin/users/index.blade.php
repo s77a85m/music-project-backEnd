@@ -41,7 +41,11 @@
                     <tr class="text-xs odd:bg-white even:bg-gray-100">
                     <td class="p-2  ">{{$user->id}}</td>
                     <td class="p-2  ">{{$user->name}}</td>
-                    <td class="p-2  ">كاربر سايت</td>
+                    <td class="p-2  ">
+                        @foreach($user->roles as $role)
+                            {{$role->title}}
+                        @endforeach
+                    </td>
                     <td class="p-2 flex gap-2">
                         <form action="{{route('delete.user', $user->slug)}}" method="post">
                             @csrf

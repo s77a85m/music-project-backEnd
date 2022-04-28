@@ -86,6 +86,10 @@ Route::middleware(['auth',CheckPermission::class.":پنل ادمين"])->group(f
         Route::delete('/permissions/delete/{slug}', 'destroy')->name('delete.permission');
     });
 });
+    Route::controller(\App\Http\Controllers\Client\GoogleLoginController::class)->group(function (){
+        Route::get('/login/google', 'google')->name('login.google');
+        Route::get('/callback/google', 'callbackGoogle')->name('callback.google');
+    });
 
 //..............client
 Route::get('/', function () {

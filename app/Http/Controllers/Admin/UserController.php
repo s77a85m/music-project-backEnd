@@ -45,6 +45,7 @@ class UserController extends Controller
     public function destroy(User $slug)
     {
         $slug->roles()->detach();
+        $slug->musics()->detach();
         $slug->delete();
         return redirect(route('list.users'));
     }

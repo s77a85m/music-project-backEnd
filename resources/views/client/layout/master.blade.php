@@ -177,6 +177,16 @@
             }
         });
     </script>
+    <script>
+        window.addEventListener("scroll", function (){
+            let header=document.getElementById("header-nav");
+            if (window.scrollY>0){
+                header.classList.add('sticky','top-0','z-30','opacity-90');
+            }else {
+                header.classList.remove('sticky','top-0','z-30','opacity-90');
+            }
+        })
+    </script>
     @yield('script')
 </body>
 
