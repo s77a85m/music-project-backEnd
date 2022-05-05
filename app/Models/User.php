@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Admin\Comment;
 use App\Models\Admin\Music;
 use App\Models\Admin\Role;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -31,6 +32,7 @@ class User extends Authenticatable
         'email',
         'password',
         'slug',
+        'avatar'
     ];
 
     /**
@@ -79,6 +81,11 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 
 }

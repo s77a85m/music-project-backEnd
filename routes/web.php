@@ -92,6 +92,14 @@ Route::middleware(['auth',CheckPermission::class.":پنل ادمين"])->group(f
     });
 
 //..............client
+
+// Dashboard
+Route::middleware('auth')->group(function (){
+    Route::controller(\App\Http\Controllers\Client\DashboardController::class)->group(function (){
+        Route::get('/dashboard', 'home')->name('home.dashboard');
+    });
+});
+
 Route::get('/', function () {
     return view('client.home');
 });
