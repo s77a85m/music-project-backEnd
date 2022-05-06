@@ -135,295 +135,8 @@
                         <!-- content-favorite -->
                         <div class="flex flex-col shadow-md items-center">
                             <!-- form -->
-                            <ul class="flex flex-col w-full h-[435px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
-                                <!-- item1 -->
-                                <li class="w-full flex items-center p-2 h-12 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
-                                    <!-- img -->
-                                    <div class="h-9 w-9 rounded-sm overflow-hidden">
-                                        <img src="/image/slider1.jpg" alt="avatar1" class="w-full h-full">
-                                    </div>
-                                    <!-- title -->
-                                    <div class="flex grow justify-between items-center">
-                                        <div class="flex gap-1 flex-col">
-                                            <span class="text-xs font-medium text-gray-500 dark:text-gray-400">بيا بيا</span>
-                                            <div class="flex gap-0.5">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                                                </svg>
-                                                <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
-                                            </div>
-                                        </div>
-                                        <button>
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </li>
+                            <ul id="favList" class="flex flex-col w-full h-[435px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
+
                             </ul>
                         </div>
                     </div>
@@ -439,7 +152,7 @@
                             <form action="#" enctype="multipart/form-data" class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7">
                                 <!-- img -->
                                 <div class="relative w-32 h-32">
-                                    <img src="../img/avatar.jpg" alt="avatar" class="rounded-full w-full h-full">
+                                    <img id="settImg" src="" alt="avatar" class="rounded-full w-full h-full">
                                     <input type="file" id="image" name="image" class="absolute invisible">
                                     <label for="image" class="hover:cursor-pointer absolute -bottom-3 left-14 rounded-full  bg-gray-100 dark:bg-dark-700 ">
                                         <svg xmlns="http://www.w3.org/2000/svg" class=" text-orange-500 h-6 p-0.5 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -454,7 +167,7 @@
                                     <div class="flex flex-col w-full items-end gap-1 dark:text-gray-300 text-gray-600 text-xs font-medium gap-x-2">
                                         <label class="px-2" for="name">نام</label>
                                         <div class="relative w-full">
-                                            <input dir="rtl" type="text" class="pr-6 border shadow-md text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="name">
+                                            <input dir="rtl" id="settName"  type="text" class="pr-6 border shadow-md text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" >
                                             <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-2 right-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
                                             </svg>
@@ -464,7 +177,7 @@
                                     <div class="flex flex-col w-full items-end gap-1 dark:text-gray-300 text-gray-600 text-xs font-medium gap-x-2">
                                         <label class="px-2" for="email">ايميل</label>
                                         <div class="relative w-full">
-                                            <input dir="rtl" type="text" class="pr-6 shadow-md border text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="email">
+                                            <input dir="rtl" type="text" class="pr-6 shadow-md border text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="settEmail">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-2 right-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
                                             </svg>
@@ -474,7 +187,7 @@
                                     <div class="flex flex-col w-full items-end gap-1 dark:text-gray-300 text-gray-600 text-xs font-medium gap-x-2">
                                         <label class="px-2" for="name">رمزعبور</label>
                                         <div class="relative w-full">
-                                            <input dir="rtl" type="text" class="pr-6 shadow-md border text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="password">
+                                            <input dir="rtl" type="text" class="pr-6 shadow-md border text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="settPass">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-2 right-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
                                             </svg>
@@ -545,7 +258,12 @@
         let rightBtn=document.getElementById("right");
         let reloadBtn=document.getElementById("reload");
         let audio=document.getElementById("audio");
-        let avatar=document.getElementById("avatar")
+        let avatar=document.getElementById("avatar");
+        let favList=document.getElementById("favList");
+        let settName=document.getElementById("settName");
+        let settEmail=document.getElementById("settEmail");
+        let settPass=document.getElementById("settPass");
+        let settImg=document.getElementById("settImg");
 
         // array title
         let titles=['music1', 'music2', 'music3']
@@ -679,6 +397,66 @@
             })
         }
 
+        function showFavorite(){
+            $.ajax({
+                type: 'get',
+                url: '/dashboard/favorite',
+                data: {
+                    _token: "{{csrf_token()}}"
+                },
+                success: function (data){
+                    favList.innerHTML='';
+                    data.favorites.forEach(function (favorite){
+                        liTag=`<li class="w-full flex items-center p-2 h-16 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
+                                <!-- img -->
+                                <div class="h-12 w-12 rounded-md overflow-hidden">
+                                    <img src="/storage/${favorite.image}" alt="${favorite.title}" title="${favorite.title}" class="w-full h-full">
+                                </div>
+                                <!-- title -->
+                                <div class="flex grow justify-between items-center">
+                                    <div class="flex gap-1 flex-col">
+                                        <span class="text-xs font-medium text-gray-500 dark:text-gray-400">${favorite.title}</span>
+                                        <div class="flex gap-0.5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                            </svg>
+                                            <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
+                                        </div>
+                                    </div>
+                                    <button>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </li>`
+                        favList.insertAdjacentHTML("beforeend", liTag)
+                    });
+
+                }
+            })
+        }
+
+        function showSetting(){
+            $.ajax({
+                type: 'get',
+                url: '/dashboard/setting',
+                data: {
+                    _token: "{{csrf_token()}}",
+                },
+                success: function(data){
+                    if(data.user.image != null){
+                        settImg.src=data.user.image;
+                    }else{
+                        settImg.src="/image/user.jpg";
+                    }
+                    settName.value=data.user.name;
+                    settEmail.value=data.user.email;
+                    settPass.value=data.user.password;
+                }
+            })
+        }
+
         function handleDashboard(){
             return {
                 isOpen:2,
@@ -691,9 +469,11 @@
                 },
                 openFavorite(){
                     this.isOpen=4
+                    showFavorite();
                 },
                 openSetting(){
-                    this.isOpen=5
+                    this.isOpen=5;
+                    showSetting();
                 }
             }
         }

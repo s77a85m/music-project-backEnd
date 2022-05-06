@@ -97,6 +97,8 @@ Route::middleware(['auth',CheckPermission::class.":پنل ادمين"])->group(f
 Route::middleware('auth')->group(function (){
     Route::controller(\App\Http\Controllers\Client\DashboardController::class)->group(function (){
         Route::get('/dashboard', 'home')->name('home.dashboard');
+        Route::get('/dashboard/favorite', 'favorite')->name('favorite.dashboard');
+        Route::get('/dashboard/setting', 'setting')->name('setting.dashboard');
     });
 });
 
