@@ -99,6 +99,7 @@ Route::middleware('auth')->group(function (){
         Route::get('/dashboard', 'home')->name('home.dashboard');
         Route::get('/dashboard/favorite', 'favorite')->name('favorite.dashboard');
         Route::get('/dashboard/setting', 'setting')->name('setting.dashboard');
+        Route::patch('/dashboard/update', 'update')->name('update.dashboard');
     });
 });
 

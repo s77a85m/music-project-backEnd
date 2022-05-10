@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\DashboardUpdateRequest;
+use App\Models\User;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -31,6 +34,39 @@ class DashboardController extends Controller
     public function setting()
     {
         $user=auth()->user();
+        return response()->json([
+            'user'=>$user
+        ])->setStatusCode(200);
+    }
+
+    public function update(DashboardUpdateRequest $request)
+    {
+        $user=auth()->user();
+        /*check avatar*/
+        if ($request->hasFile('file')){
+            $avatar=$request->file('file')->store('users/avatar', 'privat');
+        }else{
+            $avatar=$user->avatar;
+        }
+        /*check email*/
+        $emailExists=User::query()->where('email', $request->get('email'))
+            ->where('id', '!=', $user->id)->exists();
+        if ($emailExists){
+            return response()->json([
+                'message'=>'اين ايمل قبلا استفاده شده است!'
+            ])->setStatusCode(400);
+        }
+        /*check password*/
+        if ($request->filled('password')){
+            $user->password=bcrypt($request->get('password'));
+            $user->save();
+        }
+        /*update*/
+        $user->update([
+            'name'=>$request->get('name'),
+            'email'=>$request->get('email'),
+            'avatar'=>$avatar
+        ]);
         return response()->json([
             'user'=>$user
         ])->setStatusCode(200);

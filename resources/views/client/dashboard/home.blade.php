@@ -13,26 +13,26 @@
                         <div class="border-b h-6 w-full dark:border-gray-700 py-4 text-xs text-gray-500 dark:text-gray-500 border-gray-200 flex-center mb-3">
                             <span>پروفايل</span>
                         </div>
-                        <!-- content-setting -->
+                        <!-- content-home -->
                         <div class="flex flex-col items-center ">
                             <!-- prof -->
                             <div class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7">
                                 <!-- img -->
                                 <div class="w-32 h-32">
-                                    <img id="avatar" @if($user->avatar != null) src="{{$user->avatar}}" @else src="/image/user.jpg" @endif alt="avatar" class="rounded-full w-full h-full">
+                                    <img id="avatar" @if($user->avatar != null) src="/storage/{{$user->avatar}}" @else src="/image/user.jpg" @endif alt="avatar" class="rounded-full w-full h-full">
                                 </div>
                                 <!-- fields -->
                                 <div class="flex gap-2 flex-col items-end">
                                     <!-- name -->
                                     <div class="flex-center dark:text-yellow-500 text-gray-500 text-xs font-medium gap-x-2">
-                                        <span>{{$user->name}}</span>
+                                        <span id="nameHome">{{$user->name}}</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                             <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                                         </svg>
                                     </div>
                                     <!-- email -->
                                     <div class="flex-center dark:text-yellow-500 text-gray-500 text-xs font-medium gap-x-2">
-                                        <span>{{$user->email}}</span>
+                                        <span id="emailHome">{{$user->email}}</span>
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
                                         </svg>
@@ -149,12 +149,14 @@
                         <!-- content-setting -->
                         <div class="flex flex-col items-center ">
                             <!-- form -->
-                            <form action="#" enctype="multipart/form-data" class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7">
+                            <form action="javascript:void(0)" id="form-data" method="post" enctype="multipart/form-data" class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7">
+                                @csrf
+                                @method('PATCH')
                                 <!-- img -->
                                 <div class="relative w-32 h-32">
                                     <img id="settImg" src="" alt="avatar" class="rounded-full w-full h-full">
-                                    <input type="file" id="image" name="image" class="absolute invisible">
-                                    <label for="image" class="hover:cursor-pointer absolute -bottom-3 left-14 rounded-full  bg-gray-100 dark:bg-dark-700 ">
+                                    <input type="file" id="file" name="file" class="absolute invisible">
+                                    <label for="file" class="hover:cursor-pointer absolute -bottom-3 left-14 rounded-full  bg-gray-100 dark:bg-dark-700 ">
                                         <svg xmlns="http://www.w3.org/2000/svg" class=" text-orange-500 h-6 p-0.5 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -187,13 +189,13 @@
                                     <div class="flex flex-col w-full items-end gap-1 dark:text-gray-300 text-gray-600 text-xs font-medium gap-x-2">
                                         <label class="px-2" for="name">رمزعبور</label>
                                         <div class="relative w-full">
-                                            <input dir="rtl" type="text" class="pr-6 shadow-md border text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="settPass">
+                                            <input dir="rtl" type="text" placeholder="رمز عبور جديد" class="pr-6 shadow-md border text-right text-xs font-normal border-gray-400 focus:ring-0 focus:border-gray-500 dark:bg-dark-700 bg-gray-100 w-full h-8 rounded-xl" id="settPass">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="absolute top-2 right-1 h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
                                     </div>
-                                    <button class="w-full h-8 rounded-full mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">ويرايش</button>
+                                    <input type="submit" id="submit-button" value="ويرايش" class="w-full h-8 rounded-full flex-center mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">
                                 </div>
                             </form>
 
@@ -388,8 +390,10 @@
                     _token: "{{csrf_token()}}"
                 },
                 success: function (data){
+                    document.getElementById('nameHome').innerHTML=`${data.user.name}`
+                    document.getElementById('emailHome').innerHTML=`${data.user.email}`
                     if(data.user.avatar != null){
-                        avatar.src=`${data.user.avatar}`
+                        avatar.src=`/storage/${data.user.avatar}`
                     }else{
                         avatar.src="/image/user.jpg"
                     }
@@ -445,17 +449,45 @@
                     _token: "{{csrf_token()}}",
                 },
                 success: function(data){
-                    if(data.user.image != null){
-                        settImg.src=data.user.image;
+                    if(data.user.avatar != null){
+                        settImg.src=`/storage/${data.user.avatar}`;
                     }else{
                         settImg.src="/image/user.jpg";
                     }
                     settName.value=data.user.name;
                     settEmail.value=data.user.email;
-                    settPass.value=data.user.password;
                 }
             })
         }
+
+        // send form data in setting
+        $(document).ready(function(){
+            $('#submit-button').click(function (){
+                let myForm=document.getElementById('form-data')
+                let formData= new FormData(myForm);
+                let file=$('#file')[0].files[0];
+
+                formData.append('file', file);
+                formData.append('name', settName.value);
+                formData.append('email', settEmail.value);
+                formData.append('password', settPass.value);
+
+                $.ajax({
+                    type: 'post',
+                    enctype: 'multipart/form-data',
+                    url: "/dashboard/update",
+                    contentType: false,
+                    dataType: 'JSON',
+                    cache:false,
+                    processData: false,
+                    data: formData,
+                    success: function (data){
+                        settImg.src=`/storage/${data.user.avatar}`
+                    }
+                })
+            })
+
+        })
 
         function handleDashboard(){
             return {
