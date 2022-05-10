@@ -53,7 +53,9 @@ class DashboardController extends Controller
             ->where('id', '!=', $user->id)->exists();
         if ($emailExists){
             return response()->json([
-                'message'=>'اين ايمل قبلا استفاده شده است!'
+                'errors'=>[
+                    'email'=>['!اين ايمل قبلا استفاده شده است']
+                ]
             ])->setStatusCode(400);
         }
         /*check password*/

@@ -26,8 +26,20 @@ class DashboardUpdateRequest extends FormRequest
         return [
             'name'=>['required'],
             'email'=>['email', 'required'],
-            'avatar'=>['mime:jpeg,png,jpg,svg', 'max:2048'],
+            'file'=>['mimes:jpeg,png,jpg,svg', 'max:2048'],
+            'password'=>['nullable', 'min:8']
 
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'name.required'=>'فيلد نام نبايد خالي باشد',
+            'email.required'=>'فيلد ايميل نبايد خالي باشد',
+            'email.email'=>'ايميل صحيح وارد كنيد',
+            'file.mimes'=>'فرمت فايل صحيح نيست',
+            'file.max'=>'حجم فايل نبايد بيشتر از 2 مگابايت باشد',
+            'password.min'=>'پسورد حداقل 8 كاراكتر باشد'
         ];
     }
 }

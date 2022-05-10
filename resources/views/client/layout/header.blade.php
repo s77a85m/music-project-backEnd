@@ -180,7 +180,7 @@
             @auth
             <!-- avatar -->
                 <div x-data="dashbord" class="relative w-9" x-on:click.away="showDash=false">
-                    <img src="/image/user.jpg" title="{{auth()->user()->name}}" alt="{{auth()->user()->name}}" x-on:click="showDash = !showDash" class="h-full w-full cursor-pointer rounded-full" />
+                    <img src="/storage/{{auth()->user()->avatar}}" title="{{auth()->user()->name}}" alt="{{auth()->user()->name}}" x-on:click="showDash = !showDash" class="h-full w-full cursor-pointer rounded-full" />
                     <div x-cloak x-bind:class="showDash ? 'max-h-96 border border-gray-400' : 'max-h-0' "  class="absolute transition-all  duration-300 sm:w-36 w-32 bg-gray-200 dark:bg-dark-700 right-0 z-20 overflow-hidden rounded-sm flex flex-col">
                         <a href="{{route('home.dashboard')}}" class="w-full py-2 flex gap-2 items-center transition-colors duration-300 justify-center cursor-pointer border-b dark:border-gray-600 border-gray-400 hover:dark:bg-gray-600 hover:text-blue-500 hover:bg-gray-300 text-xs font-medium text-gray-500 dark:text-gray-200">
                             <span>داشبورد</span>
@@ -189,9 +189,6 @@
                                 <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z"/>
                                 <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>
                             </svg>
-                        </a>
-                        <a href="#" class="w-full py-2 flex items-center transition-colors hover:text-blue-500 duration-300 justify-center cursor-pointer border-b dark:border-gray-600 border-gray-400 hover:dark:bg-gray-600 hover:bg-gray-300 text-xs font-medium text-gray-500 dark:text-gray-200">
-                            <span>داشبورد</span>
                         </a>
                         <form action="{{route('logout')}}" method="post">
                             @csrf

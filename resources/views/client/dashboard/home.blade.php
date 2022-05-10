@@ -163,6 +163,7 @@
                                         </svg>
                                     </label>
                                 </div>
+                                <span id="file_error" class="text-red-500 flex-center er text-xs font-medium "></span>
                                 <!-- fields -->
                                 <div class="flex gap-2 px-3 flex-col items-end mt-10 w-full">
                                     <!-- name -->
@@ -174,6 +175,7 @@
                                                 <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
+                                        <span id="name_error" class="text-red-500 er text-xs font-medium "></span>
                                     </div>
                                     <!-- email -->
                                     <div class="flex flex-col w-full items-end gap-1 dark:text-gray-300 text-gray-600 text-xs font-medium gap-x-2">
@@ -184,6 +186,7 @@
                                                 <path fill-rule="evenodd" d="M14.243 5.757a6 6 0 10-.986 9.284 1 1 0 111.087 1.678A8 8 0 1118 10a3 3 0 01-4.8 2.401A4 4 0 1114 10a1 1 0 102 0c0-1.537-.586-3.07-1.757-4.243zM12 10a2 2 0 10-4 0 2 2 0 004 0z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
+                                        <span id="email_error" class="text-red-500 er text-xs font-medium "></span>
                                     </div>
                                     <!-- password -->
                                     <div class="flex flex-col w-full items-end gap-1 dark:text-gray-300 text-gray-600 text-xs font-medium gap-x-2">
@@ -194,6 +197,7 @@
                                                 <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd" />
                                             </svg>
                                         </div>
+                                        <span id="password_error" class="text-red-500 er text-xs font-medium "></span>
                                     </div>
                                     <input type="submit" id="submit-button" value="ويرايش" class="w-full h-8 rounded-full flex-center mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">
                                 </div>
@@ -397,6 +401,7 @@
                     }else{
                         avatar.src="/image/user.jpg"
                     }
+
                 }
             })
         }
@@ -482,7 +487,16 @@
                     processData: false,
                     data: formData,
                     success: function (data){
-                        settImg.src=`/storage/${data.user.avatar}`
+                        settImg.src=`/storage/${data.user.avatar}`;
+                        for(let er of Array.from(document.getElementsByClassName("er"))) {
+                            er.innerHTML=''
+                        }
+                    },
+                    error:function (data){
+                        let err=data.responseJSON.errors
+                            Object.entries(err).forEach(function ([key, value]){
+                            document.getElementById(key+'_error').innerHTML=value[0];
+                        })
                     }
                 })
             })
