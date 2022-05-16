@@ -6,7 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\DashboardUpdateRequest;
 use App\Models\User;
 use http\Env\Response;
+use Illuminate\Auth\Events\Validated;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -44,6 +46,12 @@ class DashboardController extends Controller
         $user=auth()->user();
         /*check avatar*/
         if ($request->hasFile('file')){
+            $this->validate($request, [
+                'file'=>['mimes:jpg,png,svg,mpeg,jpeg']
+            ],[
+                'file.mimes'=>'فرمت فايل صحيح نسيت'
+            ]);
+            Storage::disk('privat')->delete($user->avatar);
             $avatar=$request->file('file')->store('users/avatar', 'privat');
         }else{
             $avatar=$user->avatar;
@@ -73,4 +81,21 @@ class DashboardController extends Controller
             'user'=>$user
         ])->setStatusCode(200);
     }
+
+    public function player()
+    {
+        $musics=auth()->user()->musics;
+        return response()->json([
+            'musics'=>$musics
+        ])->setStatusCode(200);
+    }
+
+    public function firstLoad()
+    {
+        $musics=auth()->user()->musics;
+        return response()->json([
+            'musics'=>$musics
+        ])->setStatusCode(200);
+    }
+
 }

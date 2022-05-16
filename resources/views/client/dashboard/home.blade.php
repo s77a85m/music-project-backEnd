@@ -67,19 +67,19 @@
                         <!-- content-player -->
                         <div class="flex flex-col shadow-md items-center">
                             <!-- box -->
-                            <div class="flex flex-col w-full h-[435px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
+                            <div class="flex flex-col w-full h-[580px] sm:h-[460px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
                                 <!-- image -->
                                 <div class="w-56 h-56 mt-4 flex flex-col rounded-lg shadow-lg overflow-hidden">
-                                    <img id="image" src="../img/slider1.jpg" class="w-full h-full" alt="slider1">
+                                    <img id="image" src="" class="w-full h-full" alt="slider1">
                                 </div>
                                 <div class=" flex flex-col mt-2 items-center gap-2 dark:text-gray-400 font-medium">
                                     <span id="title" class="text-sm">عشق اول</span>
                                     <span id="artist" class="text-[9px]">مهدي احمدوند</span>
                                 </div>
                                 <!-- audio -->
-                                <audio src="../mp3/soung-1.mp3" id="audio"></audio>
+                                <audio src="" id="audio"></audio>
                                 <!-- proggres -->
-                                <div class="mt-5 px-4 w-full gap-1 flex flex-col">
+                                <div class="mt-20 px-4 w-full gap-1 flex flex-col">
                                     <!-- porggres bar -->
                                     <div id="progressContainer" class="w-full cursor-pointer h-[2px] rounded-full dark:bg-gray-600 bg-gray-300">
                                         <div id="progressBar" class="h-full dark:bg-gray-300 bg-gray-600" style="width: 0%;"></div>
@@ -135,7 +135,7 @@
                         <!-- content-favorite -->
                         <div class="flex flex-col shadow-md items-center">
                             <!-- form -->
-                            <ul id="favList" class="flex flex-col w-full h-[435px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
+                            <ul id="favList" class="flex flex-col w-full h-[580px] sm:h-[460px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
 
                             </ul>
                         </div>
@@ -149,7 +149,7 @@
                         <!-- content-setting -->
                         <div class="flex flex-col items-center ">
                             <!-- form -->
-                            <form action="javascript:void(0)" id="form-data" method="post" enctype="multipart/form-data" class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7">
+                            <form action="javascript:void(0)" id="form-data" method="post" enctype="multipart/form-data" class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7 sm:gap-y-4">
                                 @csrf
                                 @method('PATCH')
                                 <!-- img -->
@@ -199,7 +199,7 @@
                                         </div>
                                         <span id="password_error" class="text-red-500 er text-xs font-medium "></span>
                                     </div>
-                                    <input type="submit" id="submit-button" value="ويرايش" class="w-full h-8 rounded-full flex-center mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">
+                                    <input type="submit" id="submit-button" value="ويرايش" class="w-full mt-24 active:scale-90 h-8 cursor-pointer rounded-full flex-center mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">
                                 </div>
                             </form>
 
@@ -253,7 +253,7 @@
     <script>
         let cover=document.getElementById("image");
         let titleSong=document.getElementById("title");
-        let artist=document.getElementById("artist");
+        let artistTitle=document.getElementById("artist");
         let progressContainer=document.getElementById("progressContainer");
         let progressBar=document.getElementById("progressBar");
         let currenttime=document.getElementById("current");
@@ -271,23 +271,28 @@
         let settPass=document.getElementById("settPass");
         let settImg=document.getElementById("settImg");
 
+
+
         // array title
-        let titles=['music1', 'music2', 'music3']
+        let titles=[]
         // array audio
-        let songs=['soung-1', 'soung-2', 'soung-3']
+        let songs=[]
         // array image
-        let images=['slider1.jpg', 'slider2.jpg', 'slider3.jpg',]
+        let images=[]
+        // array artist
+        let artists=[]
 
         // pointer
-        let songIndex=1
+        let songIndex=0
 
         // load song
-        loadSong(songs[songIndex], titles[songIndex], images[songIndex]);
 
-        function loadSong(song, title, image){
-            audio.src= `../mp3/${song}.mp3`;
-            cover.src= `../img/${image}`;
-            titleSong.innerHTML= title
+
+        function loadSong(song, title, image, artist){
+            audio.src= song;
+            cover.src= `/storage/${image}`;
+            titleSong.innerHTML= title;
+            artistTitle.innerHTML= artist;
         }
 
         function playSong(){
@@ -310,7 +315,7 @@
             if(songIndex<0){
                 songIndex=songs.length - 1
             }
-            loadSong(songs[songIndex], titles[songIndex], images[songIndex]);
+            loadSong(songs[songIndex], titles[songIndex], images[songIndex], artists[songIndex]);
             playSong();
         }
         function nextSong(){
@@ -333,7 +338,7 @@
             if(songIndex > songs.length - 1){
                 songIndex = 0;
             }
-            loadSong(songs[songIndex], titles[songIndex], images[songIndex]);
+            loadSong(songs[songIndex], titles[songIndex], images[songIndex], artists[songIndex]);
             playSong();
         }
 
@@ -503,6 +508,31 @@
 
         })
 
+        function showPlayer(){
+            $.ajax({
+                url: '/dashboard/player',
+                type: 'get',
+                data: {
+                    _token: "{{csrf_token()}}"
+                },
+                success: function(data){
+                    titles=[];
+                    songs=[];
+                    images=[];
+                    artists=[];
+                    data.musics.forEach(function(music){
+                        titles.push(music.title);
+                        songs.push(music.mp3_320);
+                        images.push(music.image)
+                        if(!playBtn.classList.contains('play')){
+                            songIndex=0
+                            loadSong(songs[songIndex], titles[songIndex], images[songIndex], artists[songIndex]);
+                        }
+                    });
+                }
+            })
+        }
+
         function handleDashboard(){
             return {
                 isOpen:2,
@@ -512,6 +542,7 @@
                 },
                 openPlayer(){
                     this.isOpen=3
+                    showPlayer();
                 },
                 openFavorite(){
                     this.isOpen=4
