@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\DashboardUpdateRequest;
+use App\Http\Resources\MusicResource;
+use App\Models\Admin\Music;
 use App\Models\User;
 use http\Env\Response;
 use Illuminate\Auth\Events\Validated;
@@ -29,7 +31,7 @@ class DashboardController extends Controller
         $user=auth()->user();
         $favorite=$user->musics;
         return response()->json([
-            'favorites'=>$favorite
+            'favorites'=>MusicResource::collection($favorite)
         ])->setStatusCode(200);
     }
 
@@ -86,16 +88,9 @@ class DashboardController extends Controller
     {
         $musics=auth()->user()->musics;
         return response()->json([
-            'musics'=>$musics
+            'musics'=>MusicResource::collection($musics)
         ])->setStatusCode(200);
     }
 
-    public function firstLoad()
-    {
-        $musics=auth()->user()->musics;
-        return response()->json([
-            'musics'=>$musics
-        ])->setStatusCode(200);
-    }
 
 }

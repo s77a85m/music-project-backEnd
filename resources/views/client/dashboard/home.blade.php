@@ -67,7 +67,13 @@
                         <!-- content-player -->
                         <div class="flex flex-col shadow-md items-center">
                             <!-- box -->
-                            <div class="flex flex-col w-full h-[580px] sm:h-[460px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
+                            <div id="container" class="flex flex-col relative w-full h-[580px] sm:h-[460px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
+                                {{-- loading-player --}}
+                                <svg id="loading_player" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" class="z-10 hidden bg-gray-100 dark:bg-dark-700 absolute w-full h-full" style="shape-rendering: auto;" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                    <path fill="none" stroke="#b0b0b0" stroke-width="8" stroke-dasharray="42.76482137044271 42.76482137044271" d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z" stroke-linecap="round" style="transform:scale(0.3);transform-origin:50px 50px">
+                                        <animate attributeName="stroke-dashoffset" repeatCount="indefinite" dur="1.4492753623188404s" keyTimes="0;1" values="0;256.58892822265625"/>
+                                    </path>
+                                </svg>
                                 <!-- image -->
                                 <div class="w-56 h-56 mt-4 flex flex-col rounded-lg shadow-lg overflow-hidden">
                                     <img id="image" src="" class="w-full h-full" alt="slider1">
@@ -82,7 +88,9 @@
                                 <div class="mt-20 px-4 w-full gap-1 flex flex-col">
                                     <!-- porggres bar -->
                                     <div id="progressContainer" class="w-full cursor-pointer h-[2px] rounded-full dark:bg-gray-600 bg-gray-300">
-                                        <div id="progressBar" class="h-full dark:bg-gray-300 bg-gray-600" style="width: 0%;"></div>
+                                        <div id="progressBar" class="h-full flex relative dark:bg-gray-300 bg-gray-600" style="width: 0%;">
+                                            <div class="absolute w-[7px] h-[7px] -top-0.5 dark:bg-gray-300 rounded-full -right-1"></div>
+                                        </div>
                                     </div>
                                     <!-- times -->
                                     <div class="flex justify-between dark:text-gray-400 text-gray-600 text-[9px] font-medium w-full">
@@ -134,9 +142,14 @@
                         </div>
                         <!-- content-favorite -->
                         <div class="flex flex-col shadow-md items-center">
-                            <!-- form -->
-                            <ul id="favList" class="flex flex-col w-full h-[580px] sm:h-[460px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
-
+                            <!-- list -->
+                            <ul id="favList" class="flex relative flex-col w-full h-[580px] sm:h-[460px] dark:bg-dark-700 overflow-auto bg-gray-100 p-1 rounded-md items-center">
+                                {{-- loading-favorite --}}
+                                <svg id="loading_favorite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" class="z-10 bg-gray-100 dark:bg-dark-700 absolute w-full h-full" style="shape-rendering: auto;"  viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                    <path fill="none" stroke="#b0b0b0" stroke-width="8" stroke-dasharray="42.76482137044271 42.76482137044271" d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z" stroke-linecap="round" style="transform:scale(0.3);transform-origin:50px 50px">
+                                        <animate attributeName="stroke-dashoffset" repeatCount="indefinite" dur="1.4492753623188404s" keyTimes="0;1" values="0;256.58892822265625"/>
+                                    </path>
+                                </svg>
                             </ul>
                         </div>
                     </div>
@@ -147,9 +160,15 @@
                             <span>تنظيمات</span>
                         </div>
                         <!-- content-setting -->
-                        <div class="flex flex-col items-center ">
+                        <div class="flex flex-col relative items-center ">
+                            {{-- loading-setting --}}
+                            <svg id="loading_setting" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="currentColor" class="z-10 bg-gray-100 dark:bg-dark-700 absolute w-full h-full" style="shape-rendering: auto;"  viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+                                <path fill="none" stroke="#b0b0b0" stroke-width="8" stroke-dasharray="42.76482137044271 42.76482137044271" d="M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z" stroke-linecap="round" style="transform:scale(0.3);transform-origin:50px 50px">
+                                    <animate attributeName="stroke-dashoffset" repeatCount="indefinite" dur="1.4492753623188404s" keyTimes="0;1" values="0;256.58892822265625"/>
+                                </path>
+                            </svg>
                             <!-- form -->
-                            <form action="javascript:void(0)" id="form-data" method="post" enctype="multipart/form-data" class="flex flex-col w-full dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7 sm:gap-y-4">
+                            <form action="javascript:void(0)" id="form-data" method="post" enctype="multipart/form-data" class="flex  h-[580px] flex-col w-full sm:h-[460px] dark:bg-dark-700 bg-gray-100 py-4 rounded-md shadow-md items-center gap-y-7 sm:gap-y-4">
                                 @csrf
                                 @method('PATCH')
                                 <!-- img -->
@@ -199,7 +218,7 @@
                                         </div>
                                         <span id="password_error" class="text-red-500 er text-xs font-medium "></span>
                                     </div>
-                                    <input type="submit" id="submit-button" value="ويرايش" class="w-full mt-24 active:scale-90 h-8 cursor-pointer rounded-full flex-center mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">
+                                    <input type="submit" id="submit-button" value="ويرايش" class="w-full  active:scale-90 h-8 cursor-pointer rounded-full flex-center mt-3 shadow-md bg-green-500 text-xs font-normal text-gray-200">
                                 </div>
                             </form>
 
@@ -434,7 +453,7 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
                                             </svg>
-                                            <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">مهدي احمدوند</span>
+                                            <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">${favorite.artist}</span>
                                         </div>
                                     </div>
                                     <button>
@@ -447,11 +466,15 @@
                         favList.insertAdjacentHTML("beforeend", liTag)
                     });
 
+                },
+                complete: function(){
+                    document.getElementById('loading_favorite').classList.add('hidden');
                 }
             })
         }
 
         function showSetting(){
+            document.getElementById('loading_setting').classList.remove('hidden');
             $.ajax({
                 type: 'get',
                 url: '/dashboard/setting',
@@ -466,6 +489,9 @@
                     }
                     settName.value=data.user.name;
                     settEmail.value=data.user.email;
+                },
+                complete: function(){
+                    document.getElementById('loading_setting').classList.add('hidden');
                 }
             })
         }
@@ -509,6 +535,7 @@
         })
 
         function showPlayer(){
+            document.getElementById('loading_player').classList.remove('hidden');
             $.ajax({
                 url: '/dashboard/player',
                 type: 'get',
@@ -523,12 +550,16 @@
                     data.musics.forEach(function(music){
                         titles.push(music.title);
                         songs.push(music.mp3_320);
-                        images.push(music.image)
+                        images.push(music.image);
+                        artists.push(music.artist);
                         if(!playBtn.classList.contains('play')){
                             songIndex=0
                             loadSong(songs[songIndex], titles[songIndex], images[songIndex], artists[songIndex]);
                         }
                     });
+                },
+                complete: function (){
+                    document.getElementById('loading_player').classList.add('hidden');
                 }
             })
         }
