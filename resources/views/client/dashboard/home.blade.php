@@ -89,7 +89,7 @@
                                     <!-- porggres bar -->
                                     <div id="progressContainer" class="w-full cursor-pointer h-[2px] rounded-full dark:bg-gray-600 bg-gray-300">
                                         <div id="progressBar" class="h-full flex relative dark:bg-gray-300 bg-gray-600" style="width: 0%;">
-                                            <div class="absolute w-[7px] h-[7px] -top-0.5 dark:bg-gray-300 rounded-full -right-1"></div>
+                                            <div class="absolute w-[7px] h-[7px] -top-0.5 bg-gray-600 dark:bg-gray-300 rounded-full -right-1"></div>
                                         </div>
                                     </div>
                                     <!-- times -->
@@ -440,14 +440,14 @@
                 success: function (data){
                     favList.innerHTML='';
                     data.favorites.forEach(function (favorite){
-                        liTag=`<li class="w-full flex items-center p-2 h-16 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
+                        liTag=`<li id="item_${favorite.slug}" class="w-full flex items-center p-2 h-16 gap-2 bg-transparent border-b dark:border-gray-700 border-gray-300">
                                 <!-- img -->
-                                <div class="h-12 w-12 rounded-md overflow-hidden">
+                                <a href="/music/${favorite.slug}" class="h-12 w-12 rounded-md overflow-hidden">
                                     <img src="/storage/${favorite.image}" alt="${favorite.title}" title="${favorite.title}" class="w-full h-full">
-                                </div>
+                                </a>
                                 <!-- title -->
-                                <div class="flex grow justify-between items-center">
-                                    <div class="flex gap-1 flex-col">
+                                <div class="flex grow justify-between relative items-center">
+                                    <a href="/music/${favorite.slug}" class="flex gap-1 flex-col">
                                         <span class="text-xs font-medium text-gray-500 dark:text-gray-400">${favorite.title}</span>
                                         <div class="flex gap-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -455,21 +455,19 @@
                                             </svg>
                                             <span class="text-[9px] font-medium text-gray-400 dark:text-gray-500">${favorite.artist}</span>
                                         </div>
-                                    </div>
-                                    <button>
+                                    </a>
+                                    <div id="rmFavorite_${favorite.slug}" class="p-2 z-10 runded runded-lg hover:shadow-lg transition-all" onclick="remFavorite('${favorite.slug}')">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-3 text-gray-500 dark:text-gray-400 w-3" viewBox="0 0 20 20" fill="currentColor">
-                                            <path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z" />
+                                            <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clip-rule="evenodd" />
                                         </svg>
-                                    </button>
+                                    </div>
                                 </div>
                             </li>`
                         favList.insertAdjacentHTML("beforeend", liTag)
                     });
 
                 },
-                complete: function(){
-                    document.getElementById('loading_favorite').classList.add('hidden');
-                }
+
             })
         }
 
@@ -560,6 +558,19 @@
                 },
                 complete: function (){
                     document.getElementById('loading_player').classList.add('hidden');
+                }
+            })
+        }
+
+        function remFavorite(music){
+            $.ajax({
+                type: 'post',
+                url: '/beloved/'+music,
+                data: {
+                    _token: "{{csrf_token()}}",
+                },
+                success: function(data){
+                    document.getElementById('item_'+music).remove();
                 }
             })
         }
